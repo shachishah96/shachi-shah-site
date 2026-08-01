@@ -1,6 +1,5 @@
 {
   "label": "architectural design · environmental psychology · behaviour research",
-  "collageImage": "",
   "tagline": "evidence-based design and research for public wellbeing.",
   "tags": [
     "spatial design",
@@ -9,5 +8,6 @@
     "landscape and sustainable design",
     "csr and community strategy",
     "editorial and creative writing"
-  ]
+  ],
+  "collageImage": "/images/Long elevation.jpg"
 }
