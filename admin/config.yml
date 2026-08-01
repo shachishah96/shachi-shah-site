@@ -4,7 +4,7 @@
 # in step 2 of the setup guide, e.g. "shachishah/shachi-shah-site"
 backend:
   name: github
-  repo: YOUR-GITHUB-USERNAME/YOUR-REPO-NAME
+  repo: shachishah/shachi-shah-site
   branch: main
 
 publish_mode: simple
