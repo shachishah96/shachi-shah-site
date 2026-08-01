@@ -1,0 +1,207 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+
+# replace with your own GitHub username and the name of the repo you create
+# in step 2 of the setup guide, e.g. "shachishah/shachi-shah-site"
+backend:
+  name: github
+  repo: YOUR-GITHUB-USERNAME/YOUR-REPO-NAME
+  branch: main
+
+publish_mode: simple
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+
+  - name: "site"
+    label: "site basics"
+    files:
+      - name: "hero"
+        label: "homepage — hero"
+        file: "content/hero.json"
+        fields:
+          - { label: "eyebrow label", name: "label", widget: "string" }
+          - { label: "tagline", name: "tagline", widget: "string" }
+          - label: "tags (shown under tagline)"
+            name: "tags"
+            widget: "list"
+            field: { label: "tag", name: "tag", widget: "string" }
+
+      - name: "marquee"
+        label: "homepage — scrolling strip"
+        file: "content/marquee.json"
+        fields:
+          - label: "words"
+            name: "words"
+            widget: "list"
+            field: { label: "word", name: "word", widget: "string" }
+
+      - name: "about"
+        label: "about section"
+        file: "content/about.json"
+        fields:
+          - { label: "statement (first part)", name: "statement", widget: "string" }
+          - { label: "statement (highlighted part)", name: "statementAccent", widget: "string" }
+          - label: "cv file"
+            name: "cvFile"
+            widget: "file"
+            media_folder: "/cv"
+            public_folder: "/cv"
+
+      - name: "timeline"
+        label: "about — timeline"
+        file: "content/timeline.json"
+        fields:
+          - label: "entries"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "year", name: "year", widget: "string" }
+              - { label: "role / degree", name: "role", widget: "string" }
+              - { label: "organisation", name: "org", widget: "string" }
+              - { label: "location / dates", name: "loc", widget: "string" }
+
+      - name: "footer"
+        label: "footer / contact"
+        file: "content/footer.json"
+        fields:
+          - { label: "cta line 1", name: "ctaLine1", widget: "string" }
+          - { label: "cta line 2 (highlighted)", name: "ctaLine2", widget: "string" }
+          - { label: "prompt line", name: "prompt", widget: "string" }
+          - { label: "email", name: "email", widget: "string" }
+          - { label: "phone", name: "phone", widget: "string" }
+          - { label: "instagram — personal", name: "instagramPersonal", widget: "string" }
+          - { label: "instagram — note", name: "instagramNote", widget: "string" }
+          - { label: "linkedin", name: "linkedin", widget: "string" }
+
+  - name: "practice"
+    label: "practice (built & professional work)"
+    files:
+      - name: "practice"
+        label: "practice section"
+        file: "content/practice.json"
+        fields:
+          - { label: "eyebrow label", name: "sectionEyebrow", widget: "string" }
+          - { label: "section title", name: "sectionTitle", widget: "string" }
+          - { label: "section intro", name: "sectionIntro", widget: "text" }
+          - label: "projects"
+            name: "items"
+            widget: "list"
+            summary: "{{title}}"
+            fields:
+              - { label: "id (no spaces, used in the url)", name: "id", widget: "string" }
+              - { label: "title", name: "title", widget: "string" }
+              - { label: "meta line (firm · years · location)", name: "meta", widget: "string" }
+              - label: "card colour"
+                name: "color"
+                widget: "select"
+                options: ["pine", "sage", "slate", "slate-light"]
+              - { label: "card image", name: "image", widget: "image", required: false }
+              - label: "card tags (2 shown on the homepage card)"
+                name: "tags"
+                widget: "list"
+                field: { label: "tag", name: "tag", widget: "string" }
+              - { label: "short description (on the card)", name: "description", widget: "text" }
+              - label: "facts (shown in a box on the project page)"
+                name: "facts"
+                widget: "list"
+                fields:
+                  - { label: "label", name: "label", widget: "string" }
+                  - { label: "value", name: "value", widget: "string" }
+              - label: "detail page tags"
+                name: "detailTags"
+                widget: "list"
+                field: { label: "tag", name: "tag", widget: "string" }
+              - label: "project write-up"
+                name: "body"
+                widget: "list"
+                hint: "each item is one paragraph. start an item with ## to make it a heading instead."
+                field: { label: "paragraph", name: "paragraph", widget: "text" }
+
+  - name: "research"
+    label: "research & inquiry"
+    files:
+      - name: "research"
+        label: "research section"
+        file: "content/research.json"
+        fields:
+          - { label: "eyebrow label", name: "sectionEyebrow", widget: "string" }
+          - { label: "section title", name: "sectionTitle", widget: "string" }
+          - { label: "section intro", name: "sectionIntro", widget: "text" }
+          - label: "research projects"
+            name: "items"
+            widget: "list"
+            summary: "{{title}}"
+            fields:
+              - { label: "id (no spaces, used in the url)", name: "id", widget: "string" }
+              - { label: "year", name: "year", widget: "string" }
+              - { label: "title", name: "title", widget: "string" }
+              - { label: "subtitle (degree · institution)", name: "sub", widget: "string" }
+              - label: "colour"
+                name: "color"
+                widget: "select"
+                options: ["pine", "sage", "slate", "slate-light"]
+              - { label: "image", name: "image", widget: "image", required: false }
+              - { label: "short description", name: "description", widget: "text" }
+              - label: "tags"
+                name: "tags"
+                widget: "list"
+                field: { label: "tag", name: "tag", widget: "string" }
+              - label: "facts"
+                name: "facts"
+                widget: "list"
+                fields:
+                  - { label: "label", name: "label", widget: "string" }
+                  - { label: "value", name: "value", widget: "string" }
+              - label: "write-up"
+                name: "body"
+                widget: "list"
+                hint: "each item is one paragraph. start an item with ## to make it a heading instead."
+                field: { label: "paragraph", name: "paragraph", widget: "text" }
+
+  - name: "collaborations"
+    label: "collaborations & community work"
+    files:
+      - name: "collaborations"
+        label: "collaborations section"
+        file: "content/collaborations.json"
+        fields:
+          - { label: "eyebrow label", name: "sectionEyebrow", widget: "string" }
+          - { label: "section title", name: "sectionTitle", widget: "string" }
+          - { label: "section intro", name: "sectionIntro", widget: "text" }
+          - label: "entries"
+            name: "items"
+            widget: "list"
+            summary: "{{title}}"
+            fields:
+              - { label: "id", name: "id", widget: "string" }
+              - { label: "year / place", name: "year", widget: "string" }
+              - { label: "title", name: "title", widget: "string" }
+              - { label: "description", name: "description", widget: "text" }
+              - label: "tags"
+                name: "tags"
+                widget: "list"
+                field: { label: "tag", name: "tag", widget: "string" }
+              - { label: "still pending / unconfirmed?", name: "pending", widget: "boolean", default: false }
+
+  - name: "note"
+    label: "note"
+    files:
+      - name: "note"
+        label: "note section"
+        file: "content/note.json"
+        fields:
+          - { label: "eyebrow label", name: "sectionEyebrow", widget: "string" }
+          - { label: "section title", name: "sectionTitle", widget: "string" }
+          - { label: "description", name: "description", widget: "text" }
+          - { label: "honest disclaimer line", name: "honestNote", widget: "text" }
+          - { label: "instagram handle", name: "instagramHandle", widget: "string" }
+          - label: "posts"
+            name: "posts"
+            widget: "list"
+            summary: "{{title}}"
+            fields:
+              - { label: "post number (optional)", name: "postNum", widget: "string", required: false }
+              - { label: "status", name: "status", widget: "string" }
+              - { label: "title", name: "title", widget: "string" }
+              - { label: "description", name: "description", widget: "text" }

@@ -1,0 +1,15 @@
+{
+  "sectionEyebrow": "04 an evolving practice",
+  "sectionTitle": "note",
+  "description": "note isn't a brand or a business. it's a practice and a lens: a way of noticing and finding meaning in everyday life and everyday space. it lives, for now, on instagram. some posts are theory, shot to camera; some are designed carousels; some are just personal, unfiltered pieces about noticing something and sitting with it.",
+  "honestNote": "this is a working practice, not a finished archive. most of what's here is still taking shape: some posts are live, some are drafted, some are scripts waiting to be filmed. that's the honest state of it.",
+  "instagramHandle": "@notebyshachi",
+  "posts": [
+    { "postNum": "post 01", "status": "live", "title": "note.", "description": "a static introduction, the word \"note\" on linen, the first mark of the practice." },
+    { "postNum": "post 02", "status": "live", "title": "a montage, to \"ishq\"", "description": "a reel set to Donn Bhat's \"Ishq,\" an early, wordless attempt at showing what the lens looks like rather than explaining it." },
+    { "postNum": "post 03", "status": "ready to post", "title": "two fields, one lens", "description": "a zine-style carousel on holding architecture and psychology as one way of looking rather than two separate jobs." },
+    { "postNum": "post 04", "status": "script in progress", "title": "the lens, not the title", "description": "a to-camera video: architectural designer, environmental psychologist, couldn't pick one job title, so the practice got named instead." },
+    { "postNum": "post 05", "status": "in development", "title": "the m&s counter", "description": "a six-slide, intimate carousel about a minimum-wage retail job: the small decisions inside it, and the meaning found in noticing them." },
+    { "postNum": "", "status": "next up", "title": "a theory series, 24 parts", "description": "an upcoming carousel and video series across three clusters: people & nature, people & built form, people & people. the nature cluster comes first." }
+  ]
+}

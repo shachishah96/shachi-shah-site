@@ -1,0 +1,31 @@
+{
+  "sectionEyebrow": "03 in collaboration",
+  "sectionTitle": "collaborations & community work",
+  "sectionIntro": "work made alongside others: co-authored, collectively built, or given rather than billed. spanning school, exhibition, and classroom.",
+  "items": [
+    {
+      "id": "sea-book",
+      "year": "school of environment and architecture",
+      "title": "co-authored book project",
+      "description": "a book co-authored during time at sea. title and details to be confirmed and added.",
+      "tags": ["editorial writing"],
+      "pending": true
+    },
+    {
+      "id": "kochi-biennale",
+      "year": "2016 · kochi, india",
+      "title": "the itinerant home (kochi-muziris biennale)",
+      "description": "an installation examining the transient nature of home using found materials, built with a multidisciplinary team combining spatial research with public engagement.",
+      "tags": ["exhibition & installation design", "participatory fieldwork"],
+      "pending": false
+    },
+    {
+      "id": "khar-teaching",
+      "year": "2018 to 2019 · mumbai, india",
+      "title": "volunteer teacher, khar educational society",
+      "description": "taught values-based lessons to children aged 4 to 7, fostering critical thinking and teamwork alongside a diverse volunteer team.",
+      "tags": ["teaching & facilitation"],
+      "pending": false
+    }
+  ]
+}

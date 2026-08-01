@@ -1,0 +1,75 @@
+{
+  "sectionEyebrow": "02 research & inquiry",
+  "sectionTitle": "academic & formal research",
+  "sectionIntro": "formal academic research spanning the msc and b.arch, using qualitative methods and design proposals to study how physical space shapes behaviour, identity, and interpretation.",
+  "items": [
+    {
+      "id": "brick-lane-dissertation",
+      "year": "2022 to 23",
+      "title": "interplay between place identity and affordances",
+      "sub": "msc dissertation · university of surrey",
+      "color": "slate",
+      "image": "",
+      "description": "an inquiry into london's brick lane, asking how physical aspects of urban heritage sites support perceived affordances, and how that relationship shapes experienced place identity. qualitative research through in-depth interviews, thematic analysis, and urban fieldwork.",
+      "tags": ["environmental psychology", "qualitative research", "place identity & affordance theory"],
+      "facts": [
+        { "label": "site", "value": "brick lane, london" },
+        { "label": "method", "value": "in-depth interviews, thematic analysis, fieldwork" },
+        { "label": "degree", "value": "msc environmental psychology, merit" }
+      ],
+      "body": [
+        "an inquiry into london's brick lane, asking how physical aspects of an environment support the activities and behaviours of the people who use it. place identity was first introduced as those dimensions of the self that define the individual's personal identity in relation to the physical environment. the way an environment offers possibilities for activity and perception is what the theory of affordances describes.",
+        "## the question",
+        "although affordances and place identity have been studied separately, there's limited research exploring their interconnection. this study explored the relationship between the two concepts in the context of urban heritage spaces, asking: how do physical aspects of urban heritage sites support perceived affordances in such places, and what is the relationship between perceived affordances and experienced place identity?",
+        "## method",
+        "qualitative research through in-depth interviews, thematic analysis, and urban fieldwork on brick lane itself, a site chosen precisely because its layered heritage, market culture, and constant redevelopment make questions of identity and use unusually visible.",
+        "## why it matters to the practice",
+        "this dissertation is the theoretical backbone of a lot of what shows up later under note: the idea that a building or a street doesn't just get used, it gets read, and that reading shapes who people understand themselves to be in that place."
+      ]
+    },
+    {
+      "id": "barch-thesis",
+      "year": "2020",
+      "title": "interpretative capacities of built-form",
+      "sub": "b.arch design thesis · school of environment and architecture, mumbai",
+      "color": "pine",
+      "image": "",
+      "description": "\"a landscape of unusual objects\": an analysis of public space identifying built-form characteristics that enable strong associations and multiple interpretations, resulting in a design proposal at the juhu selfie point sited between formal and informal settlement.",
+      "tags": ["urban design", "exhibition & installation design"],
+      "facts": [
+        { "label": "site", "value": "juhu selfie point, mumbai" },
+        { "label": "outcome", "value": "\"a landscape of unusual objects\"" },
+        { "label": "degree", "value": "b.arch, cgpa 8.34" }
+      ],
+      "body": [
+        "an analysis of public spaces resulted in identifying specific characteristics of built-form that enable strong associations and play a role in how people interpret space. the design proposal that came out of it was called \"a landscape of unusual objects.\"",
+        "## the site",
+        "the site of intervention is a transactional space between the juhu selfie point and an informal settlement, inviting users of diverse nature. the brief was a result of a combination of necessities and aspirations of the people who actually use that space day to day, not an abstract urban design exercise.",
+        "## the proposal",
+        "the intent was to develop built-form that provides interpretative opportunities and holds programmes such as exhibition spaces, play spaces, event spaces, and intimate pockets, alongside organisational facilities for the targeted users. a series of intuitive illustrations became the base for developing narratives around each object.",
+        "the broader architectural strategy was to create a landscape of objects acting as an interface between the offered natural landscape and the built form of the city. each object holds strong associations to specific experiences, acting as an anchor for multiple activities while extending itself to create possibilities for much more. these objects act as stimulants, affording activities and imagination.",
+        "each object was developed using specific elements that symbolise a particular activity. the unusual overlap and configuration of these elements let them be imagined and occupied in different ways, connected through ancillary programmes including landscape, walking paths, and resting pavilions. the learning spaces, for example, acknowledge different ways in which \"learning\" happens, combining conventional seating with spaces for knowledge sharing and community interaction."
+      ]
+    },
+    {
+      "id": "tongji-exchange",
+      "year": "2017",
+      "title": "courtyard housing, tongji university exchange",
+      "sub": "summer student exchange · shanghai",
+      "color": "sage",
+      "image": "",
+      "description": "observational and conversational fieldwork on courtyard housing typologies across a full language barrier, using a gamified wooden block model with residents to surface spatial behaviours and relationships to shared space.",
+      "tags": ["participatory fieldwork", "ethnographic observation"],
+      "facts": [
+        { "label": "site", "value": "shanghai, china" },
+        { "label": "method", "value": "observation, gamified fieldwork" },
+        { "label": "barrier", "value": "full language gap" }
+      ],
+      "body": [
+        "observational and conversational fieldwork on courtyard housing typologies, conducted while navigating a full language barrier through non-verbal communication, body language reading, and google translate.",
+        "a gamified wooden block model was developed and played with residents to surface their spatial behaviours, feelings, and relationships to shared space, a workaround for the language gap that ended up being more revealing than a standard interview would have been. findings from these sessions informed a participatory intervention proposal, combining urban studies with behavioural observation methods.",
+        "this exchange sits early in a pattern that shows up again later: when the direct route to understanding how people relate to space is blocked, build a different route in, an object, a game, a shared task, rather than force language to do all the work."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>architectural design environmental psychology behaviour research</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Jost:wght@300;400;500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F6F8F5;
+    --ink:#1E201F;
+    --pine:#3A5240;
+    --pine-tint:#EAF0E7;
+    --sage:#7C8B5B;
+    --slate:#3E5B66;
+    --slate-tint:#E9EEF0;
+    --slate-light:#6F94A0;
+    --white:#FFFFFF;
+    --tag-radius:4px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;cursor:none;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Jost',sans-serif;
+    font-weight:300;
+    overflow-x:hidden;
+    position:relative;
+  }
+  h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;font-weight:300;}
+  a{color:inherit;text-decoration:none;cursor:none;}
+  .label{
+    font-family:'Jost',sans-serif;text-transform:uppercase;letter-spacing:0.15em;
+    font-size:0.75rem;color:var(--ink);opacity:0.55;
+  }
+  section{scroll-margin-top:80px;}
+
+  .grain{position:fixed;inset:0;z-index:9998;pointer-events:none;opacity:0.03;mix-blend-mode:multiply;}
+
+  /* FLOWER CURSOR */
+  #cursorFlower{
+    position:fixed;top:0;left:0;width:24px;height:24px;pointer-events:none;z-index:9999;
+    transform:translate(-50%,-50%);transition:width 0.25s,height 0.25s;
+    filter:drop-shadow(0 1px 3px rgba(0,0,0,0.25));
+  }
+  @media(max-width:900px){ #cursorFlower{display:none;} html{cursor:auto;} a{cursor:pointer;} }
+
+  /* PRELOADER */
+  #preloader{
+    position:fixed;inset:0;background:var(--pine);color:var(--bg);z-index:10000;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.15rem;
+  }
+  #preloader .pl-word{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.6rem,5vw,3.2rem);
+    text-transform:lowercase;opacity:0;
+  }
+
+  .nav-backdrop{
+    position:fixed;top:0;left:0;right:0;height:58px;z-index:99;
+    background:rgba(246,248,245,0.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(30,32,31,0.06);
+  }
+  nav{
+    position:fixed;top:0;left:0;right:0;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:1rem 3rem;z-index:100;
+  }
+  nav .logo{font-family:'Poppins',sans-serif;font-weight:500;font-size:1.25rem;letter-spacing:0.01em;text-transform:lowercase;color:#4B554D;}
+  nav ul{display:flex;gap:1.8rem;list-style:none;}
+  nav ul li a{font-size:0.95rem;letter-spacing:0.06em;font-weight:500;color:var(--ink);opacity:0.85;}
+  nav ul li a .n{opacity:0.55;margin-right:0.3rem;font-size:0.85rem;font-weight:500;}
+
+  /* HERO */
+  .hero{
+    display:flex;flex-direction:column;justify-content:center;align-items:center;
+    text-align:center;position:relative;padding:5.5rem 2rem 0.5rem;
+  }
+  .hero .label{margin-bottom:0;}
+
+  /* MOODBOARD COLLAGE: short band, squares + connecting lines */
+  .moodboard-wrap{max-width:1300px;margin:1.5rem auto;padding:0 2rem;}
+  .moodboard{position:relative;width:100%;height:clamp(190px,20vw,240px);}
+  .mb-tile{
+    position:absolute;border-radius:6px;background:#EDEFEA;
+    border:1.5px solid rgba(30,32,31,0.2);box-shadow:0 8px 20px rgba(30,32,31,0.16);opacity:0;
+  }
+  .mb-lines{position:absolute;inset:0;width:100%;height:100%;overflow:visible;}
+  .mb-lines line{stroke-width:1.5;fill:none;}
+  .mb-lines circle{opacity:0;}
+  @media(max-width:900px){ .moodboard{display:none;} }
+
+  /* HERO SUB: tagline + tags, below the collage */
+  .hero-sub{max-width:800px;margin:1.5rem auto 3rem;padding:0 2rem;text-align:center;}
+  .hero-sub .tagline{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.5rem,3vw,2.2rem);
+    color:var(--pine);margin-bottom:1.6rem;text-transform:lowercase;line-height:1.35;opacity:0;
+  }
+  .hero-sub .roles{display:flex;gap:0.6rem;flex-wrap:wrap;justify-content:center;}
+  .hero-sub .roles span{
+    font-size:0.7rem;letter-spacing:0.06em;text-transform:lowercase;opacity:0;
+    padding:0.45rem 1rem;border:1px solid rgba(30,32,31,0.22);border-radius:var(--tag-radius);
+  }
+
+  /* MARQUEE */
+  .marquee-wrap{
+    border-top:1px solid rgba(30,32,31,0.15);border-bottom:1px solid rgba(30,32,31,0.15);
+    padding:0.6rem 0;overflow:hidden;white-space:nowrap;background:var(--slate-tint);
+  }
+  .marquee{display:inline-block;font-size:1rem;letter-spacing:0.12em;text-transform:lowercase;animation:scroll-left 32s linear infinite;}
+  .marquee-wrap:hover .marquee{animation-duration:10s;}
+  .marquee span{margin:0 1.1rem;color:var(--ink);opacity:0.65;}
+  .marquee span.accent{color:var(--slate);opacity:1;}
+  @keyframes scroll-left{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+  /* SECTION HEADER */
+  .section-head{
+    max-width:1300px;margin:0 auto;padding:0 2rem;
+    display:flex;justify-content:space-between;align-items:flex-end;
+    padding-top:6rem;margin-bottom:2.5rem;flex-wrap:wrap;gap:1rem;
+  }
+  .section-head .num{font-size:0.95rem;letter-spacing:0.1em;opacity:0.55;text-transform:lowercase;}
+  .section-head h2{font-size:clamp(2.2rem,4.5vw,3.5rem);text-transform:lowercase;overflow:hidden;}
+  .section-head h2 .wipe{display:inline-block;clip-path:inset(0 100% 0 0);}
+  .section-intro{max-width:1300px;margin:0 auto 3rem;padding:0 2rem;font-size:1.05rem;line-height:1.7;opacity:0.8;}
+  .section-intro span{display:inline-block;max-width:720px;}
+  .section-block{padding-bottom:6rem;}
+  .section-block.tint-pine{background:var(--pine-tint);}
+
+  /* GRID / CARDS */
+  .grid{max-width:1300px;margin:0 auto;padding:0 2rem 2rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:2.5rem;}
+  .card{position:relative;overflow:hidden;border-radius:6px;transform-style:preserve-3d;will-change:transform;display:block;}
+  .card-media{
+    height:320px;background-size:cover;background-position:center;
+    display:flex;flex-direction:column;justify-content:flex-end;gap:0.5rem;padding:1.5rem;position:relative;
+  }
+  .card-media::after{content:'';position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,0.5), transparent 60%);}
+  .card-media .chips{position:relative;z-index:1;display:flex;gap:0.4rem;flex-wrap:wrap;}
+  .card-media .chips span{
+    color:#fff;font-size:0.62rem;letter-spacing:0.08em;text-transform:lowercase;
+    border:1px solid rgba(255,255,255,0.5);padding:0.25rem 0.7rem;border-radius:var(--tag-radius);
+  }
+  .card-info{padding:1.4rem 0.2rem;}
+  .card-info .meta{font-size:0.75rem;opacity:0.55;letter-spacing:0.05em;text-transform:lowercase;margin-bottom:0.5rem;}
+  .card-info h3{font-size:1.6rem;margin-bottom:0.5rem;text-transform:lowercase;}
+  .card-info p{font-size:0.9rem;line-height:1.6;opacity:0.8;}
+
+  /* RESEARCH LIST */
+  .research-list{max-width:1300px;margin:0 auto;padding:0 2rem;}
+  .research-item{border-top:1px solid rgba(30,32,31,0.15);padding:2.5rem 0;display:grid;grid-template-columns:auto 1fr auto;gap:2rem;align-items:start;transition:background 0.25s;}
+  .research-item:last-child{border-bottom:1px solid rgba(30,32,31,0.15);}
+  .research-item:hover{background:rgba(30,32,31,0.03);}
+  .research-item .r-year{font-family:'Cormorant Garamond',serif;font-size:1.6rem;opacity:0.6;min-width:90px;}
+  .research-item h3{font-size:1.7rem;margin-bottom:0.6rem;text-transform:lowercase;}
+  .research-item .r-sub{font-size:0.8rem;letter-spacing:0.05em;text-transform:lowercase;opacity:0.55;margin-bottom:0.8rem;}
+  .research-item p{font-size:0.95rem;line-height:1.7;opacity:0.85;max-width:640px;margin-bottom:1rem;}
+  .research-item .r-tagcol{display:flex;flex-direction:column;gap:0.5rem;align-items:flex-end;}
+  .research-item .r-tagcol span{
+    white-space:nowrap;font-size:0.68rem;letter-spacing:0.06em;text-transform:lowercase;
+    color:var(--slate);border:1px solid var(--slate);padding:0.3rem 0.8rem;border-radius:var(--tag-radius);
+  }
+
+  /* COLLABORATIONS */
+  .collab-grid{max-width:1300px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;}
+  .collab-card{border:1px solid rgba(30,32,31,0.15);border-radius:8px;padding:1.8rem;}
+  .collab-card .c-year{font-size:0.75rem;letter-spacing:0.05em;text-transform:lowercase;opacity:0.55;margin-bottom:0.6rem;}
+  .collab-card h3{font-size:1.5rem;margin-bottom:0.6rem;text-transform:lowercase;}
+  .collab-card p{font-size:0.9rem;line-height:1.65;opacity:0.85;margin-bottom:0.9rem;}
+  .collab-card .c-tags{display:flex;flex-wrap:wrap;gap:0.4rem;}
+  .collab-card .c-tags span{
+    font-size:0.65rem;letter-spacing:0.05em;text-transform:lowercase;color:var(--pine);
+    border:1px solid var(--pine);padding:0.25rem 0.7rem;border-radius:var(--tag-radius);
+  }
+  .collab-card.pending{border-style:dashed;opacity:0.75;}
+
+  /* NOTE: lighter background, dark text */
+  .note-band{background:var(--slate-tint);color:var(--ink);padding:5rem 2rem;}
+  .note-band-inner{max-width:1300px;margin:0 auto;}
+  .note-brand{display:flex;align-items:baseline;gap:1rem;margin-bottom:1.2rem;}
+  .note-brand .note-word{font-family:'Cormorant Garamond',serif;font-size:3rem;font-style:italic;text-transform:lowercase;color:var(--slate);}
+  .note-brand .note-sub{font-size:0.85rem;letter-spacing:0.1em;text-transform:lowercase;opacity:0.6;}
+  .note-desc{max-width:680px;font-size:1.05rem;line-height:1.75;opacity:0.9;margin-bottom:2.5rem;}
+  .note-honest{
+    max-width:680px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;
+    opacity:0.8;margin-bottom:3rem;border-left:2px solid rgba(30,32,31,0.25);padding-left:1.2rem;
+  }
+  .note-posts-label{font-size:0.75rem;letter-spacing:0.15em;text-transform:lowercase;opacity:0.55;margin-bottom:1.5rem;}
+  .note-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.8rem;}
+  .note-card{border:1px solid rgba(30,32,31,0.15);border-radius:6px;padding:1.6rem;transition:background 0.3s ease;background:rgba(255,255,255,0.35);}
+  .note-card:hover{background:rgba(255,255,255,0.6);}
+  .note-card .status{font-size:0.68rem;letter-spacing:0.1em;text-transform:lowercase;color:var(--slate);margin-bottom:0.7rem;opacity:0.95;}
+  .note-card .post-num{font-size:0.68rem;opacity:0.5;letter-spacing:0.1em;text-transform:lowercase;margin-bottom:0.4rem;}
+  .note-card h3{font-family:'Cormorant Garamond',serif;font-size:1.35rem;margin-bottom:0.6rem;text-transform:lowercase;}
+  .note-card p{font-size:0.87rem;line-height:1.6;opacity:0.85;}
+
+  /* ABOUT / CV */
+  .about{max-width:1300px;margin:0 auto;padding:6rem 2rem;display:grid;grid-template-columns:0.9fr 1.4fr;gap:4rem;}
+  .about-statement{font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,2.6vw,2rem);line-height:1.55;text-transform:lowercase;}
+  .about-statement .accent-word{color:var(--pine);font-style:italic;}
+  .cv-link{display:inline-block;margin-top:2rem;font-size:0.85rem;letter-spacing:0.08em;text-transform:lowercase;border-bottom:1px solid var(--ink);padding-bottom:2px;}
+
+  .timeline{position:relative;padding-left:2.5rem;}
+  .timeline::before{content:'';position:absolute;left:4px;top:6px;bottom:6px;width:1px;background:rgba(30,32,31,0.2);}
+  .t-item{position:relative;padding-bottom:2rem;}
+  .t-item:last-child{padding-bottom:0;}
+  .t-item::before{content:'';position:absolute;left:-2.5rem;top:6px;width:9px;height:9px;border-radius:50%;background:var(--pine);}
+  .t-row{display:grid;grid-template-columns:100px 1fr;gap:1rem;align-items:baseline;}
+  .t-item .t-year{font-size:0.8rem;letter-spacing:0.05em;text-transform:lowercase;opacity:0.55;}
+  .t-item .t-role{font-size:1.05rem;font-weight:400;text-transform:lowercase;}
+  .t-item .t-org{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--slate);text-transform:lowercase;}
+  .t-item .t-loc{font-size:0.75rem;opacity:0.5;margin-top:0.15rem;}
+
+  /* FOOTER / CONTACT */
+  footer{background:var(--pine);color:var(--bg);padding:6rem 3rem 2rem;position:relative;overflow:hidden;}
+  .foot-inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1.3fr 1fr;gap:4rem;margin-bottom:3rem;}
+  .foot-cta{
+    font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.8vw,3.6rem);
+    max-width:640px;margin-bottom:1rem;text-transform:lowercase;
+  }
+  .foot-cta .accent{color:var(--bg);opacity:0.8;}
+  .foot-prompt{font-size:0.95rem;opacity:0.75;margin-bottom:2rem;max-width:480px;line-height:1.6;}
+  .contact-form{display:flex;flex-direction:column;gap:1.1rem;max-width:480px;}
+  .contact-form input, .contact-form textarea{
+    background:transparent;border:none;border-bottom:1px solid rgba(246,248,245,0.35);
+    color:var(--bg);font-family:'Jost',sans-serif;font-size:0.95rem;padding:0.6rem 0.2rem;
+    resize:none;outline:none;
+  }
+  .contact-form input::placeholder, .contact-form textarea::placeholder{color:rgba(246,248,245,0.55);text-transform:lowercase;}
+  .contact-form button{
+    align-self:flex-start;margin-top:0.5rem;background:transparent;color:var(--bg);
+    border:1px solid rgba(246,248,245,0.5);padding:0.7rem 1.8rem;border-radius:var(--tag-radius);
+    font-size:0.8rem;letter-spacing:0.08em;text-transform:lowercase;cursor:pointer;transition:background 0.25s;
+  }
+  .contact-form button:hover{background:rgba(246,248,245,0.12);}
+  .form-note{font-size:0.8rem;opacity:0.7;margin-top:0.3rem;min-height:1.2em;}
+  .foot-right{display:flex;flex-direction:column;gap:1rem;}
+  .foot-label{font-size:0.75rem;letter-spacing:0.15em;text-transform:lowercase;opacity:0.55;margin-bottom:0.5rem;}
+  .foot-right a{font-size:1rem;opacity:0.85;transition:opacity 0.2s;text-transform:lowercase;}
+  .foot-right a:hover{opacity:1;text-decoration:underline;}
+  .foot-bottom{
+    display:flex;justify-content:space-between;padding-top:2rem;
+    border-top:1px solid rgba(246,248,245,0.2);font-size:0.8rem;opacity:0.7;flex-wrap:wrap;gap:1rem;
+  }
+  .foot-clock{font-variant-numeric:tabular-nums;}
+
+  @media (max-width:800px){
+    .about{grid-template-columns:1fr;}
+    .research-item{grid-template-columns:1fr;}
+    .research-item .r-tagcol{align-items:flex-start;flex-direction:row;flex-wrap:wrap;}
+    .foot-inner{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<svg class="grain" xmlns="http://www.w3.org/2000/svg">
+  <filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/></filter>
+  <rect width="100%" height="100%" filter="url(#noiseFilter)"/>
+</svg>
+<div class="nav-backdrop"></div>
+
+<svg id="cursorFlower" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(20,20)">
+    <ellipse rx="6" ry="12" fill="#E3B23C" opacity="0.9" transform="rotate(0)   translate(0,-10)"/>
+    <ellipse rx="6" ry="12" fill="#E3B23C" opacity="0.9" transform="rotate(72)  translate(0,-10)"/>
+    <ellipse rx="6" ry="12" fill="#E3B23C" opacity="0.9" transform="rotate(144) translate(0,-10)"/>
+    <ellipse rx="6" ry="12" fill="#E3B23C" opacity="0.9" transform="rotate(216) translate(0,-10)"/>
+    <ellipse rx="6" ry="12" fill="#E3B23C" opacity="0.9" transform="rotate(288) translate(0,-10)"/>
+    <circle r="4" fill="#FFFFFF"/>
+  </g>
+</svg>
+
+<div id="preloader">
+  <div class="pl-word" id="plWord0">observe.</div>
+  <div class="pl-word" id="plWord1">interpret.</div>
+  <div class="pl-word" id="plWord2">design.</div>
+</div>
+
+<nav>
+  <div class="logo">shachi shah</div>
+  <ul>
+    <li><a href="#practice"><span class="n">01</span>practice</a></li>
+    <li><a href="#research"><span class="n">02</span>research</a></li>
+    <li><a href="#collaborations"><span class="n">03</span>collaborations</a></li>
+    <li><a href="#note"><span class="n">04</span>note</a></li>
+    <li><a href="#contact"><span class="n">05</span>contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="label" id="heroLabel"></div>
+</section>
+
+<!-- MOODBOARD: short collage band, blank placeholders + connecting lines -->
+<div class="moodboard-wrap">
+  <div class="moodboard" id="moodboard">
+    <svg class="mb-lines" id="mbLines" viewBox="0 0 1400 240" preserveAspectRatio="none">
+      <line x1="88" y1="84" x2="419" y2="67" stroke="#3A5240" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/>
+      <line x1="246" y1="137" x2="755" y2="84" stroke="#3E5B66" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/>
+      <line x1="928" y1="122" x2="1259" y2="112" stroke="#7C8B5B" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/>
+      <line x1="597" y1="110" x2="1086" y2="74" stroke="#3A5240" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/>
+      <circle cx="88" cy="84" r="4" fill="#3A5240"/><circle cx="419" cy="67" r="4" fill="#3A5240"/>
+      <circle cx="246" cy="137" r="4" fill="#3E5B66"/><circle cx="755" cy="84" r="4" fill="#3E5B66"/>
+      <circle cx="928" cy="122" r="4" fill="#7C8B5B"/><circle cx="1259" cy="112" r="4" fill="#7C8B5B"/>
+      <circle cx="597" cy="110" r="4" fill="#3A5240"/><circle cx="1086" cy="74" r="4" fill="#3A5240"/>
+    </svg>
+    <div class="mb-tile" style="left:2%;top:10%;width:120px;height:120px;transform:rotate(-6deg);"></div>
+    <div class="mb-tile" style="left:14%;top:30%;width:100px;height:130px;transform:rotate(4deg);"></div>
+    <div class="mb-tile" style="left:26%;top:5%;width:110px;height:110px;transform:rotate(3deg);"></div>
+    <div class="mb-tile" style="left:38%;top:25%;width:130px;height:100px;transform:rotate(-4deg);"></div>
+    <div class="mb-tile" style="left:50%;top:8%;width:110px;height:130px;transform:rotate(6deg);"></div>
+    <div class="mb-tile" style="left:62%;top:28%;width:120px;height:110px;transform:rotate(-3deg);"></div>
+    <div class="mb-tile" style="left:74%;top:6%;width:100px;height:120px;transform:rotate(5deg);"></div>
+    <div class="mb-tile" style="left:86%;top:24%;width:110px;height:110px;transform:rotate(-5deg);"></div>
+  </div>
+</div>
+
+<!-- TAGLINE + TAGS, below the collage -->
+<div class="hero-sub">
+  <div class="tagline" id="heroTagline"></div>
+  <div class="roles" id="heroRoles"></div>
+</div>
+
+<div class="marquee-wrap">
+  <div class="marquee" id="marqueeTrack"></div>
+</div>
+
+<!-- PRACTICE -->
+<section id="practice" class="section-block">
+  <div class="section-head">
+    <div>
+      <div class="num" id="practiceEyebrow"></div>
+      <h2><span class="wipe" id="practiceTitle"></span></h2>
+    </div>
+  </div>
+  <p class="section-intro"><span id="practiceIntro"></span></p>
+  <div class="grid" id="practiceGrid"></div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research" class="section-block tint-pine">
+  <div class="section-head">
+    <div>
+      <div class="num" id="researchEyebrow"></div>
+      <h2><span class="wipe" id="researchTitle"></span></h2>
+    </div>
+  </div>
+  <p class="section-intro"><span id="researchIntro"></span></p>
+  <div class="research-list" id="researchList"></div>
+</section>
+
+<!-- COLLABORATIONS -->
+<section id="collaborations" class="section-block">
+  <div class="section-head">
+    <div>
+      <div class="num" id="collabEyebrow"></div>
+      <h2><span class="wipe" id="collabTitle"></span></h2>
+    </div>
+  </div>
+  <p class="section-intro"><span id="collabIntro"></span></p>
+  <div class="collab-grid" id="collabGrid"></div>
+</section>
+
+<!-- NOTE -->
+<section id="note" class="section-block">
+  <div class="section-head">
+    <div>
+      <div class="num" id="noteEyebrow"></div>
+      <h2><span class="wipe" id="noteTitle"></span></h2>
+    </div>
+  </div>
+  <div class="note-band">
+    <div class="note-band-inner">
+      <div class="note-brand">
+        <span class="note-word">note</span>
+        <span class="note-sub">nuances of the everyday</span>
+      </div>
+      <p class="note-desc" id="noteDesc"></p>
+      <p class="note-honest" id="noteHonest"></p>
+      <div class="note-posts-label" id="notePostsLabel"></div>
+      <div class="note-grid" id="noteGrid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT / CV -->
+<section class="about" id="about">
+  <div>
+    <p class="about-statement" id="aboutStatement"></p>
+    <a class="cv-link" id="cvLink" href="#">download full cv ↓</a>
+  </div>
+  <div class="timeline" id="timelineList"></div>
+</section>
+
+<footer id="contact">
+  <div class="foot-inner">
+    <div class="foot-left">
+      <div class="foot-cta" id="footCta"></div>
+      <p class="foot-prompt" id="footPrompt"></p>
+      <form class="contact-form" id="contactForm">
+        <input type="text" id="cfName" placeholder="name" required>
+        <input type="email" id="cfEmail" placeholder="email" required>
+        <textarea rows="4" id="cfMessage" placeholder="message"></textarea>
+        <button type="submit">send</button>
+        <p class="form-note" id="formNote"></p>
+      </form>
+    </div>
+    <div class="foot-right" id="footRight">
+      <div class="foot-label">get in touch</div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 shachi shah</span>
+    <span>india · <span class="foot-clock" id="footClock">--:--:--</span></span>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+/* =========================================================
+   CONTENT LOADING — everything below fetches from /content/*.json
+   so the site can be edited through the admin panel without
+   touching this file. If you're previewing this locally by just
+   double-clicking the file, fetch() may be blocked by the browser;
+   run it through a local server (or the live Netlify URL) instead.
+   ========================================================= */
+async function fetchJSON(path){
+  try{
+    const res = await fetch(path, { cache: "no-store" });
+    if(!res.ok) throw new Error(res.status);
+    return await res.json();
+  }catch(err){
+    console.warn("could not load", path, err);
+    return null;
+  }
+}
+
+function esc(str){
+  const d = document.createElement("div");
+  d.textContent = str == null ? "" : str;
+  return d.innerHTML;
+}
+
+function mediaStyle(item){
+  if(item.image && item.image.trim() !== ""){
+    return `background-image:url('${item.image}');`;
+  }
+  return `background-color:var(--${item.color || "pine"});`;
+}
+
+function renderHero(data){
+  if(!data) return;
+  document.getElementById("heroLabel").textContent = data.label || "";
+  document.getElementById("heroTagline").textContent = data.tagline || "";
+  const rolesEl = document.getElementById("heroRoles");
+  rolesEl.innerHTML = (data.tags || []).map(t => `<span>${esc(t)}</span>`).join("");
+}
+
+function renderMarquee(data){
+  if(!data || !data.words) return;
+  const words = data.words;
+  const build = () => words.map((w,i) => `<span class="${i % 2 === 0 ? "accent" : ""}">${esc(w)}</span><span>·</span>`).join("");
+  document.getElementById("marqueeTrack").innerHTML = build() + build();
+}
+
+function renderPractice(data){
+  if(!data) return;
+  document.getElementById("practiceEyebrow").textContent = data.sectionEyebrow || "";
+  document.getElementById("practiceTitle").textContent = data.sectionTitle || "";
+  document.getElementById("practiceIntro").textContent = data.sectionIntro || "";
+  const grid = document.getElementById("practiceGrid");
+  grid.innerHTML = (data.items || []).map(item => `
+    <a class="card" href="project.html?id=${encodeURIComponent(item.id)}">
+      <div class="card-media" style="${mediaStyle(item)}">
+        <div class="chips">${(item.tags||[]).map(t=>`<span>${esc(t)}</span>`).join("")}</div>
+      </div>
+      <div class="card-info">
+        <div class="meta">${esc(item.meta)}</div>
+        <h3>${esc(item.title)}</h3>
+        <p>${esc(item.description)}</p>
+      </div>
+    </a>
+  `).join("");
+}
+
+function renderResearch(data){
+  if(!data) return;
+  document.getElementById("researchEyebrow").textContent = data.sectionEyebrow || "";
+  document.getElementById("researchTitle").textContent = data.sectionTitle || "";
+  document.getElementById("researchIntro").textContent = data.sectionIntro || "";
+  const list = document.getElementById("researchList");
+  list.innerHTML = (data.items || []).map(item => `
+    <a class="research-item" href="project.html?id=${encodeURIComponent(item.id)}">
+      <div class="r-year">${esc(item.year)}</div>
+      <div>
+        <h3>${esc(item.title)}</h3>
+        <div class="r-sub">${esc(item.sub)}</div>
+        <p>${esc(item.description)}</p>
+      </div>
+      <div class="r-tagcol">${(item.tags||[]).map(t=>`<span>${esc(t)}</span>`).join("")}</div>
+    </a>
+  `).join("");
+}
+
+function renderCollaborations(data){
+  if(!data) return;
+  document.getElementById("collabEyebrow").textContent = data.sectionEyebrow || "";
+  document.getElementById("collabTitle").textContent = data.sectionTitle || "";
+  document.getElementById("collabIntro").textContent = data.sectionIntro || "";
+  const grid = document.getElementById("collabGrid");
+  grid.innerHTML = (data.items || []).map(item => `
+    <div class="collab-card ${item.pending ? "pending" : ""}">
+      <div class="c-year">${esc(item.year)}</div>
+      <h3>${esc(item.title)}</h3>
+      <p>${esc(item.description)}</p>
+      <div class="c-tags">${(item.tags||[]).map(t=>`<span>${esc(t)}</span>`).join("")}</div>
+    </div>
+  `).join("");
+}
+
+function renderNote(data){
+  if(!data) return;
+  document.getElementById("noteEyebrow").textContent = data.sectionEyebrow || "";
+  document.getElementById("noteTitle").textContent = data.sectionTitle || "";
+  document.getElementById("noteDesc").textContent = data.description || "";
+  document.getElementById("noteHonest").textContent = data.honestNote || "";
+  document.getElementById("notePostsLabel").textContent = "from " + (data.instagramHandle || "");
+  const grid = document.getElementById("noteGrid");
+  grid.innerHTML = (data.posts || []).map(p => `
+    <div class="note-card">
+      ${p.postNum ? `<div class="post-num">${esc(p.postNum)}</div>` : ""}
+      <div class="status">${esc(p.status)}</div>
+      <h3>${esc(p.title)}</h3>
+      <p>${esc(p.description)}</p>
+    </div>
+  `).join("");
+}
+
+function renderAbout(data){
+  if(!data) return;
+  const el = document.getElementById("aboutStatement");
+  el.innerHTML = `${esc(data.statement)} <span class="accent-word">${esc(data.statementAccent)}</span>`;
+  document.getElementById("cvLink").href = data.cvFile || "#";
+}
+
+function renderTimeline(data){
+  if(!data) return;
+  const el = document.getElementById("timelineList");
+  el.innerHTML = (data.items || []).map(t => `
+    <div class="t-item">
+      <div class="t-row"><div class="t-year">${esc(t.year)}</div><div class="t-role">${esc(t.role)}</div></div>
+      <div class="t-org">${esc(t.org)}</div>
+      <div class="t-loc">${esc(t.loc)}</div>
+    </div>
+  `).join("");
+}
+
+function renderFooter(data){
+  if(!data) return;
+  document.getElementById("footCta").innerHTML = `${esc(data.ctaLine1)}<br><span class="accent">${esc(data.ctaLine2)}</span>`;
+  document.getElementById("footPrompt").textContent = data.prompt || "";
+  const right = document.getElementById("footRight");
+  right.innerHTML = `
+    <div class="foot-label">get in touch</div>
+    <a href="mailto:${esc(data.email)}">${esc(data.email)}</a>
+    <a href="tel:${esc((data.phone||"").replace(/\s/g,""))}">${esc(data.phone)}</a>
+    <a href="${esc(data.instagramPersonal)}" target="_blank" rel="noopener">instagram (personal)</a>
+    <a href="${esc(data.instagramNote)}" target="_blank" rel="noopener">instagram (note)</a>
+    <a href="${esc(data.linkedin)}" target="_blank" rel="noopener">linkedin</a>
+  `;
+  window.__contactEmail = data.email;
+}
+
+async function loadContent(){
+  const [hero, marquee, practice, research, collaborations, note, about, timeline, footer] = await Promise.all([
+    fetchJSON("content/hero.json"),
+    fetchJSON("content/marquee.json"),
+    fetchJSON("content/practice.json"),
+    fetchJSON("content/research.json"),
+    fetchJSON("content/collaborations.json"),
+    fetchJSON("content/note.json"),
+    fetchJSON("content/about.json"),
+    fetchJSON("content/timeline.json"),
+    fetchJSON("content/footer.json"),
+  ]);
+  renderHero(hero);
+  renderMarquee(marquee);
+  renderPractice(practice);
+  renderResearch(research);
+  renderCollaborations(collaborations);
+  renderNote(note);
+  renderAbout(about);
+  renderTimeline(timeline);
+  renderFooter(footer);
+}
+
+const contentReady = loadContent();
+
+/* ---------- SKIP-PRELOADER LOGIC ----------
+   the intro only plays on a fresh open / refresh of the plain URL.
+   links coming back from a project page carry ?from=project, which
+   skips straight to the finished state, then cleans the URL so the
+   next real refresh plays the intro again. ---------- */
+const urlParams = new URLSearchParams(window.location.search);
+const skipIntro = urlParams.get('from') === 'project';
+
+if (skipIntro){
+  history.replaceState({}, '', window.location.pathname + window.location.hash);
+  document.getElementById("preloader").style.display = "none";
+}
+
+const w0 = document.getElementById("plWord0");
+const w1 = document.getElementById("plWord1");
+const w2 = document.getElementById("plWord2");
+
+const preTl = gsap.timeline({ onComplete: ()=>{
+  gsap.to("#preloader", {
+    yPercent:-100, duration:0.9, ease:"sine.inOut",
+    onComplete: async ()=>{
+      await contentReady;
+      document.getElementById("preloader").style.display="none";
+      playHero();
+      setupContentAnimations();
+    }
+  });
+}});
+
+if (!skipIntro){
+  preTl
+    .to(w0, { opacity:1, duration:0.4, ease:"sine.out" })
+    .to({}, { duration:0.35 })
+    .to(w0, { opacity:0.3, y:-30, duration:0.5, ease:"sine.inOut" }, "<")
+    .to(w1, { opacity:1, duration:0.4, ease:"sine.out" }, "<0.1")
+    .to({}, { duration:0.35 })
+    .to(w1, { opacity:0.3, y:-30, duration:0.5, ease:"sine.inOut" }, "<")
+    .to(w0, { y:-60, duration:0.5, ease:"sine.inOut" }, "<")
+    .to(w2, { opacity:1, duration:0.4, ease:"sine.out" }, "<0.1")
+    .to({}, { duration:0.35 })
+    .to(w2, { opacity:0.3, duration:0.5, ease:"sine.inOut" })
+    .to({}, { duration:0.15 });
+} else {
+  contentReady.then(()=>{
+    playHero();
+    setupContentAnimations();
+  });
+}
+
+/* ---------- HERO: label, then straight into the collage + tagline ---------- */
+function playHero(){
+  const tl = gsap.timeline();
+  tl.from(".hero .label", { opacity:0, y:15, duration:0.6, ease:"sine.out" })
+    .add(playMoodboard)
+    .to(".hero-sub .tagline, .hero-sub .roles span", { opacity:1, y:0, duration:0.8, stagger:0.06, ease:"sine.out" }, "<");
+}
+
+/* ---------- MOODBOARD REVEAL ---------- */
+function playMoodboard(){
+  gsap.to(".mb-tile", { opacity:1, y:0, duration:0.8, stagger:0.08, ease:"sine.out" });
+  gsap.to("#mbLines line", { strokeDashoffset:0, duration:1, stagger:0.2, ease:"sine.inOut", delay:0.3 });
+  gsap.to("#mbLines circle", { opacity:1, duration:0.4, stagger:0.1, delay:1 });
+}
+gsap.set(".mb-tile", { y:16 });
+gsap.set(".hero-sub .tagline, .hero-sub .roles span", { y:20 });
+
+if (skipIntro){
+  gsap.set(".hero .label", { opacity:1, y:0 });
+  gsap.set(".mb-tile", { opacity:1, y:0 });
+  gsap.set("#mbLines line", { strokeDashoffset:0 });
+  gsap.set("#mbLines circle", { opacity:1 });
+  gsap.set(".hero-sub .tagline, .hero-sub .roles span", { opacity:1, y:0 });
+}
+
+/* ---------- SET UP ANIMATIONS THAT DEPEND ON RENDERED CONTENT ---------- */
+function setupContentAnimations(){
+  gsap.utils.toArray(".wipe").forEach(el=>{
+    gsap.to(el, {
+      clipPath:"inset(0 0% 0 0)", duration:1.1, ease:"power4.inOut",
+      scrollTrigger:{ trigger: el, start:"top 85%" }
+    });
+  });
+
+  gsap.utils.toArray(".card, .research-item, .note-card, .collab-card").forEach(el=>{
+    gsap.from(el, {
+      opacity:0, y:40, duration:0.8, ease:"power2.out",
+      scrollTrigger:{ trigger: el, start:"top 90%" }
+    });
+  });
+  gsap.from(".about-statement, .timeline", {
+    opacity:0, y:30, duration:1, stagger:0.15, ease:"power2.out",
+    scrollTrigger:{ trigger: ".about", start:"top 80%" }
+  });
+
+  document.querySelectorAll("a, .card, .note-card").forEach(el=>{
+    el.addEventListener("mouseenter", ()=>cursorFlower.classList.add("hover"));
+    el.addEventListener("mouseleave", ()=>cursorFlower.classList.remove("hover"));
+  });
+  document.querySelectorAll(".card").forEach(el=>addTilt(el,5));
+
+  ScrollTrigger.refresh();
+}
+
+/* ---------- FLOWER CURSOR ---------- */
+const cursorFlower = document.getElementById("cursorFlower");
+window.addEventListener("mousemove", e=>{
+  gsap.to(cursorFlower,{x:e.clientX,y:e.clientY,duration:0.15});
+});
+gsap.to(cursorFlower, { rotation:360, duration:14, repeat:-1, ease:"none", transformOrigin:"50% 50%" });
+
+/* ---------- CARD TILT ---------- */
+function addTilt(el, max=6){
+  el.addEventListener("mousemove", e=>{
+    const r = el.getBoundingClientRect();
+    const px = (e.clientX - r.left)/r.width - 0.5;
+    const py = (e.clientY - r.top)/r.height - 0.5;
+    gsap.to(el, { rotateY: px*max, rotateX: -py*max, duration:0.4, ease:"power2.out", transformPerspective:800 });
+  });
+  el.addEventListener("mouseleave", ()=>{
+    gsap.to(el, { rotateY:0, rotateX:0, duration:0.6, ease:"power3.out" });
+  });
+}
+
+/* ---------- CONTACT FORM (mailto fallback until a form backend is wired) ---------- */
+const contactForm = document.getElementById("contactForm");
+if (contactForm){
+  contactForm.addEventListener("submit", (e)=>{
+    e.preventDefault();
+    const name = document.getElementById("cfName").value.trim();
+    const email = document.getElementById("cfEmail").value.trim();
+    const message = document.getElementById("cfMessage").value.trim();
+    const to = window.__contactEmail || "shachi.o.shah@gmail.com";
+    const subject = encodeURIComponent(`website enquiry from ${name || "someone"}`);
+    const body = encodeURIComponent(`${message}\n\nfrom: ${name}\nreply to: ${email}`);
+    window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+    document.getElementById("formNote").textContent = "opening your email app to send this...";
+  });
+}
+
+/* ---------- FOOTER CLOCK (IST, india only) ---------- */
+function updateClock(){
+  const now = new Date();
+  const ist = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
+  const hh = String(ist.getHours()).padStart(2,"0");
+  const mm = String(ist.getMinutes()).padStart(2,"0");
+  const ss = String(ist.getSeconds()).padStart(2,"0");
+  document.getElementById("footClock").textContent = `${hh}:${mm}:${ss}`;
+}
+updateClock();
+setInterval(updateClock, 1000);
+</script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">project · shachi shah</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="projects/project.css">
+<style>
+  .proj-media div{background-size:cover;background-position:center;}
+  .not-found{max-width:640px;margin:9rem auto;padding:0 2rem;text-align:center;}
+  .not-found h1{font-size:2rem;margin-bottom:1rem;}
+  .not-found a{border-bottom:1px solid var(--ink);}
+</style>
+</head>
+<body>
+<div class="proj-nav"><a href="shachi-shah-prototype.html?from=project">&larr; back to shachi shah</a></div>
+
+<div id="projectRoot"></div>
+
+<script>
+const COLOR_DARK = {
+  pine: "#242f27",
+  sage: "#5c6a43",
+  slate: "#233842",
+  "slate-light": "#4d707c"
+};
+
+function esc(str){
+  const d = document.createElement("div");
+  d.textContent = str == null ? "" : str;
+  return d.innerHTML;
+}
+
+async function fetchJSON(path){
+  try{
+    const res = await fetch(path, { cache: "no-store" });
+    if(!res.ok) throw new Error(res.status);
+    return await res.json();
+  }catch(err){
+    console.warn("could not load", path, err);
+    return null;
+  }
+}
+
+function bodyToHTML(body){
+  return (body || []).map(block => {
+    if(block.startsWith("## ")) return `<h2>${esc(block.slice(3))}</h2>`;
+    return `<p>${esc(block)}</p>`;
+  }).join("\n");
+}
+
+function renderNotFound(){
+  document.getElementById("projectRoot").innerHTML = `
+    <div class="not-found">
+      <h1>this project isn't up yet</h1>
+      <p><a href="shachi-shah-prototype.html?from=project">back to shachi shah &rarr;</a></p>
+    </div>`;
+}
+
+function renderProject(item, section){
+  const metaTop = section === "research"
+    ? `research · ${esc(item.sub || "")} · ${esc(item.year || "")}`
+    : `practice · ${esc(item.meta || "")}`;
+  const tags = item.detailTags && item.detailTags.length ? item.detailTags : (item.tags || []);
+  const dark = COLOR_DARK[item.color] || "#242f27";
+
+  document.title = `${item.title} · shachi shah`;
+
+  const mediaBlocks = [1,2,3].map(()=>{
+    if(item.image && item.image.trim() !== ""){
+      return `<div style="background-image:url('${item.image}')"></div>`;
+    }
+    return `<div></div>`;
+  }).join("");
+
+  const factsHTML = (item.facts || []).map(f => `
+    <div><div class="f-label">${esc(f.label)}</div><div class="f-value">${esc(f.value)}</div></div>
+  `).join("");
+
+  document.getElementById("projectRoot").innerHTML = `
+    <div class="proj-header" style="background:linear-gradient(160deg,var(--${item.color || "pine"}) 0%,${dark} 100%);">
+      <div class="proj-header-inner">
+        <div class="proj-meta-top">${metaTop}</div>
+        <h1>${esc(item.title)}</h1>
+        <div class="proj-tags">${tags.map(t=>`<span>${esc(t)}</span>`).join("")}</div>
+      </div>
+    </div>
+
+    <div class="proj-media">${mediaBlocks}</div>
+
+    <div class="proj-body">
+      ${factsHTML ? `<div class="proj-facts">${factsHTML}</div>` : ""}
+      ${bodyToHTML(item.body)}
+    </div>
+
+    <div class="proj-footer">
+      <a href="shachi-shah-prototype.html?from=project#contact">get in touch about a project like this</a>
+    </div>
+  `;
+}
+
+async function init(){
+  const id = new URLSearchParams(window.location.search).get("id");
+  if(!id){ renderNotFound(); return; }
+
+  const [practice, research] = await Promise.all([
+    fetchJSON("content/practice.json"),
+    fetchJSON("content/research.json")
+  ]);
+
+  const fromPractice = practice && practice.items ? practice.items.find(i => i.id === id) : null;
+  if(fromPractice){ renderProject(fromPractice, "practice"); return; }
+
+  const fromResearch = research && research.items ? research.items.find(i => i.id === id) : null;
+  if(fromResearch){ renderProject(fromResearch, "research"); return; }
+
+  renderNotFound();
+}
+init();
+</script>
+</body>
+</html>
