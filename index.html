@@ -33,8 +33,9 @@
   a{color:inherit;text-decoration:none;cursor:none;}
   .label{
     font-family:'Jost',sans-serif;text-transform:uppercase;letter-spacing:0.15em;
-    font-size:0.75rem;color:var(--ink);opacity:0.55;
+    font-size:0.9rem;color:var(--ink);opacity:0.55;
   }
+  .label .label-dot{opacity:1;font-size:1.35em;color:var(--ink);font-weight:600;}
   section{scroll-margin-top:80px;}
 
   .grain{position:fixed;inset:0;z-index:9998;pointer-events:none;opacity:0.03;mix-blend-mode:multiply;}
@@ -58,61 +59,82 @@
   }
 
   .nav-backdrop{
-    position:fixed;top:0;left:0;right:0;height:58px;z-index:99;
-    background:rgba(246,248,245,0.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    position:fixed;top:0;left:0;right:0;height:50px;z-index:99;
+    background:rgba(234,240,231,var(--nav-alpha,0.55));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
     border-bottom:1px solid rgba(30,32,31,0.06);
+    transition:background 0.15s ease-out;
   }
   nav{
     position:fixed;top:0;left:0;right:0;
     display:flex;justify-content:space-between;align-items:center;
-    padding:1rem 3rem;z-index:100;
+    padding:0.75rem 3rem;z-index:100;
   }
   nav .logo{font-family:'Poppins',sans-serif;font-weight:500;font-size:1.25rem;letter-spacing:0.01em;text-transform:lowercase;color:#4B554D;}
   nav ul{display:flex;gap:1.8rem;list-style:none;}
   nav ul li a{font-size:0.95rem;letter-spacing:0.06em;font-weight:500;color:var(--ink);opacity:0.85;}
   nav ul li a .n{opacity:0.55;margin-right:0.3rem;font-size:0.85rem;font-weight:500;}
 
+  /* HERO VIEWPORT: label + collage + tagline + tags + marquee + scroll cue, locked to one screen, evenly spaced */
+  .hero-viewport{
+    height:100vh;min-height:600px;background:var(--white);
+    display:flex;flex-direction:column;justify-content:center;align-items:stretch;
+    padding-top:50px; /* fixed nav offset */
+    gap:clamp(0.9rem,2.4vh,1.8rem);
+  }
+
   /* HERO */
   .hero{
     display:flex;flex-direction:column;justify-content:center;align-items:center;
-    text-align:center;position:relative;padding:5.5rem 2rem 0.5rem;
+    text-align:center;position:relative;padding:0 2rem;flex:0 0 auto;
   }
   .hero .label{margin-bottom:0;}
 
-  /* MOODBOARD COLLAGE: short band, squares + connecting lines */
-  .moodboard-wrap{max-width:1300px;margin:1.5rem auto;padding:0 2rem;}
-  .moodboard{position:relative;width:100%;height:clamp(190px,20vw,240px);}
-  .mb-tile{
-    position:absolute;border-radius:6px;background:#EDEFEA;
-    border:1.5px solid rgba(30,32,31,0.2);box-shadow:0 8px 20px rgba(30,32,31,0.16);opacity:0;
+  /* MOODBOARD COLLAGE: single static image, full-bleed edge to edge */
+  .moodboard-wrap{
+    width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
+    flex:0 0 auto;
   }
-  .mb-lines{position:absolute;inset:0;width:100%;height:100%;overflow:visible;}
-  .mb-lines line{stroke-width:1.5;fill:none;}
-  .mb-lines circle{opacity:0;}
-  @media(max-width:900px){ .moodboard{display:none;} }
+  .moodboard{display:block;width:100%;aspect-ratio:2400/536;object-fit:cover;}
 
-  /* HERO SUB: tagline + tags, below the collage */
-  .hero-sub{max-width:800px;margin:1.5rem auto 3rem;padding:0 2rem;text-align:center;}
-  .hero-sub .tagline{
+  /* TAGLINE + TAGS: separate rhythm steps, same gap as everything else */
+  .tagline{
+    max-width:800px;margin:0 auto;padding:0 2rem;text-align:center;flex:0 0 auto;
     font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.5rem,3vw,2.2rem);
-    color:var(--pine);margin-bottom:1.6rem;text-transform:lowercase;line-height:1.35;opacity:0;
+    color:var(--pine);text-transform:lowercase;line-height:1.35;opacity:0;
   }
-  .hero-sub .roles{display:flex;gap:0.6rem;flex-wrap:wrap;justify-content:center;}
-  .hero-sub .roles span{
-    font-size:0.7rem;letter-spacing:0.06em;text-transform:lowercase;opacity:0;
-    padding:0.45rem 1rem;border:1px solid rgba(30,32,31,0.22);border-radius:var(--tag-radius);
+  .roles{
+    max-width:800px;margin:0 auto;padding:0 2rem;flex:0 0 auto;
+    display:flex;gap:0.6rem;flex-wrap:wrap;justify-content:center;
+  }
+  .roles span{
+    font-size:0.82rem;letter-spacing:0.06em;text-transform:lowercase;opacity:0;
+    padding:0.5rem 1.1rem;border:1px solid rgba(30,32,31,0.22);border-radius:var(--tag-radius);
+    background:var(--pine-tint);
   }
 
   /* MARQUEE */
   .marquee-wrap{
+    flex:0 0 auto;
     border-top:1px solid rgba(30,32,31,0.15);border-bottom:1px solid rgba(30,32,31,0.15);
     padding:0.6rem 0;overflow:hidden;white-space:nowrap;background:var(--slate-tint);
   }
   .marquee{display:inline-block;font-size:1rem;letter-spacing:0.12em;text-transform:lowercase;animation:scroll-left 32s linear infinite;}
   .marquee-wrap:hover .marquee{animation-duration:10s;}
-  .marquee span{margin:0 1.1rem;color:var(--ink);opacity:0.65;}
+  .marquee span{margin:0 1.1rem;color:var(--ink);opacity:0.85;}
   .marquee span.accent{color:var(--slate);opacity:1;}
   @keyframes scroll-left{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+  /* SCROLL CUE */
+  .scroll-cue{
+    flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:0.5rem;
+    font-size:0.82rem;letter-spacing:0.12em;text-transform:lowercase;opacity:0.55;
+  }
+  .scroll-cue .scroll-line{width:1px;height:26px;background:rgba(30,32,31,0.35);overflow:hidden;position:relative;}
+  .scroll-cue .scroll-line::after{
+    content:'';position:absolute;left:0;top:-100%;width:100%;height:100%;background:var(--pine);
+    animation:scrollLineDrop 1.8s ease-in-out infinite;
+  }
+  @keyframes scrollLineDrop{0%{top:-100%;}60%,100%{top:100%;}}
 
   /* SECTION HEADER */
   .section-head{
@@ -278,7 +300,7 @@
 </div>
 
 <nav>
-  <div class="logo">shachi shah</div>
+  <a class="logo" href="#hero-viewport">shachi shah</a>
   <ul>
     <li><a href="#practice"><span class="n">01</span>practice</a></li>
     <li><a href="#research"><span class="n">02</span>research</a></li>
@@ -288,43 +310,30 @@
   </ul>
 </nav>
 
+<div class="hero-viewport" id="hero-viewport">
+
 <section class="hero">
   <div class="label" id="heroLabel"></div>
 </section>
 
-<!-- MOODBOARD: short collage band, blank placeholders + connecting lines -->
+<!-- MOODBOARD: single full-bleed static collage image -->
 <div class="moodboard-wrap">
-  <div class="moodboard" id="moodboard">
-    <svg class="mb-lines" id="mbLines" viewBox="0 0 1400 240" preserveAspectRatio="none">
-      <line x1="88" y1="84" x2="419" y2="67" stroke="#3A5240" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/>
-      <line x1="246" y1="137" x2="755" y2="84" stroke="#3E5B66" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/>
-      <line x1="928" y1="122" x2="1259" y2="112" stroke="#7C8B5B" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/>
-      <line x1="597" y1="110" x2="1086" y2="74" stroke="#3A5240" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/>
-      <circle cx="88" cy="84" r="4" fill="#3A5240"/><circle cx="419" cy="67" r="4" fill="#3A5240"/>
-      <circle cx="246" cy="137" r="4" fill="#3E5B66"/><circle cx="755" cy="84" r="4" fill="#3E5B66"/>
-      <circle cx="928" cy="122" r="4" fill="#7C8B5B"/><circle cx="1259" cy="112" r="4" fill="#7C8B5B"/>
-      <circle cx="597" cy="110" r="4" fill="#3A5240"/><circle cx="1086" cy="74" r="4" fill="#3A5240"/>
-    </svg>
-    <div class="mb-tile" style="left:2%;top:10%;width:120px;height:120px;transform:rotate(-6deg);"></div>
-    <div class="mb-tile" style="left:14%;top:30%;width:100px;height:130px;transform:rotate(4deg);"></div>
-    <div class="mb-tile" style="left:26%;top:5%;width:110px;height:110px;transform:rotate(3deg);"></div>
-    <div class="mb-tile" style="left:38%;top:25%;width:130px;height:100px;transform:rotate(-4deg);"></div>
-    <div class="mb-tile" style="left:50%;top:8%;width:110px;height:130px;transform:rotate(6deg);"></div>
-    <div class="mb-tile" style="left:62%;top:28%;width:120px;height:110px;transform:rotate(-3deg);"></div>
-    <div class="mb-tile" style="left:74%;top:6%;width:100px;height:120px;transform:rotate(5deg);"></div>
-    <div class="mb-tile" style="left:86%;top:24%;width:110px;height:110px;transform:rotate(-5deg);"></div>
-  </div>
+  <img class="moodboard" id="moodboard" alt="shachi shah — selected work">
 </div>
 
-<!-- TAGLINE + TAGS, below the collage -->
-<div class="hero-sub">
-  <div class="tagline" id="heroTagline"></div>
-  <div class="roles" id="heroRoles"></div>
-</div>
+<div class="tagline" id="heroTagline"></div>
+<div class="roles" id="heroRoles"></div>
 
 <div class="marquee-wrap">
   <div class="marquee" id="marqueeTrack"></div>
 </div>
+
+<div class="scroll-cue">
+  <span>scroll</span>
+  <div class="scroll-line"></div>
+</div>
+
+</div><!-- /.hero-viewport -->
 
 <!-- PRACTICE -->
 <section id="practice" class="section-block">
@@ -454,10 +463,14 @@ function mediaStyle(item){
 
 function renderHero(data){
   if(!data) return;
-  document.getElementById("heroLabel").textContent = data.label || "";
+  document.getElementById("heroLabel").innerHTML = (data.label || "")
+    .split("·").map(esc).join('<span class="label-dot">·</span>');
   document.getElementById("heroTagline").textContent = data.tagline || "";
   const rolesEl = document.getElementById("heroRoles");
   rolesEl.innerHTML = (data.tags || []).map(t => `<span>${esc(t)}</span>`).join("");
+  if (data.collageImage) {
+    document.getElementById("moodboard").src = data.collageImage;
+  }
 }
 
 function renderMarquee(data){
@@ -613,6 +626,21 @@ if (skipIntro){
   document.getElementById("preloader").style.display = "none";
 }
 
+/* only jump to a #hash target when arriving from a project page's link
+   (e.g. "get in touch" -> #contact). a plain open/refresh always shows
+   the hero at top, even if a stray hash is sitting in the address bar
+   from earlier browsing — the page is filled in by JS after fetch, so
+   the browser's own scroll-to-hash-on-load fires too early and misses
+   the target anyway, hence doing it ourselves once content exists. */
+contentReady.then(()=>{
+  if (skipIntro && window.location.hash){
+    const target = document.querySelector(window.location.hash);
+    if (target) target.scrollIntoView();
+  } else if (!skipIntro){
+    window.scrollTo(0, 0);
+  }
+});
+
 const w0 = document.getElementById("plWord0");
 const w1 = document.getElementById("plWord1");
 const w2 = document.getElementById("plWord2");
@@ -649,29 +677,17 @@ if (!skipIntro){
   });
 }
 
-/* ---------- HERO: label, then straight into the collage + tagline ---------- */
+/* ---------- HERO: label, then straight into the tagline (image is static, no reveal) ---------- */
 function playHero(){
   const tl = gsap.timeline();
   tl.from(".hero .label", { opacity:0, y:15, duration:0.6, ease:"sine.out" })
-    .add(playMoodboard)
-    .to(".hero-sub .tagline, .hero-sub .roles span", { opacity:1, y:0, duration:0.8, stagger:0.06, ease:"sine.out" }, "<");
+    .to(".tagline, .roles span", { opacity:1, y:0, duration:0.8, stagger:0.06, ease:"sine.out" }, "<0.2");
 }
-
-/* ---------- MOODBOARD REVEAL ---------- */
-function playMoodboard(){
-  gsap.to(".mb-tile", { opacity:1, y:0, duration:0.8, stagger:0.08, ease:"sine.out" });
-  gsap.to("#mbLines line", { strokeDashoffset:0, duration:1, stagger:0.2, ease:"sine.inOut", delay:0.3 });
-  gsap.to("#mbLines circle", { opacity:1, duration:0.4, stagger:0.1, delay:1 });
-}
-gsap.set(".mb-tile", { y:16 });
-gsap.set(".hero-sub .tagline, .hero-sub .roles span", { y:20 });
+gsap.set(".tagline, .roles span", { y:20 });
 
 if (skipIntro){
   gsap.set(".hero .label", { opacity:1, y:0 });
-  gsap.set(".mb-tile", { opacity:1, y:0 });
-  gsap.set("#mbLines line", { strokeDashoffset:0 });
-  gsap.set("#mbLines circle", { opacity:1 });
-  gsap.set(".hero-sub .tagline, .hero-sub .roles span", { opacity:1, y:0 });
+  gsap.set(".tagline, .roles span", { opacity:1, y:0 });
 }
 
 /* ---------- SET UP ANIMATIONS THAT DEPEND ON RENDERED CONTENT ---------- */
@@ -702,6 +718,14 @@ function setupContentAnimations(){
 
   ScrollTrigger.refresh();
 }
+
+/* ---------- NAV: fades more transparent the further you scroll ---------- */
+function updateNavAlpha(){
+  const alpha = Math.max(0.15, 0.55 - (window.scrollY / 500) * 0.4);
+  document.documentElement.style.setProperty("--nav-alpha", alpha.toFixed(3));
+}
+window.addEventListener("scroll", updateNavAlpha, { passive:true });
+updateNavAlpha();
 
 /* ---------- FLOWER CURSOR ---------- */
 const cursorFlower = document.getElementById("cursorFlower");

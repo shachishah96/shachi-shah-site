@@ -101,6 +101,11 @@ collections:
                 widget: "select"
                 options: ["pine", "sage", "slate", "slate-light"]
               - { label: "card image", name: "image", widget: "image", required: false }
+              - label: "gallery (shown on the project page, one at a time with arrows — any sizes)"
+                name: "gallery"
+                widget: "list"
+                required: false
+                field: { label: "image", name: "src", widget: "image" }
               - label: "card tags (2 shown on the homepage card)"
                 name: "tags"
                 widget: "list"
@@ -146,6 +151,11 @@ collections:
                 widget: "select"
                 options: ["pine", "sage", "slate", "slate-light"]
               - { label: "image", name: "image", widget: "image", required: false }
+              - label: "gallery (shown on the project page, one at a time with arrows — any sizes)"
+                name: "gallery"
+                widget: "list"
+                required: false
+                field: { label: "image", name: "src", widget: "image" }
               - { label: "short description", name: "description", widget: "text" }
               - label: "tags"
                 name: "tags"

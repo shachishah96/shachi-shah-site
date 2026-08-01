@@ -67,12 +67,27 @@ function renderProject(item, section){
 
   document.title = `${item.title} · shachi shah`;
 
-  const mediaBlocks = [1,2,3].map(()=>{
-    if(item.image && item.image.trim() !== ""){
-      return `<div style="background-image:url('${item.image}')"></div>`;
-    }
-    return `<div></div>`;
-  }).join("");
+  const galleryImages = (item.gallery || []).map(g => g.src).filter(Boolean);
+  if(galleryImages.length === 0 && item.image && item.image.trim() !== ""){
+    galleryImages.push(item.image);
+  }
+
+  const carouselHTML = galleryImages.length
+    ? `
+      <div class="proj-carousel-frame">
+        <img id="carouselImg" src="${esc(galleryImages[0])}" alt="${esc(item.title)}">
+        ${galleryImages.length > 1 ? `
+          <div class="carousel-arrow prev" id="prevBtn">&#8249;</div>
+          <div class="carousel-arrow next" id="nextBtn">&#8250;</div>
+        ` : ""}
+      </div>
+      ${galleryImages.length > 1 ? `
+        <div class="carousel-dots" id="carouselDots">
+          ${galleryImages.map((_,i)=>`<span class="${i===0?"active":""}" data-i="${i}"></span>`).join("")}
+        </div>
+      ` : ""}
+    `
+    : `<div class="proj-carousel-frame"><div class="ph-fallback"></div></div>`;
 
   const factsHTML = (item.facts || []).map(f => `
     <div><div class="f-label">${esc(f.label)}</div><div class="f-value">${esc(f.value)}</div></div>
@@ -87,7 +102,7 @@ function renderProject(item, section){
       </div>
     </div>
 
-    <div class="proj-media">${mediaBlocks}</div>
+    <div class="proj-carousel">${carouselHTML}</div>
 
     <div class="proj-body">
       ${factsHTML ? `<div class="proj-facts">${factsHTML}</div>` : ""}
@@ -98,6 +113,20 @@ function renderProject(item, section){
       <a href="index.html?from=project#contact">get in touch about a project like this</a>
     </div>
   `;
+
+  if(galleryImages.length > 1){
+    let idx = 0;
+    const imgEl = document.getElementById("carouselImg");
+    const dots = document.querySelectorAll("#carouselDots span");
+    function show(i){
+      idx = (i + galleryImages.length) % galleryImages.length;
+      imgEl.src = galleryImages[idx];
+      dots.forEach((d, di) => d.classList.toggle("active", di === idx));
+    }
+    document.getElementById("prevBtn").addEventListener("click", () => show(idx - 1));
+    document.getElementById("nextBtn").addEventListener("click", () => show(idx + 1));
+    dots.forEach(d => d.addEventListener("click", () => show(Number(d.dataset.i))));
+  }
 }
 
 async function init(){
