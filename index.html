@@ -635,7 +635,7 @@ if (skipIntro){
 contentReady.then(()=>{
   if (skipIntro && window.location.hash){
     const target = document.querySelector(window.location.hash);
-    if (target) target.scrollIntoView();
+    if (target) target.scrollIntoView({ behavior:"instant", block:"start" });
   } else if (!skipIntro){
     window.scrollTo(0, 0);
   }

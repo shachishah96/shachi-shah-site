@@ -74,20 +74,20 @@ function renderProject(item, section){
 
   const carouselHTML = galleryImages.length
     ? `
-      <div class="proj-carousel-frame">
-        <img id="carouselImg" src="${esc(galleryImages[0])}" alt="${esc(item.title)}">
-        ${galleryImages.length > 1 ? `
-          <div class="carousel-arrow prev" id="prevBtn">&#8249;</div>
-          <div class="carousel-arrow next" id="nextBtn">&#8250;</div>
-        ` : ""}
+      <div class="proj-carousel-inner">
+        <div class="proj-carousel-frame">
+          <img id="carouselImg" src="${esc(galleryImages[0])}" alt="${esc(item.title)}">
+        </div>
       </div>
       ${galleryImages.length > 1 ? `
+        <div class="carousel-arrow prev" id="prevBtn">&#8249;</div>
+        <div class="carousel-arrow next" id="nextBtn">&#8250;</div>
         <div class="carousel-dots" id="carouselDots">
           ${galleryImages.map((_,i)=>`<span class="${i===0?"active":""}" data-i="${i}"></span>`).join("")}
         </div>
       ` : ""}
     `
-    : `<div class="proj-carousel-frame"><div class="ph-fallback"></div></div>`;
+    : `<div class="proj-carousel-inner"><div class="proj-ph-block"></div></div>`;
 
   const factsHTML = (item.facts || []).map(f => `
     <div><div class="f-label">${esc(f.label)}</div><div class="f-value">${esc(f.value)}</div></div>
@@ -104,8 +104,9 @@ function renderProject(item, section){
 
     <div class="proj-carousel">${carouselHTML}</div>
 
+    ${factsHTML ? `<div class="proj-facts-wrap"><div class="proj-facts">${factsHTML}</div></div>` : ""}
+
     <div class="proj-body">
-      ${factsHTML ? `<div class="proj-facts">${factsHTML}</div>` : ""}
       ${bodyToHTML(item.body)}
     </div>
 
