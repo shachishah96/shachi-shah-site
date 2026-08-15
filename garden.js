@@ -47,24 +47,30 @@
     return `${petals}<circle r="5.5" fill="#E8B94A"/>`;
   }
   function headBluebell(){
-    // one bell on the main stem's left, two on the right, all pendant (hanging down)
+    // a single shared pedicel point near the stem tip, with 3 individual bells
+    // hanging off it on short stalks — 1 left, 2 right, well separated so
+    // nothing overlaps, all clearly drooping.
+    const hub = [0, -17];
     const bells = [
-      { stemAt:[0,-20], x:-10, y:-13, rot:-18 },
-      { stemAt:[0,-13], x:9,   y:-8,  rot:14  },
-      { stemAt:[0,-4],  x:11,  y:2,   rot:20  }
+      { x:-13, y:-9,  rot:-20 }, // left
+      { x:8,   y:-18, rot:16  }, // right, upper
+      { x:15,  y:4,   rot:24  }  // right, lower — far enough below the upper one to clear it
     ];
-    const stalks = bells.map(b => `<path d="M${b.stemAt[0]},${b.stemAt[1]} Q${b.x*0.5},${b.stemAt[1]+2} ${b.x},${b.y-9}" stroke="#4C6B4A" stroke-width="0.9" fill="none"/>`).join("");
-    // single bell, drawn pendant: narrow neck at top, flaring to a scalloped, slightly recurved rim at the bottom
+    const stalks = bells.map(b => {
+      const nx = b.x * 0.82, ny = b.y - 5; // stop just short of the bell's neck
+      return `<line x1="${hub[0]}" y1="${hub[1]}" x2="${nx}" y2="${ny}" stroke="#4C6B4A" stroke-width="0.9" stroke-linecap="round"/>`;
+    }).join("");
+    // single bell, drawn pendant: narrow neck at top, flaring to a rounded,
+    // gently scalloped rim at the bottom
     const bell = `
-      <path d="M-1.6,0 C-3,5 -4.2,9.5 -3.6,13 C-3.2,15 -2,14.4 -2.3,16.2
-               C-1.4,15.6 -0.6,16.6 0,14.6 C0.6,16.6 1.4,15.6 2.3,16.2
-               C2,14.4 3.2,15 3.6,13 C4.2,9.5 3,5 1.6,0 Z" fill="#4A5FCC"/>
-      <path d="M-1.6,0 C-2.8,5 -3.6,9 -3.2,12.5" stroke="#2E3E96" stroke-width="0.5" fill="none" opacity="0.5"/>
-      <path d="M1.6,0 C2.8,5 3.6,9 3.2,12.5" stroke="#2E3E96" stroke-width="0.5" fill="none" opacity="0.5"/>
+      <path d="M-1.7,0 C-3.2,4.5 -4,8.5 -3.4,12
+               C-2.6,14.3 -1.6,13.4 -1.7,15.6
+               C-0.8,14.6 0.8,14.6 1.7,15.6
+               C1.6,13.4 2.6,14.3 3.4,12
+               C4,8.5 3.2,4.5 1.7,0 Z" fill="#4A5FCC"/>
+      <path d="M0,1 C-1,5.5 -1,9.5 0,13.5" stroke="#2E3E96" stroke-width="0.5" fill="none" opacity="0.45"/>
     `;
-    const bellShapes = bells.map(b => `
-      <g transform="translate(${b.x},${b.y}) rotate(${b.rot})">${bell}</g>
-    `).join("");
+    const bellShapes = bells.map(b => `<g transform="translate(${b.x},${b.y}) rotate(${b.rot})">${bell}</g>`).join("");
     return stalks + bellShapes;
   }
   function headTulip(){
