@@ -47,31 +47,43 @@
     return `${petals}<circle r="5.5" fill="#E8B94A"/>`;
   }
   function headBluebell(){
+    // one bell on the main stem's left, two on the right, all pendant (hanging down)
     const bells = [
-      { x:-10, y:-3,  s:0.82, rot:-30 },
-      { x:-5,  y:-10, s:0.95, rot:-12 },
-      { x:2,   y:-13, s:1.0,  rot:4   },
-      { x:8,   y:-8,  s:0.9,  rot:18  },
-      { x:11,  y:-1,  s:0.75, rot:32  }
+      { stemAt:[0,-20], x:-10, y:-13, rot:-18 },
+      { stemAt:[0,-13], x:9,   y:-8,  rot:14  },
+      { stemAt:[0,-4],  x:11,  y:2,   rot:20  }
     ];
-    const stalks = bells.map(b => `<line x1="0" y1="-15" x2="${b.x}" y2="${b.y-8}" stroke="#4C6B4A" stroke-width="0.8" opacity="0.7"/>`).join("");
+    const stalks = bells.map(b => `<path d="M${b.stemAt[0]},${b.stemAt[1]} Q${b.x*0.5},${b.stemAt[1]+2} ${b.x},${b.y-9}" stroke="#4C6B4A" stroke-width="0.9" fill="none"/>`).join("");
+    // single bell, drawn pendant: narrow neck at top, flaring to a scalloped, slightly recurved rim at the bottom
+    const bell = `
+      <path d="M-1.6,0 C-3,5 -4.2,9.5 -3.6,13 C-3.2,15 -2,14.4 -2.3,16.2
+               C-1.4,15.6 -0.6,16.6 0,14.6 C0.6,16.6 1.4,15.6 2.3,16.2
+               C2,14.4 3.2,15 3.6,13 C4.2,9.5 3,5 1.6,0 Z" fill="#4A5FCC"/>
+      <path d="M-1.6,0 C-2.8,5 -3.6,9 -3.2,12.5" stroke="#2E3E96" stroke-width="0.5" fill="none" opacity="0.5"/>
+      <path d="M1.6,0 C2.8,5 3.6,9 3.2,12.5" stroke="#2E3E96" stroke-width="0.5" fill="none" opacity="0.5"/>
+    `;
     const bellShapes = bells.map(b => `
-      <g transform="translate(${b.x},${b.y}) rotate(${b.rot}) scale(${b.s})">
-        <path d="M0,-13 C-3.2,-10 -4,-5.5 -3.2,-1 C-2.6,1.8 2.6,1.8 3.2,-1 C4,-5.5 3.2,-10 0,-13 Z" fill="#4A6FA5"/>
-        <path d="M-3.2,-1 Q-4.8,1.6 -2.2,2.6" stroke="#324E7A" stroke-width="0.7" fill="none" stroke-linecap="round"/>
-        <path d="M0,-0.6 Q0,2.4 0,3.4" stroke="#324E7A" stroke-width="0.7" fill="none" stroke-linecap="round"/>
-        <path d="M3.2,-1 Q4.8,1.6 2.2,2.6" stroke="#324E7A" stroke-width="0.7" fill="none" stroke-linecap="round"/>
-      </g>
+      <g transform="translate(${b.x},${b.y}) rotate(${b.rot})">${bell}</g>
     `).join("");
     return stalks + bellShapes;
   }
   function headTulip(){
+    // bulb-shaped bloom: narrow at the stem, bulging wide through the middle,
+    // with a scalloped 3-petal crown open at the top
     return `
-      <path d="M-9,6 C-10.5,-6 -6.5,-16 0,-18 C6.5,-16 10.5,-6 9,6
-               C6.5,1.5 5.5,6.5 2.2,3 C1.2,7.5 -1.2,7.5 -2.2,3 C-5.5,6.5 -6.5,1.5 -9,6 Z"
-            fill="#D9536A"/>
-      <path d="M0,-18 C-1.8,-11 -1.8,-3 0,3" stroke="#B83955" stroke-width="0.7" fill="none" opacity="0.55" stroke-linecap="round"/>
-      <path d="M-9,6 C-8,-4 -5.5,-12 -1.5,-16" stroke="#E87791" stroke-width="0.8" fill="none" opacity="0.4" stroke-linecap="round"/>
+      <path d="M0,3
+               C-5,1 -9,-3 -9,-8
+               C-9,-12 -8,-15 -6,-17
+               C-5,-15 -3.5,-14 -2.5,-13
+               C-1,-15 -1,-17 0,-19
+               C1,-17 1,-15 2.5,-13
+               C3.5,-14 5,-15 6,-17
+               C8,-15 9,-12 9,-8
+               C9,-3 5,1 0,3 Z" fill="#C6303F"/>
+      <ellipse cx="0" cy="0" rx="2.6" ry="2" fill="#6E1420" opacity="0.55"/>
+      <path d="M0,-19 C-1.5,-13 -1.5,-5 0,1" stroke="#8B1E2B" stroke-width="0.6" fill="none" opacity="0.5" stroke-linecap="round"/>
+      <path d="M-6,-17 C-7.5,-11 -8,-5 -6.5,0" stroke="#E8677A" stroke-width="0.8" fill="none" opacity="0.45" stroke-linecap="round"/>
+      <path d="M6,-17 C7.5,-11 8,-5 6.5,0" stroke="#E8677A" stroke-width="0.8" fill="none" opacity="0.45" stroke-linecap="round"/>
     `;
   }
   function headSunflower(){
