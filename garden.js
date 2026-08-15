@@ -176,12 +176,9 @@
 
     const clearBtn = document.getElementById("gardenClear");
     if (clearBtn) clearBtn.addEventListener("click", () => {
-      if (!plants.length) return;
-      if (confirm("clear your whole garden? this can't be undone.")){
-        plants = [];
-        saveGarden(plants);
-        render();
-      }
+      plants = [];
+      saveGarden(plants);
+      render();
     });
   }
 

@@ -237,7 +237,6 @@ collections:
         file: "content/note.json"
         fields:
           - { label: "eyebrow label", name: "sectionEyebrow", widget: "string" }
-          - { label: "section title", name: "sectionTitle", widget: "string" }
           - { label: "description", name: "description", widget: "text" }
           - { label: "honest disclaimer line", name: "honestNote", widget: "text" }
           - { label: "instagram handle", name: "instagramHandle", widget: "string" }

@@ -140,7 +140,7 @@
   .section-head{
     max-width:1300px;margin:0 auto;padding:0 2rem;
     display:flex;justify-content:space-between;align-items:flex-end;
-    padding-top:6rem;margin-bottom:2.5rem;flex-wrap:wrap;gap:1rem;
+    padding-top:3.5rem;margin-bottom:2.5rem;flex-wrap:wrap;gap:1rem;
   }
   .section-head .num{font-size:1.15rem;letter-spacing:0.1em;opacity:0.55;text-transform:lowercase;}
   .section-head h2{font-size:clamp(2.2rem,4.5vw,3.5rem);text-transform:lowercase;overflow:hidden;}
@@ -202,7 +202,7 @@
   .note-band-inner{max-width:1300px;margin:0 auto;}
   .note-brand{display:flex;align-items:baseline;gap:1rem;margin-bottom:1.2rem;}
   .note-brand .note-word{font-family:'Cormorant Garamond',serif;font-size:3rem;font-style:italic;text-transform:lowercase;color:var(--slate);}
-  .note-brand .note-sub{font-size:0.85rem;letter-spacing:0.1em;text-transform:lowercase;opacity:0.6;}
+  .note-brand .note-sub{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-style:italic;text-transform:lowercase;color:var(--slate);opacity:1;}
   .note-desc{max-width:680px;font-size:1.05rem;line-height:1.75;opacity:0.9;margin-bottom:2.5rem;}
   .note-honest{
     max-width:680px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;
@@ -231,54 +231,53 @@
   .t-item{position:relative;padding-bottom:2rem;}
   .t-item:last-child{padding-bottom:0;}
   .t-item::before{content:'';position:absolute;left:-2.5rem;top:6px;width:9px;height:9px;border-radius:50%;background:var(--pine);}
-  .t-row{display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:baseline;}
-  .t-item .t-year{font-size:0.8rem;letter-spacing:0.05em;text-transform:lowercase;opacity:0.55;text-align:right;white-space:nowrap;}
+  .t-row{display:grid;grid-template-columns:390px auto;gap:1.5rem;align-items:baseline;}
+  .t-item .t-year{font-size:0.8rem;letter-spacing:0.05em;text-transform:lowercase;opacity:0.55;white-space:nowrap;}
   .t-item .t-role{font-size:1.05rem;font-weight:400;text-transform:lowercase;}
   .t-item .t-org{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--slate);text-transform:lowercase;}
   .t-item .t-loc{font-size:0.75rem;opacity:0.5;margin-top:0.15rem;}
 
-  /* PINBOARD: beyond the work */
+  /* PINBOARD: beyond the work — 16 square tiles, like a collage */
   .pinboard-section{padding-bottom:6rem;}
   .pinboard-scroll{
     width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
-    overflow-x:auto;overflow-y:hidden;padding:2rem 0 2.5rem;
+    padding:2.5rem 2rem;display:flex;justify-content:center;
     background:
       linear-gradient(120deg, var(--pine-tint) 0%, var(--slate-tint) 55%, var(--pine-tint) 100%);
     background-size:200% 200%;
   }
   .pinboard-track{
-    display:flex;align-items:flex-start;gap:1.6rem;width:max-content;
-    padding:1.5rem 4vw;background-image:
-      repeating-linear-gradient(0deg, rgba(30,32,31,0.05) 0 1px, transparent 1px 48px),
-      repeating-linear-gradient(90deg, rgba(30,32,31,0.05) 0 1px, transparent 1px 48px);
+    display:grid;grid-template-columns:repeat(4, 158px);gap:1.1rem;
+    padding:1.2rem;background-image:
+      repeating-linear-gradient(0deg, rgba(30,32,31,0.05) 0 1px, transparent 1px 36px),
+      repeating-linear-gradient(90deg, rgba(30,32,31,0.05) 0 1px, transparent 1px 36px);
   }
-  .pin-card{
-    flex:0 0 auto;width:210px;
-    transform:rotate(var(--r,-1.5deg));transition:transform 0.2s ease;
-  }
-  .pin-card:nth-child(3n){--r:1.8deg;margin-top:1.6rem;}
-  .pin-card:nth-child(3n+1){--r:-2deg;margin-top:0;}
-  .pin-card:nth-child(3n+2){--r:1deg;margin-top:0.7rem;}
-  .pin-card:hover{transform:rotate(0deg) translateY(-3px);}
+  .pin-card{transform:rotate(var(--r,-1.5deg));transition:transform 0.2s ease;}
+  .pin-card:nth-child(4n){--r:1.6deg;}
+  .pin-card:nth-child(4n+1){--r:-1.8deg;}
+  .pin-card:nth-child(4n+2){--r:1deg;}
+  .pin-card:nth-child(4n+3){--r:-1deg;}
+  .pin-card:hover{transform:rotate(0deg) translateY(-2px);z-index:2;}
   .pin-card .pin-media{
-    width:100%;height:230px;border-radius:6px;background:var(--pine-tint);
-    background-size:cover;background-position:center;margin-bottom:0.6rem;
-    box-shadow:0 8px 18px rgba(30,32,31,0.16);
+    width:158px;height:158px;border-radius:5px;background:var(--pine-tint);
+    background-size:cover;background-position:center;margin-bottom:0.45rem;
+    box-shadow:0 6px 14px rgba(30,32,31,0.16);
   }
-  .pin-card .pin-tags{display:flex;flex-wrap:wrap;gap:0.4rem;}
+  .pin-card .pin-tags{display:flex;flex-wrap:wrap;gap:0.3rem;}
   .pin-card .pin-tags span{
-    font-size:0.65rem;letter-spacing:0.05em;text-transform:lowercase;opacity:0.75;
-    border:1px solid rgba(30,32,31,0.22);padding:0.3rem 0.7rem;border-radius:var(--tag-radius);
+    font-size:0.58rem;letter-spacing:0.04em;text-transform:lowercase;opacity:0.75;
+    border:1px solid rgba(30,32,31,0.22);padding:0.22rem 0.55rem;border-radius:var(--tag-radius);
   }
   .pin-quote-card{
-    flex:0 0 auto;width:210px;min-height:230px;padding:1.5rem 1.3rem;
+    width:158px;min-height:158px;padding:1.1rem 0.95rem;
     background:
-      radial-gradient(rgba(30,32,31,0.05) 1px, transparent 1.2px) 0 0/14px 14px,
+      radial-gradient(rgba(30,32,31,0.05) 1px, transparent 1.2px) 0 0/12px 12px,
       #fff;
-    border-radius:2px;box-shadow:0 8px 18px rgba(30,32,31,0.14);
+    border-radius:2px;box-shadow:0 6px 14px rgba(30,32,31,0.14);
     transform:rotate(var(--r,1deg));display:flex;align-items:center;
   }
-  .pin-quote-card p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;line-height:1.45;color:var(--ink);}
+  .pin-quote-card p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.9rem;line-height:1.4;color:var(--ink);}
+  @media(max-width:700px){ .pinboard-track{grid-template-columns:repeat(2, 158px);} }
 
   /* GARDEN: plant your own */
   .garden-section{padding:6rem 2rem;background:var(--slate-tint);}
@@ -291,12 +290,17 @@
     font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.2rem;line-height:1.5;
     color:var(--slate);text-transform:lowercase;padding:1.2rem 0;
   }
-  .g-divider{width:32px;height:1px;background:rgba(30,32,31,0.2);}
+  .g-divider{width:1px;height:28px;align-self:center;background:rgba(30,32,31,0.2);}
   .garden-bed{
     position:relative;width:100%;height:440px;border-radius:14px;overflow:hidden;
     background:linear-gradient(180deg, #cfe7d8 0%, #a9d4b6 40%, #8fc49f 100%);
     box-shadow:inset 0 4px 18px rgba(30,32,31,0.12), 0 12px 30px rgba(30,32,31,0.1);
     cursor:crosshair;
+  }
+  .garden-bed::before{
+    content:'';position:absolute;inset:0;pointer-events:none;opacity:0.5;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Cpath d='M6,84 Q12,66 6,54 Q0,42 9,28' stroke='%234C6B4A' stroke-width='1.4' fill='none' opacity='0.35' stroke-linecap='round'/%3E%3Cpath d='M28,88 Q35,70 25,58 Q17,48 28,34' stroke='%235C7F58' stroke-width='1.4' fill='none' opacity='0.3' stroke-linecap='round'/%3E%3Cpath d='M52,86 Q60,68 50,56 Q43,46 55,32' stroke='%234C6B4A' stroke-width='1.4' fill='none' opacity='0.28' stroke-linecap='round'/%3E%3Cpath d='M74,88 Q81,72 72,60' stroke='%235C7F58' stroke-width='1.4' fill='none' opacity='0.25' stroke-linecap='round'/%3E%3Ccircle cx='40' cy='20' r='1.2' fill='%234C6B4A' opacity='0.2'/%3E%3Ccircle cx='68' cy='40' r='1' fill='%235C7F58' opacity='0.2'/%3E%3Ccircle cx='15' cy='15' r='1' fill='%234C6B4A' opacity='0.2'/%3E%3C/svg%3E");
+    background-size:90px 90px;background-repeat:repeat;
   }
   .garden-bed.tool-water{cursor:pointer;}
   .garden-plants{position:absolute;inset:0;}
@@ -362,6 +366,7 @@
   @media (max-width:800px){
     .grid{grid-template-columns:1fr;}
     .about{grid-template-columns:1fr;}
+    .t-row{grid-template-columns:1fr auto;gap:0.75rem;}
     .research-item{grid-template-columns:1fr;}
     .research-item .r-thumb{width:100%;height:180px;}
     .research-item .r-tagcol{align-items:flex-start;flex-direction:row;flex-wrap:wrap;}
@@ -461,7 +466,6 @@
   <div class="section-head">
     <div>
       <div class="num" id="noteEyebrow"></div>
-      <h2><span class="wipe" id="noteTitle"></span></h2>
     </div>
   </div>
   <div class="note-band">
@@ -672,7 +676,6 @@ function renderCollaborations(data){
 function renderNote(data){
   if(!data) return;
   document.getElementById("noteEyebrow").textContent = data.sectionEyebrow || "";
-  document.getElementById("noteTitle").textContent = data.sectionTitle || "";
   document.getElementById("noteDesc").textContent = data.description || "";
   document.getElementById("noteHonest").textContent = data.honestNote || "";
   document.getElementById("notePostsLabel").textContent = "from " + (data.instagramHandle || "");
