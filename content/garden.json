@@ -1,5 +1,9 @@
 {
   "eyebrow": "plant something",
   "title": "grow your own corner of this site",
-  "quote": "[to finalise — a cute, quirky, inviting line about planting something here]"
+  "instructions": [
+    "plant a little seed here. every bloom starts with someone willing to begin.",
+    "water it, then wait. growth asks for patience just as much as care.",
+    "come back and water it again. it grows a little more each time you remember to return."
+  ]
 }

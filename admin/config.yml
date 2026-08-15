@@ -44,9 +44,7 @@ collections:
         label: "about section"
         file: "content/about.json"
         fields:
-          - { label: "short bio (a couple of sentences on what you do)", name: "bio", widget: "text" }
-          - { label: "statement (first part)", name: "statement", widget: "string" }
-          - { label: "statement (highlighted part)", name: "statementAccent", widget: "string" }
+          - { label: "write-up (shown next to the timeline)", name: "bio", widget: "text" }
           - label: "cv file"
             name: "cvFile"
             widget: "file"
@@ -93,7 +91,10 @@ collections:
         fields:
           - { label: "eyebrow label", name: "eyebrow", widget: "string" }
           - { label: "title", name: "title", widget: "string" }
-          - { label: "quote (cute, quirky, inviting)", name: "quote", widget: "text" }
+          - label: "instructions (exactly 3 lines, cute & inviting — plant / water / come back)"
+            name: "instructions"
+            widget: "list"
+            field: { label: "line", name: "line", widget: "text" }
 
       - name: "footer"
         label: "footer / contact"

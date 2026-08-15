@@ -149,9 +149,10 @@
   .section-intro span{display:inline-block;max-width:720px;}
   .section-block{padding-bottom:6rem;}
   .section-block.tint-pine{background:var(--pine-tint);}
+  .section-block.tint-slate{background:var(--slate-tint);}
 
   /* GRID / CARDS */
-  .grid{max-width:1300px;margin:0 auto;padding:0 2rem 2rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:2.5rem;}
+  .grid{max-width:920px;margin:0 auto;padding:0 2rem 2rem;display:grid;grid-template-columns:repeat(2,1fr);gap:2.5rem;}
   .card{position:relative;overflow:hidden;border-radius:6px;transform-style:preserve-3d;will-change:transform;display:block;}
   .card-media{
     height:320px;background-size:cover;background-position:center;
@@ -197,7 +198,7 @@
   .collab-card.pending{border-style:dashed;opacity:0.75;}
 
   /* NOTE: lighter background, dark text */
-  .note-band{background:var(--slate-tint);color:var(--ink);padding:5rem 2rem;}
+  .note-band{background:var(--white);color:var(--ink);padding:5rem 2rem;}
   .note-band-inner{max-width:1300px;margin:0 auto;}
   .note-brand{display:flex;align-items:baseline;gap:1rem;margin-bottom:1.2rem;}
   .note-brand .note-word{font-family:'Cormorant Garamond',serif;font-size:3rem;font-style:italic;text-transform:lowercase;color:var(--slate);}
@@ -218,9 +219,11 @@
 
   /* ABOUT / CV */
   .about{max-width:1300px;margin:0 auto;padding:6rem 2rem;display:grid;grid-template-columns:0.9fr 1.4fr;gap:4rem;}
-  .about-bio{font-size:1rem;line-height:1.75;opacity:0.8;margin-bottom:1.6rem;max-width:520px;}
-  .about-statement{font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,2.6vw,2rem);line-height:1.55;text-transform:lowercase;}
-  .about-statement .accent-word{color:var(--pine);font-style:italic;}
+  .about-write{
+    font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,2vw,1.4rem);
+    line-height:1.65;text-transform:lowercase;max-width:540px;margin-bottom:1.6rem;
+  }
+  .about-write .accent-word{color:var(--pine);font-style:italic;}
   .cv-link{display:inline-block;margin-top:2rem;font-size:0.85rem;letter-spacing:0.08em;text-transform:lowercase;border-bottom:1px solid var(--ink);padding-bottom:2px;}
 
   .timeline{position:relative;padding-left:2.5rem;}
@@ -228,8 +231,8 @@
   .t-item{position:relative;padding-bottom:2rem;}
   .t-item:last-child{padding-bottom:0;}
   .t-item::before{content:'';position:absolute;left:-2.5rem;top:6px;width:9px;height:9px;border-radius:50%;background:var(--pine);}
-  .t-row{display:grid;grid-template-columns:100px 1fr;gap:1rem;align-items:baseline;}
-  .t-item .t-year{font-size:0.8rem;letter-spacing:0.05em;text-transform:lowercase;opacity:0.55;}
+  .t-row{display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:baseline;}
+  .t-item .t-year{font-size:0.8rem;letter-spacing:0.05em;text-transform:lowercase;opacity:0.55;text-align:right;white-space:nowrap;}
   .t-item .t-role{font-size:1.05rem;font-weight:400;text-transform:lowercase;}
   .t-item .t-org{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--slate);text-transform:lowercase;}
   .t-item .t-loc{font-size:0.75rem;opacity:0.5;margin-top:0.15rem;}
@@ -250,42 +253,58 @@
       repeating-linear-gradient(90deg, rgba(30,32,31,0.05) 0 1px, transparent 1px 48px);
   }
   .pin-card{
-    flex:0 0 auto;width:200px;background:#fff;padding:0.7rem 0.7rem 1rem;
-    border-radius:3px;box-shadow:0 10px 22px rgba(30,32,31,0.18);
-    transform:rotate(var(--r,-2deg));transition:transform 0.2s ease;
+    flex:0 0 auto;width:210px;
+    transform:rotate(var(--r,-1.5deg));transition:transform 0.2s ease;
   }
-  .pin-card:nth-child(3n){--r:2.5deg;margin-top:1.8rem;}
-  .pin-card:nth-child(3n+1){--r:-3deg;margin-top:0;}
-  .pin-card:nth-child(3n+2){--r:1.5deg;margin-top:0.9rem;}
-  .pin-card:hover{transform:rotate(0deg) scale(1.04);z-index:2;}
-  .pin-card .pin-media{width:100%;height:190px;background:var(--pine-tint);background-size:cover;background-position:center;margin-bottom:0.7rem;}
-  .pin-card .pin-caption{font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;opacity:0.65;display:flex;justify-content:space-between;gap:0.5rem;}
+  .pin-card:nth-child(3n){--r:1.8deg;margin-top:1.6rem;}
+  .pin-card:nth-child(3n+1){--r:-2deg;margin-top:0;}
+  .pin-card:nth-child(3n+2){--r:1deg;margin-top:0.7rem;}
+  .pin-card:hover{transform:rotate(0deg) translateY(-3px);}
+  .pin-card .pin-media{
+    width:100%;height:230px;border-radius:6px;background:var(--pine-tint);
+    background-size:cover;background-position:center;margin-bottom:0.6rem;
+    box-shadow:0 8px 18px rgba(30,32,31,0.16);
+  }
+  .pin-card .pin-tags{display:flex;flex-wrap:wrap;gap:0.4rem;}
+  .pin-card .pin-tags span{
+    font-size:0.65rem;letter-spacing:0.05em;text-transform:lowercase;opacity:0.75;
+    border:1px solid rgba(30,32,31,0.22);padding:0.3rem 0.7rem;border-radius:var(--tag-radius);
+  }
   .pin-quote-card{
-    flex:0 0 auto;width:200px;background:var(--pine);color:var(--bg);padding:1.4rem 1.2rem;
-    border-radius:3px;box-shadow:0 10px 22px rgba(30,32,31,0.18);
-    transform:rotate(var(--r,1deg));display:flex;align-items:center;min-height:190px;
+    flex:0 0 auto;width:210px;min-height:230px;padding:1.5rem 1.3rem;
+    background:
+      radial-gradient(rgba(30,32,31,0.05) 1px, transparent 1.2px) 0 0/14px 14px,
+      #fff;
+    border-radius:2px;box-shadow:0 8px 18px rgba(30,32,31,0.14);
+    transform:rotate(var(--r,1deg));display:flex;align-items:center;
   }
-  .pin-quote-card p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;line-height:1.4;}
+  .pin-quote-card p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;line-height:1.45;color:var(--ink);}
 
   /* GARDEN: plant your own */
   .garden-section{padding:6rem 2rem;background:var(--slate-tint);}
-  .garden-head{max-width:640px;margin:0 auto 2.5rem;text-align:center;}
+  .garden-head{max-width:1300px;margin:0 auto 2.5rem;}
   .garden-head .num{font-size:1.15rem;letter-spacing:0.1em;opacity:0.55;text-transform:lowercase;margin-bottom:0.6rem;}
-  .garden-head h2{font-size:clamp(2rem,4vw,2.8rem);text-transform:lowercase;margin-bottom:0.8rem;}
-  .garden-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.2rem;color:var(--slate);text-transform:lowercase;}
+  .garden-head h2{font-size:clamp(2rem,4vw,2.8rem);text-transform:lowercase;}
+  .garden-layout{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:0.8fr 1.6fr;gap:3rem;align-items:center;}
+  .garden-instructions{display:flex;flex-direction:column;}
+  .garden-instructions p{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.2rem;line-height:1.5;
+    color:var(--slate);text-transform:lowercase;padding:1.2rem 0;
+  }
+  .g-divider{width:32px;height:1px;background:rgba(30,32,31,0.2);}
   .garden-bed{
-    position:relative;max-width:1100px;margin:0 auto;height:440px;border-radius:14px;overflow:hidden;
+    position:relative;width:100%;height:440px;border-radius:14px;overflow:hidden;
     background:linear-gradient(180deg, #cfe7d8 0%, #a9d4b6 40%, #8fc49f 100%);
     box-shadow:inset 0 4px 18px rgba(30,32,31,0.12), 0 12px 30px rgba(30,32,31,0.1);
     cursor:crosshair;
   }
   .garden-bed.tool-water{cursor:pointer;}
   .garden-plants{position:absolute;inset:0;}
-  .g-plant{position:absolute;transform:translate(-50%,-100%);cursor:pointer;transition:filter 0.2s;}
+  .g-plant{position:absolute;transform-origin:50% 100%;cursor:pointer;transition:transform 0.35s ease, filter 0.2s;}
   .g-plant:hover{filter:brightness(1.08);}
   .g-plant svg{display:block;overflow:visible;}
   .garden-toolbar{
-    max-width:1100px;margin:1.6rem auto 0;display:flex;flex-wrap:wrap;gap:0.7rem;
+    grid-column:1 / -1;margin-top:0.5rem;display:flex;flex-wrap:wrap;gap:0.7rem;
     align-items:center;justify-content:center;
   }
   .g-tool{
@@ -297,12 +316,14 @@
   .g-tool.active{background:var(--pine);border-color:var(--pine);color:var(--bg);}
   .g-tool-icon{width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;}
   .g-tool-icon svg{width:100%;height:100%;}
+  .g-tool-water{border-radius:6px;padding:0.5rem 1.1rem;}
   .g-tool-water.active{background:var(--slate);border-color:var(--slate);}
   .g-clear{
     font-family:'Jost',sans-serif;font-size:0.75rem;letter-spacing:0.05em;text-transform:lowercase;
     opacity:0.5;background:none;border:none;cursor:pointer;text-decoration:underline;margin-left:0.5rem;
   }
   .g-clear:hover{opacity:0.85;}
+  @media(max-width:900px){ .garden-layout{grid-template-columns:1fr;} .garden-instructions{flex-direction:row;flex-wrap:wrap;gap:1rem;} .g-divider{width:1px;height:24px;} }
   @media(max-width:700px){ .garden-bed{height:320px;} }
 
   /* FOOTER / CONTACT */
@@ -339,6 +360,7 @@
   .foot-clock{font-variant-numeric:tabular-nums;}
 
   @media (max-width:800px){
+    .grid{grid-template-columns:1fr;}
     .about{grid-template-columns:1fr;}
     .research-item{grid-template-columns:1fr;}
     .research-item .r-thumb{width:100%;height:180px;}
@@ -456,7 +478,7 @@
   </div>
 </section>
 
-<section id="collaborations" class="section-block">
+<section id="collaborations" class="section-block tint-slate">
   <div class="section-head">
     <div>
       <div class="num" id="collabEyebrow"></div>
@@ -470,8 +492,7 @@
 <!-- ABOUT / CV -->
 <section class="about" id="about">
   <div>
-    <p class="about-bio" id="aboutBio"></p>
-    <p class="about-statement" id="aboutStatement"></p>
+    <p class="about-write" id="aboutWrite"></p>
     <a class="cv-link" id="cvLink" href="#">download full cv ↓</a>
   </div>
   <div class="timeline" id="timelineList"></div>
@@ -496,19 +517,21 @@
   <div class="garden-head">
     <div class="num" id="gardenEyebrow"></div>
     <h2 id="gardenTitle"></h2>
-    <p class="garden-quote" id="gardenQuote"></p>
   </div>
-  <div class="garden-bed" id="gardenBed">
-    <div class="garden-plants" id="gardenPlants"></div>
-  </div>
-  <div class="garden-toolbar" id="gardenToolbar">
-    <button class="g-tool active" data-tool="daisy" type="button"><span class="g-tool-icon" data-icon="daisy"></span>daisy</button>
-    <button class="g-tool" data-tool="bluebell" type="button"><span class="g-tool-icon" data-icon="bluebell"></span>bluebell</button>
-    <button class="g-tool" data-tool="tulip" type="button"><span class="g-tool-icon" data-icon="tulip"></span>tulip</button>
-    <button class="g-tool" data-tool="sunflower" type="button"><span class="g-tool-icon" data-icon="sunflower"></span>sunflower</button>
-    <button class="g-tool" data-tool="tree" type="button"><span class="g-tool-icon" data-icon="tree"></span>leafy plant</button>
-    <button class="g-tool g-tool-water" data-tool="water" type="button"><span class="g-tool-icon" data-icon="water"></span>water</button>
-    <button class="g-clear" id="gardenClear" type="button">clear my garden</button>
+  <div class="garden-layout">
+    <div class="garden-instructions" id="gardenInstructions"></div>
+    <div class="garden-bed" id="gardenBed">
+      <div class="garden-plants" id="gardenPlants"></div>
+    </div>
+    <div class="garden-toolbar" id="gardenToolbar">
+      <button class="g-tool active" data-tool="daisy" type="button"><span class="g-tool-icon" data-icon="daisy"></span>daisy</button>
+      <button class="g-tool" data-tool="bluebell" type="button"><span class="g-tool-icon" data-icon="bluebell"></span>bluebell</button>
+      <button class="g-tool" data-tool="tulip" type="button"><span class="g-tool-icon" data-icon="tulip"></span>tulip</button>
+      <button class="g-tool" data-tool="sunflower" type="button"><span class="g-tool-icon" data-icon="sunflower"></span>sunflower</button>
+      <button class="g-tool" data-tool="tree" type="button"><span class="g-tool-icon" data-icon="tree"></span>leafy plant</button>
+      <button class="g-tool g-tool-water" data-tool="water" type="button"><span class="g-tool-icon" data-icon="water"></span>water</button>
+      <button class="g-clear" id="gardenClear" type="button">clear my garden</button>
+    </div>
   </div>
 </section>
 
@@ -666,9 +689,7 @@ function renderNote(data){
 
 function renderAbout(data){
   if(!data) return;
-  document.getElementById("aboutBio").textContent = data.bio || "";
-  const el = document.getElementById("aboutStatement");
-  el.innerHTML = `${esc(data.statement)} <span class="accent-word">${esc(data.statementAccent)}</span>`;
+  document.getElementById("aboutWrite").textContent = data.bio || "";
   document.getElementById("cvLink").href = data.cvFile || "#";
 }
 
@@ -677,7 +698,7 @@ function renderTimeline(data){
   const el = document.getElementById("timelineList");
   el.innerHTML = (data.items || []).map(t => `
     <div class="t-item">
-      <div class="t-row"><div class="t-year">${esc(t.year)}</div><div class="t-role">${esc(t.role)}</div></div>
+      <div class="t-row"><div class="t-role">${esc(t.role)}</div><div class="t-year">${esc(t.year)}</div></div>
       <div class="t-org">${esc(t.org)}</div>
       <div class="t-loc">${esc(t.loc)}</div>
     </div>
@@ -694,10 +715,11 @@ function renderPinboard(data){
     if(item.type === "quote"){
       return `<div class="pin-quote-card"><p>${esc(item.quoteText)}</p></div>`;
     }
+    const tags = [item.caption, item.sub].filter(Boolean);
     return `
       <div class="pin-card">
         <div class="pin-media" style="${item.image ? `background-image:url('${item.image}')` : ""}"></div>
-        <div class="pin-caption"><span>${esc(item.caption)}</span><span>${esc(item.sub)}</span></div>
+        <div class="pin-tags">${tags.map(t=>`<span>${esc(t)}</span>`).join("")}</div>
       </div>
     `;
   }).join("");
@@ -707,7 +729,10 @@ function renderGarden(data){
   if(!data) return;
   document.getElementById("gardenEyebrow").textContent = data.eyebrow || "";
   document.getElementById("gardenTitle").textContent = data.title || "";
-  document.getElementById("gardenQuote").textContent = data.quote || "";
+  const lines = data.instructions || [];
+  document.getElementById("gardenInstructions").innerHTML = lines
+    .map(l => `<p>${esc(l)}</p>`)
+    .join('<div class="g-divider"></div>');
   if (window.initGarden) window.initGarden();
 }
 
@@ -848,7 +873,7 @@ function setupContentAnimations(){
       scrollTrigger:{ trigger: el, start:"top 90%" }
     });
   });
-  gsap.from(".about-statement, .timeline", {
+  gsap.from(".about-write, .timeline", {
     opacity:0, y:30, duration:1, stagger:0.15, ease:"power2.out",
     scrollTrigger:{ trigger: ".about", start:"top 80%" }
   });
