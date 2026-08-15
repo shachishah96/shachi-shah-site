@@ -1,7 +1,7 @@
 {
   "sectionEyebrow": "01 grounded design",
   "sectionTitle": "built & professional work",
-  "sectionIntro": "architectural and landscape design projects, professional and academic, spanning public space, institutional design, and freelance work across india, nigeria, and the uk.",
+  "sectionIntro": "architectural and landscape design projects, professional and academic, spanning public space, institutional design, and housing across india, nigeria, and the uk.",
   "items": [
     {
       "id": "kotambi-stadium",
@@ -54,44 +54,39 @@
       ]
     },
     {
-      "id": "eme-temple-garden",
-      "title": "eme temple garden & csr public space revamp",
-      "meta": "incredible garden art · 2026 to present · vadodara, india",
+      "id": "yash-garden",
+      "title": "yash garden",
+      "meta": "incredible garden art · 2026 · vadodara, india",
       "color": "slate",
       "image": "",
-      "tags": ["csr strategy", "client pitching"],
-      "description": "leading a government-collaborated public space revamp alongside hardscape/softscape design for a 60,000 sq ft private garden and a landscape installation for anita dongre's rewild event.",
+      "tags": ["landscape design"],
+      "description": "[to finalise] hardscape and softscape design for a 60,000 sq ft private garden for yash high voltage.",
       "facts": [
-        { "label": "role", "value": "design lead & head of business development" },
+        { "label": "role", "value": "design lead" },
         { "label": "firm", "value": "incredible garden art" },
         { "label": "location", "value": "vadodara, india" },
-        { "label": "status", "value": "in progress" }
+        { "label": "scale", "value": "60,000 sq ft private garden" }
       ],
-      "detailTags": ["csr strategy", "client pitching", "landscape design"],
+      "detailTags": ["landscape design"],
       "body": [
-        "leading a government-collaborated public space revamp at the eme temple in vadodara, developed as a csr initiative alongside hardscape and softscape design for a separate 60,000 sq ft private garden for yash high voltage.",
-        "this thread runs through the csr vertical at incredible garden art: identifying underutilised urban spaces, developing design proposals, approaching government bodies for site approvals, and pitching projects to corporate clients as csr initiatives. the same period included landscape design for anita dongre's rewild 2026, a fashion event for animal welfare, and a jungle-themed event installation at vantara promoting sustainable, reusable living plant decor.",
-        "fuller documentation of this project, plans, site photography, before and after material, is still being organised and will be added here directly."
+        "[to finalise]"
       ]
     },
     {
-      "id": "freelance-work",
-      "title": "residential & commercial freelance work",
-      "meta": "independent · 2020 to ongoing · india / nigeria / uk",
+      "id": "housing-projects",
+      "title": "housing projects",
+      "meta": "independent · 2020 to ongoing · india / nigeria",
       "color": "slate-light",
       "image": "",
-      "tags": ["spatial design", "graphic design"],
-      "description": "architectural and interior projects across typologies, including a residential house in nigeria and a cloud kitchen in mumbai, alongside graphic design and illustration work.",
+      "tags": ["residential design"],
+      "description": "[to finalise] residential design work across geographies, including a full house design in nigeria.",
       "facts": [
         { "label": "role", "value": "independent designer" },
-        { "label": "geography", "value": "india, nigeria, uk" },
-        { "label": "span", "value": "2020 to ongoing" }
+        { "label": "geography", "value": "india, nigeria" }
       ],
-      "detailTags": ["spatial design", "graphic design", "illustration & animation"],
+      "detailTags": ["residential design"],
       "body": [
-        "architectural and interior projects completed across residential and commercial typologies, including a full residential house design in nigeria and a cloud kitchen in mumbai, run alongside full-time roles at studio 3 designs and later incredible garden art.",
-        "this thread also includes graphic design work: signage, an illustration series, and animation, including a series on socialising during the pandemic. it's the loosest, most varied part of the practice, and the part most likely to grow as new commissions come in.",
-        "individual project write-ups and images for each commission are being organised and will be added here as they're ready."
+        "[to finalise]"
       ]
     }
   ]

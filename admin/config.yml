@@ -150,7 +150,7 @@ collections:
                 name: "color"
                 widget: "select"
                 options: ["pine", "sage", "slate", "slate-light"]
-              - { label: "image", name: "image", widget: "image", required: false }
+              - { label: "thumbnail image (shown on the left, on the homepage)", name: "image", widget: "image", required: false }
               - label: "gallery (shown on the project page, one at a time with arrows — any sizes)"
                 name: "gallery"
                 widget: "list"
@@ -216,6 +216,6 @@ collections:
             summary: "{{title}}"
             fields:
               - { label: "post number (optional)", name: "postNum", widget: "string", required: false }
-              - { label: "status", name: "status", widget: "string" }
+              - { label: "status (optional)", name: "status", widget: "string", required: false }
               - { label: "title", name: "title", widget: "string" }
               - { label: "description", name: "description", widget: "text" }

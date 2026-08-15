@@ -1,15 +1,15 @@
 {
-  "sectionEyebrow": "03 in collaboration",
+  "sectionEyebrow": "04 in collaboration",
   "sectionTitle": "collaborations & community work",
   "sectionIntro": "work made alongside others: co-authored, collectively built, or given rather than billed. spanning school, exhibition, and classroom.",
   "items": [
     {
-      "id": "sea-book",
-      "year": "school of environment and architecture",
-      "title": "co-authored book project",
-      "description": "a book co-authored during time at sea. title and details to be confirmed and added.",
-      "tags": ["editorial writing"],
-      "pending": true
+      "id": "eme-temple-garden",
+      "year": "incredible garden art · 2026 to present · vadodara, india",
+      "title": "eme temple garden & csr public space revamp",
+      "description": "leading a government-collaborated csr public space revamp at the eme temple in vadodara, from site approval through design proposal to execution.",
+      "tags": ["csr strategy", "client pitching"],
+      "pending": false
     },
     {
       "id": "kochi-biennale",
@@ -18,6 +18,22 @@
       "description": "an installation examining the transient nature of home using found materials, built with a multidisciplinary team combining spatial research with public engagement.",
       "tags": ["exhibition & installation design", "participatory fieldwork"],
       "pending": false
+    },
+    {
+      "id": "books-and-compilations",
+      "year": "school of environment and architecture",
+      "title": "books and compilations",
+      "description": "[to finalise] co-authored and compiled written work, including a book co-authored during time at sea.",
+      "tags": ["editorial writing"],
+      "pending": true
+    },
+    {
+      "id": "documentation",
+      "year": "[to finalise]",
+      "title": "documentation",
+      "description": "[to finalise]",
+      "tags": [],
+      "pending": true
     },
     {
       "id": "khar-teaching",
