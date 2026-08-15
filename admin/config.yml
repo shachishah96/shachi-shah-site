@@ -44,6 +44,7 @@ collections:
         label: "about section"
         file: "content/about.json"
         fields:
+          - { label: "short bio (a couple of sentences on what you do)", name: "bio", widget: "text" }
           - { label: "statement (first part)", name: "statement", widget: "string" }
           - { label: "statement (highlighted part)", name: "statementAccent", widget: "string" }
           - label: "cv file"
@@ -64,6 +65,35 @@ collections:
               - { label: "role / degree", name: "role", widget: "string" }
               - { label: "organisation", name: "org", widget: "string" }
               - { label: "location / dates", name: "loc", widget: "string" }
+
+      - name: "pinboard"
+        label: "about — beyond the work (pinboard)"
+        file: "content/pinboard.json"
+        fields:
+          - { label: "eyebrow label", name: "sectionEyebrow", widget: "string" }
+          - { label: "section title", name: "sectionTitle", widget: "string" }
+          - { label: "section intro", name: "sectionIntro", widget: "text" }
+          - label: "pinned items"
+            name: "items"
+            widget: "list"
+            summary: "{{type}} — {{caption}}"
+            fields:
+              - label: "type"
+                name: "type"
+                widget: "select"
+                options: ["photo", "illustration", "quote"]
+              - { label: "image (for photo / illustration)", name: "image", widget: "image", required: false }
+              - { label: "caption (for photo / illustration)", name: "caption", widget: "string", required: false }
+              - { label: "sub line (e.g. year or place)", name: "sub", widget: "string", required: false }
+              - { label: "quote text (for quote type)", name: "quoteText", widget: "text", required: false }
+
+      - name: "garden"
+        label: "about — plant a garden"
+        file: "content/garden.json"
+        fields:
+          - { label: "eyebrow label", name: "eyebrow", widget: "string" }
+          - { label: "title", name: "title", widget: "string" }
+          - { label: "quote (cute, quirky, inviting)", name: "quote", widget: "text" }
 
       - name: "footer"
         label: "footer / contact"

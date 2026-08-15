@@ -218,6 +218,7 @@
 
   /* ABOUT / CV */
   .about{max-width:1300px;margin:0 auto;padding:6rem 2rem;display:grid;grid-template-columns:0.9fr 1.4fr;gap:4rem;}
+  .about-bio{font-size:1rem;line-height:1.75;opacity:0.8;margin-bottom:1.6rem;max-width:520px;}
   .about-statement{font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,2.6vw,2rem);line-height:1.55;text-transform:lowercase;}
   .about-statement .accent-word{color:var(--pine);font-style:italic;}
   .cv-link{display:inline-block;margin-top:2rem;font-size:0.85rem;letter-spacing:0.08em;text-transform:lowercase;border-bottom:1px solid var(--ink);padding-bottom:2px;}
@@ -232,6 +233,77 @@
   .t-item .t-role{font-size:1.05rem;font-weight:400;text-transform:lowercase;}
   .t-item .t-org{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--slate);text-transform:lowercase;}
   .t-item .t-loc{font-size:0.75rem;opacity:0.5;margin-top:0.15rem;}
+
+  /* PINBOARD: beyond the work */
+  .pinboard-section{padding-bottom:6rem;}
+  .pinboard-scroll{
+    width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
+    overflow-x:auto;overflow-y:hidden;padding:2rem 0 2.5rem;
+    background:
+      linear-gradient(120deg, var(--pine-tint) 0%, var(--slate-tint) 55%, var(--pine-tint) 100%);
+    background-size:200% 200%;
+  }
+  .pinboard-track{
+    display:flex;align-items:flex-start;gap:1.6rem;width:max-content;
+    padding:1.5rem 4vw;background-image:
+      repeating-linear-gradient(0deg, rgba(30,32,31,0.05) 0 1px, transparent 1px 48px),
+      repeating-linear-gradient(90deg, rgba(30,32,31,0.05) 0 1px, transparent 1px 48px);
+  }
+  .pin-card{
+    flex:0 0 auto;width:200px;background:#fff;padding:0.7rem 0.7rem 1rem;
+    border-radius:3px;box-shadow:0 10px 22px rgba(30,32,31,0.18);
+    transform:rotate(var(--r,-2deg));transition:transform 0.2s ease;
+  }
+  .pin-card:nth-child(3n){--r:2.5deg;margin-top:1.8rem;}
+  .pin-card:nth-child(3n+1){--r:-3deg;margin-top:0;}
+  .pin-card:nth-child(3n+2){--r:1.5deg;margin-top:0.9rem;}
+  .pin-card:hover{transform:rotate(0deg) scale(1.04);z-index:2;}
+  .pin-card .pin-media{width:100%;height:190px;background:var(--pine-tint);background-size:cover;background-position:center;margin-bottom:0.7rem;}
+  .pin-card .pin-caption{font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;opacity:0.65;display:flex;justify-content:space-between;gap:0.5rem;}
+  .pin-quote-card{
+    flex:0 0 auto;width:200px;background:var(--pine);color:var(--bg);padding:1.4rem 1.2rem;
+    border-radius:3px;box-shadow:0 10px 22px rgba(30,32,31,0.18);
+    transform:rotate(var(--r,1deg));display:flex;align-items:center;min-height:190px;
+  }
+  .pin-quote-card p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;line-height:1.4;}
+
+  /* GARDEN: plant your own */
+  .garden-section{padding:6rem 2rem;background:var(--slate-tint);}
+  .garden-head{max-width:640px;margin:0 auto 2.5rem;text-align:center;}
+  .garden-head .num{font-size:1.15rem;letter-spacing:0.1em;opacity:0.55;text-transform:lowercase;margin-bottom:0.6rem;}
+  .garden-head h2{font-size:clamp(2rem,4vw,2.8rem);text-transform:lowercase;margin-bottom:0.8rem;}
+  .garden-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.2rem;color:var(--slate);text-transform:lowercase;}
+  .garden-bed{
+    position:relative;max-width:1100px;margin:0 auto;height:440px;border-radius:14px;overflow:hidden;
+    background:linear-gradient(180deg, #cfe7d8 0%, #a9d4b6 40%, #8fc49f 100%);
+    box-shadow:inset 0 4px 18px rgba(30,32,31,0.12), 0 12px 30px rgba(30,32,31,0.1);
+    cursor:crosshair;
+  }
+  .garden-bed.tool-water{cursor:pointer;}
+  .garden-plants{position:absolute;inset:0;}
+  .g-plant{position:absolute;transform:translate(-50%,-100%);cursor:pointer;transition:filter 0.2s;}
+  .g-plant:hover{filter:brightness(1.08);}
+  .g-plant svg{display:block;overflow:visible;}
+  .garden-toolbar{
+    max-width:1100px;margin:1.6rem auto 0;display:flex;flex-wrap:wrap;gap:0.7rem;
+    align-items:center;justify-content:center;
+  }
+  .g-tool{
+    display:flex;align-items:center;gap:0.5rem;font-family:'Jost',sans-serif;font-size:0.8rem;
+    text-transform:lowercase;letter-spacing:0.02em;background:#fff;border:1px solid rgba(30,32,31,0.15);
+    padding:0.5rem 1rem;border-radius:999px;cursor:pointer;transition:all 0.2s;color:var(--ink);
+  }
+  .g-tool:hover{border-color:var(--slate);}
+  .g-tool.active{background:var(--pine);border-color:var(--pine);color:var(--bg);}
+  .g-tool-icon{width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;}
+  .g-tool-icon svg{width:100%;height:100%;}
+  .g-tool-water.active{background:var(--slate);border-color:var(--slate);}
+  .g-clear{
+    font-family:'Jost',sans-serif;font-size:0.75rem;letter-spacing:0.05em;text-transform:lowercase;
+    opacity:0.5;background:none;border:none;cursor:pointer;text-decoration:underline;margin-left:0.5rem;
+  }
+  .g-clear:hover{opacity:0.85;}
+  @media(max-width:700px){ .garden-bed{height:320px;} }
 
   /* FOOTER / CONTACT */
   footer{background:var(--pine);color:var(--bg);padding:6rem 3rem 2rem;position:relative;overflow:hidden;}
@@ -307,7 +379,8 @@
     <li><a href="#research"><span class="n">02</span>research</a></li>
     <li><a href="#note"><span class="n">03</span>note</a></li>
     <li><a href="#collaborations"><span class="n">04</span>collaborations</a></li>
-    <li><a href="#contact"><span class="n">05</span>contact</a></li>
+    <li><a href="#about"><span class="n">05</span>about</a></li>
+    <li><a href="#contact"><span class="n">06</span>contact</a></li>
   </ul>
 </nav>
 
@@ -397,10 +470,46 @@
 <!-- ABOUT / CV -->
 <section class="about" id="about">
   <div>
+    <p class="about-bio" id="aboutBio"></p>
     <p class="about-statement" id="aboutStatement"></p>
     <a class="cv-link" id="cvLink" href="#">download full cv ↓</a>
   </div>
   <div class="timeline" id="timelineList"></div>
+</section>
+
+<!-- PINBOARD: beyond the work -->
+<section class="pinboard-section" id="pinboard">
+  <div class="section-head">
+    <div>
+      <div class="num" id="pinboardEyebrow"></div>
+      <h2><span class="wipe" id="pinboardTitle"></span></h2>
+    </div>
+  </div>
+  <p class="section-intro"><span id="pinboardIntro"></span></p>
+  <div class="pinboard-scroll">
+    <div class="pinboard-track" id="pinboardTrack"></div>
+  </div>
+</section>
+
+<!-- GARDEN: plant your own -->
+<section class="garden-section" id="garden">
+  <div class="garden-head">
+    <div class="num" id="gardenEyebrow"></div>
+    <h2 id="gardenTitle"></h2>
+    <p class="garden-quote" id="gardenQuote"></p>
+  </div>
+  <div class="garden-bed" id="gardenBed">
+    <div class="garden-plants" id="gardenPlants"></div>
+  </div>
+  <div class="garden-toolbar" id="gardenToolbar">
+    <button class="g-tool active" data-tool="daisy" type="button"><span class="g-tool-icon" data-icon="daisy"></span>daisy</button>
+    <button class="g-tool" data-tool="bluebell" type="button"><span class="g-tool-icon" data-icon="bluebell"></span>bluebell</button>
+    <button class="g-tool" data-tool="tulip" type="button"><span class="g-tool-icon" data-icon="tulip"></span>tulip</button>
+    <button class="g-tool" data-tool="sunflower" type="button"><span class="g-tool-icon" data-icon="sunflower"></span>sunflower</button>
+    <button class="g-tool" data-tool="tree" type="button"><span class="g-tool-icon" data-icon="tree"></span>leafy plant</button>
+    <button class="g-tool g-tool-water" data-tool="water" type="button"><span class="g-tool-icon" data-icon="water"></span>water</button>
+    <button class="g-clear" id="gardenClear" type="button">clear my garden</button>
+  </div>
 </section>
 
 <footer id="contact">
@@ -428,6 +537,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="garden.js"></script>
 <script>
 gsap.registerPlugin(ScrollTrigger);
 
@@ -556,6 +666,7 @@ function renderNote(data){
 
 function renderAbout(data){
   if(!data) return;
+  document.getElementById("aboutBio").textContent = data.bio || "";
   const el = document.getElementById("aboutStatement");
   el.innerHTML = `${esc(data.statement)} <span class="accent-word">${esc(data.statementAccent)}</span>`;
   document.getElementById("cvLink").href = data.cvFile || "#";
@@ -571,6 +682,33 @@ function renderTimeline(data){
       <div class="t-loc">${esc(t.loc)}</div>
     </div>
   `).join("");
+}
+
+function renderPinboard(data){
+  if(!data) return;
+  document.getElementById("pinboardEyebrow").textContent = data.sectionEyebrow || "";
+  document.getElementById("pinboardTitle").textContent = data.sectionTitle || "";
+  document.getElementById("pinboardIntro").textContent = data.sectionIntro || "";
+  const track = document.getElementById("pinboardTrack");
+  track.innerHTML = (data.items || []).map(item => {
+    if(item.type === "quote"){
+      return `<div class="pin-quote-card"><p>${esc(item.quoteText)}</p></div>`;
+    }
+    return `
+      <div class="pin-card">
+        <div class="pin-media" style="${item.image ? `background-image:url('${item.image}')` : ""}"></div>
+        <div class="pin-caption"><span>${esc(item.caption)}</span><span>${esc(item.sub)}</span></div>
+      </div>
+    `;
+  }).join("");
+}
+
+function renderGarden(data){
+  if(!data) return;
+  document.getElementById("gardenEyebrow").textContent = data.eyebrow || "";
+  document.getElementById("gardenTitle").textContent = data.title || "";
+  document.getElementById("gardenQuote").textContent = data.quote || "";
+  if (window.initGarden) window.initGarden();
 }
 
 function renderFooter(data){
@@ -590,7 +728,7 @@ function renderFooter(data){
 }
 
 async function loadContent(){
-  const [hero, marquee, practice, research, collaborations, note, about, timeline, footer] = await Promise.all([
+  const [hero, marquee, practice, research, collaborations, note, about, timeline, pinboard, garden, footer] = await Promise.all([
     fetchJSON("content/hero.json"),
     fetchJSON("content/marquee.json"),
     fetchJSON("content/practice.json"),
@@ -599,6 +737,8 @@ async function loadContent(){
     fetchJSON("content/note.json"),
     fetchJSON("content/about.json"),
     fetchJSON("content/timeline.json"),
+    fetchJSON("content/pinboard.json"),
+    fetchJSON("content/garden.json"),
     fetchJSON("content/footer.json"),
   ]);
   renderHero(hero);
@@ -609,6 +749,8 @@ async function loadContent(){
   renderNote(note);
   renderAbout(about);
   renderTimeline(timeline);
+  renderPinboard(pinboard);
+  renderGarden(garden);
   renderFooter(footer);
 }
 

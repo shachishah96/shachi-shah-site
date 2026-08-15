@@ -1,0 +1,11 @@
+{
+  "sectionEyebrow": "beyond the work",
+  "sectionTitle": "get to know me",
+  "sectionIntro": "[to finalise] a scrappier corner: places i've been, small things i've made, and lines i keep coming back to.",
+  "items": [
+    { "type": "photo", "image": "", "caption": "[to finalise]", "sub": "" },
+    { "type": "quote", "image": "", "caption": "", "sub": "", "quoteText": "[to finalise — a quote you keep coming back to]" },
+    { "type": "photo", "image": "", "caption": "[to finalise]", "sub": "" },
+    { "type": "illustration", "image": "", "caption": "[to finalise]", "sub": "" }
+  ]
+}
