@@ -150,6 +150,7 @@
   .section-block{padding-bottom:6rem;}
   .section-block.tint-pine{background:var(--pine-tint);}
   .section-block.tint-slate{background:var(--slate-tint);}
+  .section-block.tint-white{background:var(--white);}
 
   /* GRID / CARDS */
   .grid{max-width:920px;margin:0 auto;padding:0 2rem 2rem;display:grid;grid-template-columns:repeat(2,1fr);gap:2.5rem;}
@@ -237,47 +238,48 @@
   .t-item .t-org{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--slate);text-transform:lowercase;}
   .t-item .t-loc{font-size:0.75rem;opacity:0.5;margin-top:0.15rem;}
 
-  /* PINBOARD: beyond the work — 16 square tiles, like a collage */
-  .pinboard-section{padding-bottom:6rem;}
+  /* PINBOARD: beyond the work — scattered collage, 2 rows tall, scrolls sideways */
+  .pinboard-section{padding-bottom:4rem;}
   .pinboard-scroll{
     width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
-    padding:2.5rem 2rem;display:flex;justify-content:center;
+    padding:2rem 0;overflow-x:auto;overflow-y:hidden;
     background:
       linear-gradient(120deg, var(--pine-tint) 0%, var(--slate-tint) 55%, var(--pine-tint) 100%);
     background-size:200% 200%;
   }
   .pinboard-track{
-    display:grid;grid-template-columns:repeat(4, 158px);gap:1.1rem;
-    padding:1.2rem;background-image:
+    display:flex;flex-direction:column;gap:1.4rem;width:max-content;padding:1.5rem 4vw;
+    background-image:
       repeating-linear-gradient(0deg, rgba(30,32,31,0.05) 0 1px, transparent 1px 36px),
       repeating-linear-gradient(90deg, rgba(30,32,31,0.05) 0 1px, transparent 1px 36px);
   }
-  .pin-card{transform:rotate(var(--r,-1.5deg));transition:transform 0.2s ease;}
-  .pin-card:nth-child(4n){--r:1.6deg;}
-  .pin-card:nth-child(4n+1){--r:-1.8deg;}
-  .pin-card:nth-child(4n+2){--r:1deg;}
-  .pin-card:nth-child(4n+3){--r:-1deg;}
-  .pin-card:hover{transform:rotate(0deg) translateY(-2px);z-index:2;}
+  .pin-row{display:flex;align-items:flex-start;gap:0.9rem;}
+  .pin-card, .pin-quote-card{--sz:150px;transform:rotate(var(--r,-1.5deg));transition:transform 0.2s ease;position:relative;flex:0 0 auto;}
+  .pin-card:nth-child(4n+1), .pin-quote-card:nth-child(4n+1){--sz:185px;--r:-1.6deg;}
+  .pin-card:nth-child(4n+2), .pin-quote-card:nth-child(4n+2){--sz:120px;--r:1.4deg;margin-left:-20px;z-index:1;}
+  .pin-card:nth-child(4n+3), .pin-quote-card:nth-child(4n+3){--sz:165px;--r:-0.8deg;}
+  .pin-card:nth-child(4n), .pin-quote-card:nth-child(4n){--sz:135px;--r:1.8deg;margin-left:-16px;z-index:1;}
+  .pin-row:nth-child(2){margin-left:60px;}
+  .pin-card:hover, .pin-quote-card:hover{transform:rotate(0deg) translateY(-2px);z-index:3;}
   .pin-card .pin-media{
-    width:158px;height:158px;border-radius:5px;background:var(--pine-tint);
+    width:var(--sz);height:var(--sz);border-radius:5px;background:var(--pine-tint);
     background-size:cover;background-position:center;margin-bottom:0.45rem;
     box-shadow:0 6px 14px rgba(30,32,31,0.16);
   }
-  .pin-card .pin-tags{display:flex;flex-wrap:wrap;gap:0.3rem;}
+  .pin-card .pin-tags{display:flex;flex-wrap:wrap;gap:0.3rem;max-width:var(--sz);}
   .pin-card .pin-tags span{
     font-size:0.58rem;letter-spacing:0.04em;text-transform:lowercase;opacity:0.75;
     border:1px solid rgba(30,32,31,0.22);padding:0.22rem 0.55rem;border-radius:var(--tag-radius);
   }
   .pin-quote-card{
-    width:158px;min-height:158px;padding:1.1rem 0.95rem;
+    width:var(--sz);min-height:var(--sz);padding:1.1rem 0.95rem;
     background:
       radial-gradient(rgba(30,32,31,0.05) 1px, transparent 1.2px) 0 0/12px 12px,
       #fff;
     border-radius:2px;box-shadow:0 6px 14px rgba(30,32,31,0.14);
-    transform:rotate(var(--r,1deg));display:flex;align-items:center;
+    display:flex;align-items:center;
   }
-  .pin-quote-card p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.9rem;line-height:1.4;color:var(--ink);}
-  @media(max-width:700px){ .pinboard-track{grid-template-columns:repeat(2, 158px);} }
+  .pin-quote-card p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.85rem;line-height:1.4;color:var(--ink);}
 
   /* GARDEN: plant your own */
   .garden-section{padding:6rem 2rem;background:var(--slate-tint);}
@@ -290,17 +292,12 @@
     font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.2rem;line-height:1.5;
     color:var(--slate);text-transform:lowercase;padding:1.2rem 0;
   }
-  .g-divider{width:1px;height:28px;align-self:center;background:rgba(30,32,31,0.2);}
+  .g-divider{width:1px;height:28px;align-self:flex-start;margin-left:0.2rem;background:rgba(30,32,31,0.2);}
   .garden-bed{
     position:relative;width:100%;height:440px;border-radius:14px;overflow:hidden;
     background:linear-gradient(180deg, #cfe7d8 0%, #a9d4b6 40%, #8fc49f 100%);
     box-shadow:inset 0 4px 18px rgba(30,32,31,0.12), 0 12px 30px rgba(30,32,31,0.1);
     cursor:crosshair;
-  }
-  .garden-bed::before{
-    content:'';position:absolute;inset:0;pointer-events:none;opacity:0.5;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Cpath d='M6,84 Q12,66 6,54 Q0,42 9,28' stroke='%234C6B4A' stroke-width='1.4' fill='none' opacity='0.35' stroke-linecap='round'/%3E%3Cpath d='M28,88 Q35,70 25,58 Q17,48 28,34' stroke='%235C7F58' stroke-width='1.4' fill='none' opacity='0.3' stroke-linecap='round'/%3E%3Cpath d='M52,86 Q60,68 50,56 Q43,46 55,32' stroke='%234C6B4A' stroke-width='1.4' fill='none' opacity='0.28' stroke-linecap='round'/%3E%3Cpath d='M74,88 Q81,72 72,60' stroke='%235C7F58' stroke-width='1.4' fill='none' opacity='0.25' stroke-linecap='round'/%3E%3Ccircle cx='40' cy='20' r='1.2' fill='%234C6B4A' opacity='0.2'/%3E%3Ccircle cx='68' cy='40' r='1' fill='%235C7F58' opacity='0.2'/%3E%3Ccircle cx='15' cy='15' r='1' fill='%234C6B4A' opacity='0.2'/%3E%3C/svg%3E");
-    background-size:90px 90px;background-repeat:repeat;
   }
   .garden-bed.tool-water{cursor:pointer;}
   .garden-plants{position:absolute;inset:0;}
@@ -462,7 +459,7 @@
 
 <!-- COLLABORATIONS -->
 <!-- NOTE -->
-<section id="note" class="section-block">
+<section id="note" class="section-block tint-white">
   <div class="section-head">
     <div>
       <div class="num" id="noteEyebrow"></div>
@@ -714,7 +711,8 @@ function renderPinboard(data){
   document.getElementById("pinboardTitle").textContent = data.sectionTitle || "";
   document.getElementById("pinboardIntro").textContent = data.sectionIntro || "";
   const track = document.getElementById("pinboardTrack");
-  track.innerHTML = (data.items || []).map(item => {
+  const items = data.items || [];
+  const tile = item => {
     if(item.type === "quote"){
       return `<div class="pin-quote-card"><p>${esc(item.quoteText)}</p></div>`;
     }
@@ -725,7 +723,10 @@ function renderPinboard(data){
         <div class="pin-tags">${tags.map(t=>`<span>${esc(t)}</span>`).join("")}</div>
       </div>
     `;
-  }).join("");
+  };
+  const half = Math.ceil(items.length / 2);
+  const rows = [items.slice(0, half), items.slice(half)];
+  track.innerHTML = rows.map(row => `<div class="pin-row">${row.map(tile).join("")}</div>`).join("");
 }
 
 function renderGarden(data){
