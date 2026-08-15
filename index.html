@@ -248,19 +248,14 @@
     background-size:200% 200%;
   }
   .pinboard-track{
-    display:flex;flex-direction:column;gap:1.4rem;width:max-content;padding:1.5rem 4vw;
+    display:grid;grid-template-rows:repeat(2,auto);grid-auto-flow:column;grid-auto-columns:max-content;
+    align-items:start;column-gap:0.9rem;row-gap:1.1rem;width:max-content;padding:1.5rem 4vw;
     background-image:
       repeating-linear-gradient(0deg, rgba(30,32,31,0.05) 0 1px, transparent 1px 36px),
       repeating-linear-gradient(90deg, rgba(30,32,31,0.05) 0 1px, transparent 1px 36px);
   }
-  .pin-row{display:flex;align-items:flex-start;gap:0.9rem;}
-  .pin-card, .pin-quote-card{--sz:150px;transform:rotate(var(--r,-1.5deg));transition:transform 0.2s ease;position:relative;flex:0 0 auto;}
-  .pin-card:nth-child(4n+1), .pin-quote-card:nth-child(4n+1){--sz:185px;--r:-1.6deg;}
-  .pin-card:nth-child(4n+2), .pin-quote-card:nth-child(4n+2){--sz:120px;--r:1.4deg;margin-left:-20px;z-index:1;}
-  .pin-card:nth-child(4n+3), .pin-quote-card:nth-child(4n+3){--sz:165px;--r:-0.8deg;}
-  .pin-card:nth-child(4n), .pin-quote-card:nth-child(4n){--sz:135px;--r:1.8deg;margin-left:-16px;z-index:1;}
-  .pin-row:nth-child(2){margin-left:60px;}
-  .pin-card:hover, .pin-quote-card:hover{transform:rotate(0deg) translateY(-2px);z-index:3;}
+  .pin-card, .pin-quote-card{--sz:150px;transform:rotate(var(--r,-1.5deg));transition:transform 0.2s ease;position:relative;}
+  .pin-card:hover, .pin-quote-card:hover{transform:rotate(0deg) translateY(-2px) !important;z-index:3;}
   .pin-card .pin-media{
     width:var(--sz);height:var(--sz);border-radius:5px;background:var(--pine-tint);
     background-size:cover;background-position:center;margin-bottom:0.45rem;
@@ -283,18 +278,18 @@
 
   /* GARDEN: plant your own */
   .garden-section{padding:6rem 2rem;background:var(--slate-tint);}
-  .garden-head{max-width:1300px;margin:0 auto 2.5rem;}
-  .garden-head .num{font-size:1.15rem;letter-spacing:0.1em;opacity:0.55;text-transform:lowercase;margin-bottom:0.6rem;}
-  .garden-head h2{font-size:clamp(2rem,4vw,2.8rem);text-transform:lowercase;}
-  .garden-layout{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:0.8fr 1.6fr;gap:3rem;align-items:center;}
+  .garden-eyebrow{max-width:1300px;margin:0 auto 0.8rem;font-size:1.15rem;letter-spacing:0.1em;opacity:0.55;text-transform:lowercase;}
+  .garden-layout{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:0.8fr 1.6fr;gap:3rem;align-items:start;}
+  .garden-left h2{font-size:clamp(1.7rem,3vw,2.3rem);text-transform:lowercase;margin-bottom:1.5rem;}
   .garden-instructions{display:flex;flex-direction:column;}
   .garden-instructions p{
     font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.2rem;line-height:1.5;
     color:var(--slate);text-transform:lowercase;padding:1.2rem 0;
   }
   .g-divider{width:1px;height:28px;align-self:flex-start;margin-left:0.2rem;background:rgba(30,32,31,0.2);}
+  .garden-right{display:flex;flex-direction:column;}
   .garden-bed{
-    position:relative;width:100%;height:440px;border-radius:14px;overflow:hidden;
+    position:relative;width:100%;height:480px;border-radius:14px;overflow:hidden;
     background:linear-gradient(180deg, #cfe7d8 0%, #a9d4b6 40%, #8fc49f 100%);
     box-shadow:inset 0 4px 18px rgba(30,32,31,0.12), 0 12px 30px rgba(30,32,31,0.1);
     cursor:crosshair;
@@ -305,7 +300,7 @@
   .g-plant:hover{filter:brightness(1.08);}
   .g-plant svg{display:block;overflow:visible;}
   .garden-toolbar{
-    grid-column:1 / -1;margin-top:0.5rem;display:flex;flex-wrap:wrap;gap:0.7rem;
+    margin-top:0.9rem;display:flex;flex-wrap:wrap;gap:0.7rem;
     align-items:center;justify-content:center;
   }
   .g-tool{
@@ -515,23 +510,25 @@
 
 <!-- GARDEN: plant your own -->
 <section class="garden-section" id="garden">
-  <div class="garden-head">
-    <div class="num" id="gardenEyebrow"></div>
-    <h2 id="gardenTitle"></h2>
-  </div>
+  <div class="num garden-eyebrow" id="gardenEyebrow"></div>
   <div class="garden-layout">
-    <div class="garden-instructions" id="gardenInstructions"></div>
-    <div class="garden-bed" id="gardenBed">
-      <div class="garden-plants" id="gardenPlants"></div>
+    <div class="garden-left">
+      <h2 id="gardenTitle"></h2>
+      <div class="garden-instructions" id="gardenInstructions"></div>
     </div>
-    <div class="garden-toolbar" id="gardenToolbar">
-      <button class="g-tool active" data-tool="daisy" type="button"><span class="g-tool-icon" data-icon="daisy"></span>daisy</button>
-      <button class="g-tool" data-tool="bluebell" type="button"><span class="g-tool-icon" data-icon="bluebell"></span>bluebell</button>
-      <button class="g-tool" data-tool="tulip" type="button"><span class="g-tool-icon" data-icon="tulip"></span>tulip</button>
-      <button class="g-tool" data-tool="sunflower" type="button"><span class="g-tool-icon" data-icon="sunflower"></span>sunflower</button>
-      <button class="g-tool" data-tool="tree" type="button"><span class="g-tool-icon" data-icon="tree"></span>leafy plant</button>
-      <button class="g-tool g-tool-water" data-tool="water" type="button"><span class="g-tool-icon" data-icon="water"></span>water</button>
-      <button class="g-clear" id="gardenClear" type="button">clear my garden</button>
+    <div class="garden-right">
+      <div class="garden-bed" id="gardenBed">
+        <div class="garden-plants" id="gardenPlants"></div>
+      </div>
+      <div class="garden-toolbar" id="gardenToolbar">
+        <button class="g-tool active" data-tool="daisy" type="button"><span class="g-tool-icon" data-icon="daisy"></span>daisy</button>
+        <button class="g-tool" data-tool="bluebell" type="button"><span class="g-tool-icon" data-icon="bluebell"></span>bluebell</button>
+        <button class="g-tool" data-tool="tulip" type="button"><span class="g-tool-icon" data-icon="tulip"></span>tulip</button>
+        <button class="g-tool" data-tool="sunflower" type="button"><span class="g-tool-icon" data-icon="sunflower"></span>sunflower</button>
+        <button class="g-tool" data-tool="tree" type="button"><span class="g-tool-icon" data-icon="tree"></span>leafy plant</button>
+        <button class="g-tool g-tool-water" data-tool="water" type="button"><span class="g-tool-icon" data-icon="water"></span>water</button>
+        <button class="g-clear" id="gardenClear" type="button">clear my garden</button>
+      </div>
     </div>
   </div>
 </section>
@@ -712,21 +709,35 @@ function renderPinboard(data){
   document.getElementById("pinboardIntro").textContent = data.sectionIntro || "";
   const track = document.getElementById("pinboardTrack");
   const items = data.items || [];
-  const tile = item => {
+  // deterministic variety: sizes, tilt, and vertical offset cycle through this pattern,
+  // with an occasional item spanning both rows to form a "big + 2 small" cluster
+  const VARIANTS = [
+    { sz:180, r:-1.6, mt:0,   span:false },
+    { sz:125, r:1.3,  mt:34,  span:false },
+    { sz:150, r:-1.0, mt:-14, span:false },
+    { sz:235, r:0.6,  mt:0,   span:true  },
+    { sz:110, r:1.8,  mt:0,   span:false },
+    { sz:120, r:-1.4, mt:0,   span:false },
+    { sz:165, r:1.0,  mt:22,  span:false },
+    { sz:140, r:-0.8, mt:-10, span:false },
+    { sz:195, r:1.5,  mt:0,   span:false },
+    { sz:130, r:-1.7, mt:28,  span:false }
+  ];
+  const tile = (item, i) => {
+    const v = VARIANTS[i % VARIANTS.length];
+    const style = `--sz:${v.sz}px;--r:${v.r}deg;margin-top:${v.mt}px;${v.span ? "grid-row:span 2;" : ""}`;
     if(item.type === "quote"){
-      return `<div class="pin-quote-card"><p>${esc(item.quoteText)}</p></div>`;
+      return `<div class="pin-quote-card" style="${style}"><p>${esc(item.quoteText)}</p></div>`;
     }
     const tags = [item.caption, item.sub].filter(Boolean);
     return `
-      <div class="pin-card">
+      <div class="pin-card" style="${style}">
         <div class="pin-media" style="${item.image ? `background-image:url('${item.image}')` : ""}"></div>
         <div class="pin-tags">${tags.map(t=>`<span>${esc(t)}</span>`).join("")}</div>
       </div>
     `;
   };
-  const half = Math.ceil(items.length / 2);
-  const rows = [items.slice(0, half), items.slice(half)];
-  track.innerHTML = rows.map(row => `<div class="pin-row">${row.map(tile).join("")}</div>`).join("");
+  track.innerHTML = items.map(tile).join("");
 }
 
 function renderGarden(data){
