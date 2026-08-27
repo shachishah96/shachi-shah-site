@@ -1,46 +1,49 @@
 {
   "sectionEyebrow": "04 in collaboration",
   "sectionTitle": "collaborations & community work",
-  "sectionIntro": "work made alongside others: co-authored, collectively built, or given rather than billed. spanning school, exhibition, and classroom.",
+  "sectionIntro": "the work spans across disciplines and scales, from landscape and architecture to research-led spatial interventions. these collaborations bring together observation, design thinking and the realities of working with people, places and organisations",
   "items": [
     {
       "id": "eme-temple-garden",
-      "year": "incredible garden art · 2026 to present · vadodara, india",
-      "title": "eme temple garden & csr public space revamp",
-      "description": "leading a government-collaborated csr public space revamp at the eme temple in vadodara, from site approval through design proposal to execution.",
-      "tags": ["csr strategy", "client pitching"],
+      "year": "incredible garden art · vadodara, india · 2026",
+      "title": "eme temple garden- a csr public space revamp",
+      "description": "a landscape rejuvenation strategy for eme temple, reimagining its existing garden as a more accessible and inviting public environment. the proposal works with the character of the existing campus while introducing spaces for gathering, meditation, pause and everyday use.",
+      "tags": [
+        "csr strategy",
+        "landscape design"
+      ],
       "pending": false
     },
     {
       "id": "kochi-biennale",
-      "year": "2016 · kochi, india",
-      "title": "the itinerant home (kochi-muziris biennale)",
-      "description": "an installation examining the transient nature of home using found materials, built with a multidisciplinary team combining spatial research with public engagement.",
-      "tags": ["exhibition & installation design", "participatory fieldwork"],
+      "year": "kochi-muziris biennale · kochi, india · 2016",
+      "title": "the itinerant home",
+      "description": "an installation exploring the transient nature of home through the lives and material practices of the kunchi kurve community. developed through neighbourhood documentation and multidisciplinary collaboration, the project translated their everyday relationship with work, movement, and dwelling into a spatial installation using found materials.",
+      "tags": [
+        "exhibition & installation design",
+        "participatory fieldwork"
+      ],
       "pending": false
     },
     {
       "id": "books-and-compilations",
       "year": "school of environment and architecture",
-      "title": "books and compilations",
-      "description": "[to finalise] co-authored and compiled written work, including a book co-authored during time at sea.",
-      "tags": ["editorial writing"],
-      "pending": true
-    },
-    {
-      "id": "documentation",
-      "year": "[to finalise]",
-      "title": "documentation",
-      "description": "[to finalise]",
-      "tags": [],
-      "pending": true
+      "title": "like a regular day - stories of a new economy in mumbai",
+      "description": "a co-authored book emerging from urban studies, exploring mumbai’s changing social and economic fabric through the stories of people shaping its new economies. structured as a murder mystery, the narrative moves across the city through interconnected characters and locations, revealing the networks, work forms and everyday relationships that make up its contemporary urban life.",
+      "tags": [
+        "urban research",
+        "writing"
+      ],
+      "pending": false
     },
     {
       "id": "khar-teaching",
-      "year": "2018 to 2019 · mumbai, india",
-      "title": "volunteer teacher, khar educational society",
-      "description": "taught values-based lessons to children aged 4 to 7, fostering critical thinking and teamwork alongside a diverse volunteer team.",
-      "tags": ["teaching & facilitation"],
+      "year": "khar educational society · mumbai, india · 2018 to 2019",
+      "title": "volunteer teacher",
+      "description": "taught values-based lessons to children aged 4 to 7, using stories, activities and collaborative exercises to encourage critical thinking, teamwork, and reflection. worked alongside a diverse volunteer team to adapt lessons to different learning styles and create an engaging classroom environment.",
+      "tags": [
+        "teaching & facilitation"
+      ],
       "pending": false
     }
   ]
