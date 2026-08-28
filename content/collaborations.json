@@ -9,6 +9,8 @@
       "title": "eme temple garden & csr public space revamp",
       "description": "leading a government-collaborated csr public space revamp at the eme temple in vadodara, from site approval through design proposal to execution.",
       "tags": ["csr strategy", "client pitching"],
+      "color": "pine",
+      "image": "",
       "pending": false
     },
     {
@@ -17,6 +19,8 @@
       "title": "the itinerant home (kochi-muziris biennale)",
       "description": "an installation examining the transient nature of home using found materials, built with a multidisciplinary team combining spatial research with public engagement.",
       "tags": ["exhibition & installation design", "participatory fieldwork"],
+      "color": "slate",
+      "image": "",
       "pending": false
     },
     {
@@ -25,6 +29,8 @@
       "title": "books and compilations",
       "description": "[to finalise] co-authored and compiled written work, including a book co-authored during time at sea.",
       "tags": ["editorial writing"],
+      "color": "sage",
+      "image": "",
       "pending": true
     },
     {
@@ -33,6 +39,8 @@
       "title": "documentation",
       "description": "[to finalise]",
       "tags": [],
+      "color": "slate-light",
+      "image": "",
       "pending": true
     },
     {
@@ -41,6 +49,8 @@
       "title": "volunteer teacher, khar educational society",
       "description": "taught values-based lessons to children aged 4 to 7, fostering critical thinking and teamwork alongside a diverse volunteer team.",
       "tags": ["teaching & facilitation"],
+      "color": "pine",
+      "image": "",
       "pending": false
     }
   ]

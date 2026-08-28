@@ -222,11 +222,18 @@ collections:
               - { label: "id", name: "id", widget: "string" }
               - { label: "year / place", name: "year", widget: "string" }
               - { label: "title", name: "title", widget: "string" }
-              - { label: "description", name: "description", widget: "text" }
-              - label: "tags"
+              - label: "description (shown on hover over the image)"
+                name: "description"
+                widget: "text"
+              - label: "tags (shown on the image)"
                 name: "tags"
                 widget: "list"
                 field: { label: "tag", name: "tag", widget: "string" }
+              - label: "card colour (used only if no image is uploaded)"
+                name: "color"
+                widget: "select"
+                options: ["pine", "sage", "slate", "slate-light"]
+              - { label: "image", name: "image", widget: "image", required: false }
               - { label: "still pending / unconfirmed?", name: "pending", widget: "boolean", default: false }
 
   - name: "note"

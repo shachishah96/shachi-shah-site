@@ -15,6 +15,7 @@
     --sage:#7C8B5B;
     --slate:#3E5B66;
     --slate-tint:#E9EEF0;
+    --slate-tint-light:#F3F7F9;
     --slate-light:#6F94A0;
     --white:#FFFFFF;
     --tag-radius:4px;
@@ -42,7 +43,7 @@
 
   /* FLOWER CURSOR */
   #cursorFlower{
-    position:fixed;top:0;left:0;width:24px;height:24px;pointer-events:none;z-index:9999;
+    position:fixed;top:0;left:0;width:30px;height:30px;pointer-events:none;z-index:9999;
     transform:translate(-50%,-50%);transition:width 0.25s,height 0.25s;
     filter:drop-shadow(0 1px 3px rgba(0,0,0,0.25));
   }
@@ -145,12 +146,13 @@
   .section-head .num{font-size:1.15rem;letter-spacing:0.1em;opacity:0.55;text-transform:lowercase;}
   .section-head h2{font-size:clamp(2.2rem,4.5vw,3.5rem);text-transform:lowercase;overflow:hidden;}
   .section-head h2 .wipe{display:inline-block;clip-path:inset(0 100% 0 0);}
-  .section-intro{max-width:1300px;margin:0 auto 3rem;padding:0 2rem;font-size:1.05rem;line-height:1.7;opacity:0.8;}
+  .section-intro{max-width:1300px;margin:0 auto 3rem;padding:0 2rem;font-size:1.12rem;line-height:1.7;opacity:0.8;}
   .section-intro span{display:inline-block;max-width:720px;}
   .section-block{padding-bottom:6rem;}
   .section-block.tint-pine{background:var(--pine-tint);}
   .section-block.tint-slate{background:var(--slate-tint);}
   .section-block.tint-white{background:var(--white);}
+  .section-block.tint-slate-light{background:var(--slate-tint-light);}
 
   /* GRID / CARDS */
   .grid{max-width:920px;margin:0 auto;padding:0 2rem 2rem;display:grid;grid-template-columns:repeat(2,1fr);gap:2.5rem;}
@@ -162,13 +164,14 @@
   .card-media::after{content:'';position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,0.5), transparent 60%);}
   .card-media .chips{position:relative;z-index:1;display:flex;gap:0.4rem;flex-wrap:wrap;}
   .card-media .chips span{
-    color:#fff;font-size:0.62rem;letter-spacing:0.08em;text-transform:lowercase;
+    color:#fff;font-size:0.72rem;letter-spacing:0.08em;text-transform:lowercase;
+    background:rgba(255,255,255,0.14);
     border:1px solid rgba(255,255,255,0.5);padding:0.25rem 0.7rem;border-radius:var(--tag-radius);
   }
   .card-info{padding:1.4rem 0.2rem;}
-  .card-info .meta{font-size:0.75rem;opacity:0.55;letter-spacing:0.05em;text-transform:lowercase;margin-bottom:0.5rem;}
+  .card-info .meta{font-size:0.85rem;opacity:0.55;letter-spacing:0.05em;text-transform:lowercase;margin-bottom:0.5rem;}
   .card-info h3{font-size:1.6rem;margin-bottom:0.5rem;text-transform:lowercase;}
-  .card-info p{font-size:0.9rem;line-height:1.6;opacity:0.8;}
+  .card-info p{font-size:0.98rem;line-height:1.6;opacity:0.8;}
 
   /* RESEARCH LIST */
   .research-list{max-width:1300px;margin:0 auto;padding:0 2rem;}
@@ -177,35 +180,36 @@
   .research-item:hover{background:rgba(30,32,31,0.03);}
   .research-item .r-thumb{width:160px;height:120px;border-radius:6px;background:var(--pine-tint);background-size:cover;background-position:center;flex-shrink:0;}
   .research-item h3{font-size:1.7rem;margin-bottom:0.6rem;text-transform:lowercase;}
-  .research-item .r-sub{font-size:0.8rem;letter-spacing:0.05em;text-transform:lowercase;opacity:0.55;margin-bottom:0.8rem;}
-  .research-item p{font-size:0.95rem;line-height:1.7;opacity:0.85;max-width:640px;margin-bottom:1rem;}
+  .research-item .r-sub{font-size:0.92rem;letter-spacing:0.05em;text-transform:lowercase;opacity:0.55;margin-bottom:0.8rem;}
+  .research-item p{font-size:1.02rem;line-height:1.7;opacity:0.85;max-width:640px;margin-bottom:1rem;}
   .research-item .r-tagcol{display:flex;flex-direction:column;gap:0.5rem;align-items:flex-end;}
   .research-item .r-tagcol span{
-    white-space:nowrap;font-size:0.68rem;letter-spacing:0.06em;text-transform:lowercase;
+    white-space:nowrap;font-size:0.78rem;letter-spacing:0.06em;text-transform:lowercase;
     color:var(--slate);border:1px solid var(--slate);padding:0.3rem 0.8rem;border-radius:var(--tag-radius);
   }
 
-  /* COLLABORATIONS */
-  .collab-grid{max-width:1300px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;}
-  .collab-card{border:1px solid rgba(30,32,31,0.15);border-radius:8px;padding:1.8rem;}
-  .collab-card .c-year{font-size:0.75rem;letter-spacing:0.05em;text-transform:lowercase;opacity:0.55;margin-bottom:0.6rem;}
-  .collab-card h3{font-size:1.5rem;margin-bottom:0.6rem;text-transform:lowercase;}
-  .collab-card p{font-size:0.9rem;line-height:1.65;opacity:0.85;margin-bottom:0.9rem;}
-  .collab-card .c-tags{display:flex;flex-wrap:wrap;gap:0.4rem;}
-  .collab-card .c-tags span{
-    font-size:0.65rem;letter-spacing:0.05em;text-transform:lowercase;color:var(--pine);
-    border:1px solid var(--pine);padding:0.25rem 0.7rem;border-radius:var(--tag-radius);
+  /* COLLABORATIONS: same card language as practice (image + chips + info below),
+     plus a hover-reveal description on the image itself; not a link. */
+  .collab-grid{max-width:1300px;margin:0 auto;padding:0 2rem 2rem;display:grid;grid-template-columns:repeat(2,1fr);gap:2.5rem;}
+  .collab-card2{position:relative;}
+  .collab-card2.pending .card-media{opacity:0.7;}
+  .collab-hover{
+    position:absolute;inset:0;z-index:2;background:rgba(255,255,255,0.78);
+    display:flex;align-items:center;justify-content:center;padding:2rem;
+    opacity:0;transition:opacity 0.3s ease;pointer-events:none;
   }
-  .collab-card.pending{border-style:dashed;opacity:0.75;}
+  .card-media:hover .collab-hover{opacity:1;}
+  .collab-hover p{font-size:1rem;line-height:1.65;color:var(--ink);text-align:center;}
+  @media(max-width:800px){ .collab-grid{grid-template-columns:1fr;} }
 
   /* NOTE: lighter background, dark text */
-  .note-band{background:var(--white);color:var(--ink);padding:5rem 2rem;}
+  .note-band{background:transparent;color:var(--ink);padding:5rem 2rem;}
   .note-band-inner{max-width:1300px;margin:0 auto;}
   .note-eyebrow{font-size:1.15rem;letter-spacing:0.1em;opacity:0.55;text-transform:lowercase;margin-bottom:0.6rem;}
   .note-brand{display:flex;align-items:baseline;gap:1rem;margin-bottom:1.2rem;}
   .note-brand .note-word{font-family:'Cormorant Garamond',serif;font-size:3rem;font-style:italic;text-transform:lowercase;color:var(--slate);}
   .note-brand .note-sub{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-style:italic;text-transform:lowercase;color:var(--slate);opacity:1;}
-  .note-desc{max-width:680px;font-size:1.05rem;line-height:1.75;opacity:0.9;margin-bottom:2.5rem;}
+  .note-desc{max-width:680px;font-size:1.12rem;line-height:1.75;opacity:0.9;margin-bottom:2.5rem;}
   .note-honest{
     max-width:680px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;
     opacity:0.8;margin-bottom:3rem;border-left:2px solid rgba(30,32,31,0.25);padding-left:1.2rem;
@@ -217,10 +221,10 @@
   .note-card .status{font-size:0.68rem;letter-spacing:0.1em;text-transform:lowercase;color:var(--slate);margin-bottom:0.7rem;opacity:0.95;}
   .note-card .post-num{font-size:0.68rem;opacity:0.5;letter-spacing:0.1em;text-transform:lowercase;margin-bottom:0.4rem;}
   .note-card h3{font-family:'Cormorant Garamond',serif;font-size:1.35rem;margin-bottom:0.6rem;text-transform:lowercase;}
-  .note-card p{font-size:0.87rem;line-height:1.6;opacity:0.85;}
+  .note-card p{font-size:0.95rem;line-height:1.6;opacity:0.85;}
 
   /* ABOUT / CV */
-  .about{max-width:1300px;margin:0 auto;padding:6rem 2rem;display:grid;grid-template-columns:0.9fr 1.4fr;gap:4rem;}
+  .about{max-width:1300px;margin:0 auto;padding:6rem 2rem;display:grid;grid-template-columns:0.9fr 1.4fr;gap:4rem;align-items:start;}
   .about-write{
     font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,2vw,1.4rem);
     line-height:1.65;text-transform:lowercase;max-width:540px;margin-bottom:1.6rem;
@@ -228,16 +232,24 @@
   .about-write .accent-word{color:var(--pine);font-style:italic;}
   .cv-link{display:inline-block;margin-top:2rem;font-size:0.85rem;letter-spacing:0.08em;text-transform:lowercase;border-bottom:1px solid var(--ink);padding-bottom:2px;}
 
-  .timeline{position:relative;padding-left:2.5rem;}
+  .timeline{
+    position:relative;padding-left:2.5rem;padding-right:0.8rem;
+    max-height:520px;overflow-y:auto;scrollbar-width:none;
+  }
+  .timeline:hover{scrollbar-width:thin;scrollbar-color:rgba(30,32,31,0.3) transparent;}
+  .timeline::-webkit-scrollbar{width:0px;background:transparent;}
+  .timeline:hover::-webkit-scrollbar{width:6px;}
+  .timeline::-webkit-scrollbar-track{background:transparent;}
+  .timeline::-webkit-scrollbar-thumb{background:rgba(30,32,31,0.25);border-radius:4px;}
   .timeline::before{content:'';position:absolute;left:4px;top:6px;bottom:6px;width:1px;background:rgba(30,32,31,0.2);}
   .t-item{position:relative;padding-bottom:2rem;}
   .t-item:last-child{padding-bottom:0;}
   .t-item::before{content:'';position:absolute;left:-2.5rem;top:6px;width:9px;height:9px;border-radius:50%;background:var(--pine);}
-  .t-row{display:grid;grid-template-columns:390px auto;gap:1.5rem;align-items:baseline;}
-  .t-item .t-year{font-size:0.8rem;letter-spacing:0.05em;text-transform:lowercase;opacity:0.55;white-space:nowrap;}
-  .t-item .t-role{font-size:1.05rem;font-weight:400;text-transform:lowercase;}
-  .t-item .t-org{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;color:var(--slate);text-transform:lowercase;}
-  .t-item .t-loc{font-size:0.75rem;opacity:0.5;margin-top:0.15rem;}
+  .t-row{display:grid;grid-template-columns:430px auto;gap:1.5rem;align-items:baseline;}
+  .t-item .t-year{font-size:0.92rem;letter-spacing:0.05em;text-transform:lowercase;opacity:0.55;white-space:nowrap;}
+  .t-item .t-role{font-size:1.16rem;font-weight:400;text-transform:lowercase;}
+  .t-item .t-org{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.28rem;color:var(--slate);text-transform:lowercase;}
+  .t-item .t-loc{font-size:0.85rem;opacity:0.5;margin-top:0.15rem;}
 
   /* PINBOARD: beyond the work — scattered collage, 2 rows tall, scrolls sideways */
   .pinboard-section{padding-bottom:4rem;}
@@ -264,7 +276,7 @@
   }
   .pin-card .pin-tags{display:flex;flex-wrap:wrap;gap:0.3rem;max-width:var(--sz);}
   .pin-card .pin-tags span{
-    font-size:0.58rem;letter-spacing:0.04em;text-transform:lowercase;opacity:0.75;
+    font-size:0.68rem;letter-spacing:0.04em;text-transform:lowercase;opacity:0.75;
     border:1px solid rgba(30,32,31,0.22);padding:0.22rem 0.55rem;border-radius:var(--tag-radius);
   }
   .pin-quote-card{
@@ -331,7 +343,7 @@
     max-width:640px;margin-bottom:1rem;text-transform:lowercase;
   }
   .foot-cta .accent{color:var(--bg);opacity:0.8;}
-  .foot-prompt{font-size:0.95rem;opacity:0.75;margin-bottom:2rem;max-width:480px;line-height:1.6;}
+  .foot-prompt{font-size:1.02rem;opacity:0.75;margin-bottom:2rem;max-width:480px;line-height:1.6;}
   .contact-form{display:flex;flex-direction:column;gap:1.1rem;max-width:480px;}
   .contact-form input, .contact-form textarea{
     background:transparent;border:none;border-bottom:1px solid rgba(246,248,245,0.35);
@@ -375,8 +387,8 @@
 </svg>
 <div class="nav-backdrop"></div>
 
-<svg id="cursorFlower" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-  <g transform="translate(20,20)">
+<svg id="cursorFlower" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(25,25)">
     <ellipse rx="6" ry="12" fill="#E3B23C" opacity="0.9" transform="rotate(0)   translate(0,-10)"/>
     <ellipse rx="6" ry="12" fill="#E3B23C" opacity="0.9" transform="rotate(72)  translate(0,-10)"/>
     <ellipse rx="6" ry="12" fill="#E3B23C" opacity="0.9" transform="rotate(144) translate(0,-10)"/>
@@ -455,7 +467,7 @@
 
 <!-- COLLABORATIONS -->
 <!-- NOTE -->
-<section id="note" class="section-block tint-white">
+<section id="note" class="section-block tint-slate-light">
   <div class="note-band">
     <div class="note-band-inner">
       <div class="num note-eyebrow" id="noteEyebrow"></div>
@@ -655,11 +667,15 @@ function renderCollaborations(data){
   document.getElementById("collabIntro").textContent = data.sectionIntro || "";
   const grid = document.getElementById("collabGrid");
   grid.innerHTML = (data.items || []).map(item => `
-    <div class="collab-card ${item.pending ? "pending" : ""}">
-      <div class="c-year">${esc(item.year)}</div>
-      <h3>${esc(item.title)}</h3>
-      <p>${esc(item.description)}</p>
-      <div class="c-tags">${(item.tags||[]).map(t=>`<span>${esc(t)}</span>`).join("")}</div>
+    <div class="collab-card2 ${item.pending ? "pending" : ""}">
+      <div class="card-media" style="${mediaStyle(item)}">
+        <div class="chips">${(item.tags||[]).map(t=>`<span>${esc(t)}</span>`).join("")}</div>
+        <div class="collab-hover"><p>${esc(item.description)}</p></div>
+      </div>
+      <div class="card-info">
+        <div class="meta">${esc(item.year)}</div>
+        <h3>${esc(item.title)}</h3>
+      </div>
     </div>
   `).join("");
 }
@@ -879,7 +895,7 @@ function setupContentAnimations(){
     });
   });
 
-  gsap.utils.toArray(".card, .research-item, .note-card, .collab-card").forEach(el=>{
+  gsap.utils.toArray(".card, .research-item, .note-card, .collab-card2").forEach(el=>{
     gsap.from(el, {
       opacity:0, y:40, duration:0.8, ease:"power2.out",
       scrollTrigger:{ trigger: el, start:"top 90%" }
