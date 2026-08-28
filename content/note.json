@@ -1,12 +1,26 @@
 {
-  "sectionEyebrow": "03 an evolving independent research practice",
-  "description": "note isn't a brand or a business. it's a practice and a lens: a way of noticing and finding meaning in everyday life and everyday space. it lives, for now, on instagram. some posts are theory, shot to camera; some are designed carousels; some are just personal, unfiltered pieces about noticing something and sitting with it.",
-  "honestNote": "this is a working practice, not a finished archive. most of what's here is still taking shape: some posts are live, some are drafted, some are scripts waiting to be filmed. that's the honest state of it.",
+  "sectionEyebrow": "03 independent research practice",
+  "description": "a practice of noticing space and everyday life through the lens of environmental psychology, architecture and human behaviour. note brings research, observation, teaching and conversations together to question how space is experienced, interpreted and designed.",
+  "honestNote": "note is an evolving independent practice, with its body of work continuing to take shape.",
   "instagramHandle": "@notebyshachi",
   "posts": [
-    { "postNum": "", "status": "", "title": "post occupancy evaluation", "description": "[to finalise]" },
-    { "postNum": "", "status": "", "title": "psychology and design", "description": "[to finalise]" },
-    { "postNum": "", "status": "", "title": "teaching architecture students", "description": "[to finalise]" },
-    { "postNum": "", "status": "", "title": "corporate workshops", "description": "[to finalise]" }
+    {
+      "postNum": "",
+      "status": "",
+      "title": "post occupancy evaluation",
+      "description": "an ongoing post occupancy evaluation of s3d india's new office, studying the relationship between the firm's design intentions and how the space is actually experienced by its users. interviews with the designers are combined with mixed-method evaluation among staff, with the findings intended to become an evidence-based reference for future workplace design."
+    },
+    {
+      "postNum": "",
+      "status": "",
+      "title": "spatial psychology in architectural education",
+      "description": "an ongoing education module introducing architecture students to the psychological dimensions of space, from learning how to read environments through a behavioural lens to translating those observations into design decisions. the aim is to make psychological thinking a more intuitive part of the architectural process."
+    },
+    {
+      "postNum": "",
+      "status": "",
+      "title": "locating psycho-spatialities- workshops for practicing archtiects",
+      "description": "workshops that open up new ways of questioning design through the psychological and behavioural dimensions of space. the first, locating psycho-spatialities, was conducted at s3d india, using discussion and exercises to examine how psychological considerations can become part of everyday design practice."
+    }
   ]
 }

@@ -1,92 +1,172 @@
 {
-  "sectionEyebrow": "01 grounded design",
+  "sectionEyebrow": "01 practice",
   "sectionTitle": "built & professional work",
-  "sectionIntro": "architectural and landscape design projects, professional and academic, spanning public space, institutional design, and housing across india, nigeria, and the uk.",
+  "sectionIntro": "architectural and landscape design projects, spanning public space, institutional design, and housing, each one built around the underlying question: how a space wants to be gathered in, moved through, or left alone",
   "items": [
     {
       "id": "kotambi-stadium",
       "title": "kotambi international cricket stadium",
-      "meta": "studio 3 designs · 2020 to 2022 · gujarat, india",
+      "meta": "studio 3 designs · gujarat, india · 2020 to 2022",
       "color": "pine",
       "image": "",
-      "tags": ["public space design", "construction documentation"],
-      "description": "schematic design lead for the north stand media block, a five-level structure integrating press, commentary, camera, and broadcast facilities. concrete and glass articulated as \"the eye of the stadium.\"",
-      "facts": [
-        { "label": "role", "value": "schematic design lead, north stand" },
-        { "label": "firm", "value": "studio 3 designs" },
-        { "label": "location", "value": "vadodara, gujarat" },
-        { "label": "scale", "value": "five-level media block" }
+      "gallery": [],
+      "tags": [
+        "public space design",
+        "construction documentation"
       ],
-      "detailTags": ["public space design", "construction documentation", "wayfinding & circulation"],
+      "description": "holding the spirit of cricket in india, from gully games to international matches, the kotambi international cricket stadium sits in gujarat providing a wholesome experience. the north stand, under direct responsibility, became the eye of the stadium - a five-level structure built entirely around unobstructed sightlines and the idea of surveillance.",
+      "facts": [
+        {
+          "label": "role",
+          "value": "design lead, north stand"
+        },
+        {
+          "label": "firm",
+          "value": "studio 3 designs"
+        },
+        {
+          "label": "location",
+          "value": "vadodara, gujarat, india"
+        },
+        {
+          "label": "scale of north stand",
+          "value": "42,000 sq ft"
+        }
+      ],
+      "detailTags": [
+        "public space design",
+        "wayfinding & circulation",
+        "construction and services"
+      ],
       "body": [
-        "schematic design lead for the north stand media block of the kotambi international cricket stadium, integrating media, commentary, and broadcast facilities across a five-level structure. the brief called for a stand that could serve press, commentators, and camera crews simultaneously, without any of those functions compromising the others' sightlines.",
-        "## the eye of the stadium",
-        "the north stand serves as the heart of surveillance and communication for the area. dubbed \"the eye\" of the stadium, it houses the print media block, commentary boxes, camera controls, broadcast facilities, and the press conference room, stacked across five levels from ground level up to roughly 21 metres.",
-        "the design mirrors that watchful role: sleek lines and a strategic position give the stand optimal sightlines for media personnel and commentators, while reinforcing its symbolic significance as the vantage point overseeing everything unfolding on the field.",
-        "## materials and form",
-        "concrete and glass carry the narrative. concrete gives the structure its foundation of resilience and reliability, while glass brings transparency and light, connecting the enclosed media functions back to the stadium and the match beyond. sweeping roof lines and angular geometries were used to suggest movement and energy, rooting a contemporary form in the wider vocabulary of cricket architecture in india.",
-        "master plans, circulation networks, and wayfinding systems were also developed for related public, residential, and commercial projects during this period, totalling over 150,000 sq ft of built space, alongside construction documentation and contractor coordination for residential towers and apartment interiors."
+        "the design draws from the full spectrum of how the sport is actually played and watched across the country, a spirited match in a narrow lane and a full international tournament held to the same standard of attention. the intent throughout was inclusivity: a space genuinely for the people, open enough to hold a gully match's energy and a tournament's scale at once, with an earthy, raw aesthetic that stays close to the everyday culture of the sport.",
+        "## eye of the stadium",
+        "the north stand became the ‘eye’ of the stadium, conceived around the act of watching, recording, and staying connected with the game. the five-level structure brings together the operational functions that sit behind an international match, including an indoor practice room, press conference room, commentary boxes and print media spaces above, followed by lounges, camera platforms, broadcast facilities, and service areas. each function is positioned in relation to the pitch, with the rising section allowing the spaces above to maintain clear and uninterrupted visual access to the field. the architecture therefore turns the practical requirement of sightlines into a defining spatial quality, giving the people working within the stand a direct and continuous relationship with the spectacle outside.",
+        "as the building rises, the experience shifts from being close to the activity of the stadium to having a broader overview of it. spaces are arranged along this changing relationship with the field, allowing different users to experience the same event from distinct positions and distances. concrete forms establish the structural weight and permanence of the stand, while glass opens the interior towards the pitch and the wider stadium. this interplay of enclosure and visual openness gives the north stand its identity as the ‘eye’, not simply because it overlooks the field, but because its architecture is organised around the people and processes that watch, interpret, document, and share the game."
       ]
     },
     {
       "id": "gaudium-school",
       "title": "gaudium school",
-      "meta": "kakani associates · 2018 to 2019 · hyderabad, india",
+      "meta": "kakani associates · hyderabad, india · 2018 to 2019",
       "color": "sage",
       "image": "",
-      "tags": ["landscape design", "sustainable design strategy"],
-      "description": "landscape and circulation strategy for a school built around \"nurturing the whole child.\" a designed swale doubles as water management and an interactive outdoor learning feature, using geocell instead of concrete.",
-      "facts": [
-        { "label": "role", "value": "landscape & circulation design" },
-        { "label": "firm", "value": "kakani associates" },
-        { "label": "location", "value": "hyderabad, india" },
-        { "label": "philosophy", "value": "nurturing the whole child" }
+      "gallery": [],
+      "tags": [
+        "landscape design",
+        "sustainable design strategy",
+        "institutional public space"
       ],
-      "detailTags": ["landscape design", "sustainable design strategy"],
+      "description": "a design strategy for a school built around nurturing the whole child. the campus is shaped as an environment for learning beyond the classroom where the plinth, shared spaces and landscape come together to support exploration, interaction and connection with nature.",
+      "facts": [
+        {
+          "label": "role",
+          "value": "landscape & circulation design"
+        },
+        {
+          "label": "firm",
+          "value": "kakani associates"
+        },
+        {
+          "label": "scale",
+          "value": "27 acres"
+        },
+        {
+          "label": "location",
+          "value": "hyderabad, india"
+        },
+        {
+          "label": "philosophy",
+          "value": "nurturing the whole child"
+        }
+      ],
+      "detailTags": [
+        "landscape design",
+        "sustainable design strategy",
+        "institutional public space design"
+      ],
       "body": [
-        "gaudium school places a strong emphasis on holistic development and environmental sustainability, built around nurturing the whole child by fostering intellectual, emotional, physical, and social growth. the landscape and circulation strategy was developed to embody those values spatially, not just programmatically.",
-        "## the swale as classroom",
-        "a shallow water body, the swale, runs through the campus doing double duty: a sustainable water management system and an engaging outdoor learning environment for students. it was designed with each contour planned to serve different functions depending on where the swale meets the built form. percolation chambers and a permeable crs stone lining facilitate natural filtration and groundwater recharge while collecting rainwater runoff.",
-        "the swale's landscape design includes dry, naturalistic plantings and rough stones, creating a visually appealing space for students to explore and observe. steps and stones let students safely access the swale when it's dry, folding it into daily use as an interactive outdoor learning feature rather than a fenced-off utility.",
-        "## material choices",
-        "geocell, a material used in construction and slope protection with topsoil and other infill materials, was used in place of concrete across several landscaped areas, a more sustainable approach that avoids concrete entirely on steep slopes in narrow spaces.",
-        "large open-plan classrooms encourage interactive teaching methods, and the ample shared spaces, amphitheatre, landscaped pockets, fish pond, and sitting areas, promote social interaction and a strong sense of community throughout the school day."
+        "the gaudium school places a strong emphasis on holistic development and environmental sustainability, built around nurturing the whole child by fostering intellectual, emotional, physical, and social growth. the landscape and circulation strategy was developed to embody those values spatially, not just programmatically.",
+        "## external development",
+        "the school plinth was developed as a continuous landscape of movement, gathering and pause, connecting classrooms with amphitheatres, shared spaces, landscaped pockets and informal seating. rather than separating learning, play and social interaction, the landscape allows these experiences to overlap, making circulation itself part of the everyday learning environment.",
+        "the swale extends this approach into the site's ecological infrastructure. designed to collect rainwater and support filtration and groundwater recharge, its changing contours create opportunities for access, observation and interaction when dry. naturalistic planting, rough stone, steps and seating integrate it into the campus rather than treating it as a concealed utility.",
+        "geocell was used in steep, narrow landscapes areas in place of concrete, allowing slope protection to remain integrated with the landscape. together, these strategies make the campus a connected environment where movement, social interaction, ecology and learning coexist."
       ]
     },
     {
       "id": "yash-garden",
-      "title": "yash garden",
-      "meta": "incredible garden art · 2026 · vadodara, india",
+      "title": "rooted radiance - a garden of energy",
+      "meta": "incredible garden art · vadodara, india · 2026",
       "color": "slate",
       "image": "",
-      "tags": ["landscape design"],
-      "description": "[to finalise] hardscape and softscape design for a 60,000 sq ft private garden for yash high voltage.",
-      "facts": [
-        { "label": "role", "value": "design lead" },
-        { "label": "firm", "value": "incredible garden art" },
-        { "label": "location", "value": "vadodara, india" },
-        { "label": "scale", "value": "60,000 sq ft private garden" }
+      "gallery": [],
+      "tags": [
+        "landscape design",
+        "environmental psychology"
       ],
-      "detailTags": ["landscape design"],
+      "description": "a landscape strategy for transforming an industrial campus into a garden of energy. rooted in yash high voltage's identity of precision and power, the movements through the garden reflect a transfer of energy through different spaces introducing a softer spatial experience.",
+      "facts": [
+        {
+          "label": "role",
+          "value": "design lead"
+        },
+        {
+          "label": "firm",
+          "value": "incredible garden art"
+        },
+        {
+          "label": "location",
+          "value": "vadodara, india"
+        },
+        {
+          "label": "scale",
+          "value": "60,000 sq ft"
+        }
+      ],
+      "detailTags": [
+        "landscape design",
+        "environmental psychology"
+      ],
       "body": [
-        "[to finalise]"
+        "yash high voltage is a company built around precision, power and performance. the garden was conceived as an extension of that identity, translating the language of energy into a landscape that could support both the everyday workplace and larger moments of collective gathering. rather than treating the garden as a decorative layer around the industrial campus, the proposal develops it as an environment with its own rhythm and identity.",
+        "## circulation and materiality",
+        "the landscape is organised around a central lawn and a continuous network of paths that move between different spatial experiences. open areas support informal recreation and larger gatherings, while quieter pockets offer places to pause away from the workplace. the entry avenue establishes a stronger sense of arrival while the zen garden, landscaped pockets, sculpted planting and shaded areas create shifts in scale and atmosphere across the campus. an amphitheatre extends the garden into a space for collective events, with an organic five-step seating arrangement and additional lawn seating.",
+        "the landscape also uses topography and water to create moments of visual and sensory change. gentle mounds shape the movement through the garden, while a rock fountain becomes a focal point within the larger landscape. material choices move between lawn, gravel, cobbles, stone and planting creating distinct textures and spatial cues without losing the raw character of the site. the overall approach is to make the industrial campus feel more connected to nature and more generous to the people who use it, turning the garden into an everyday extension of the workplace rather than simply a backdrop to it."
       ]
     },
     {
       "id": "housing-projects",
       "title": "housing projects",
-      "meta": "independent · 2020 to ongoing · india / nigeria",
+      "meta": "independent · india · 2020 to ongoing",
       "color": "slate-light",
       "image": "",
-      "tags": ["residential design"],
-      "description": "[to finalise] residential design work across geographies, including a full house design in nigeria.",
-      "facts": [
-        { "label": "role", "value": "independent designer" },
-        { "label": "geography", "value": "india, nigeria" }
+      "gallery": [],
+      "tags": [
+        "residential design",
+        "interior design",
+        "construction and services"
       ],
-      "detailTags": ["residential design"],
+      "description": "a collection of residential layouts and interior projects exploring the home as an extension of the self. across different scales, the work responds to lived experience, balancing collective and private spaces while using material, light, and spatial organisation to shape how a home is perceived and inhabited.",
+      "facts": [
+        {
+          "label": "role",
+          "value": "independent designer"
+        },
+        {
+          "label": "geography",
+          "value": "india"
+        }
+      ],
+      "detailTags": [
+        "residential design",
+        "interior design",
+        "construction and services"
+      ],
       "body": [
-        "[to finalise]"
+        "home is understood as an extension of the self, shaped as much by the people and relationships within it as by its physical form. across these residential projects, the design approach looks beyond the arrangement of rooms to consider how everyday routines, degrees of privacy, social relationships, and sensory qualities influence the experience of dwelling. layouts establish gradients between shared and private spaces, while materials, light, views, and details contribute to a sense of familiarity, identity, and belonging.",
+        "## studio zen \noriginally a penthouse office, was reimagined during covid as an extension of the family home for two daughters. the design responded to their everyday activities and the life of the surrounding neighbourhood, creating a flexible setting for personal space, work from home, family moments and shared activities with friends.",
+        "## sherwoods interiors\nthe design uses a continuous curved wooden wall as the organising element of the interior, linking the central living, dining, and family spaces. beyond creating a visual and material anchor, the wall makes the common areas feel continuous while maintaining distinct zones within them. lighting shifts between focused and ambient modes to support different ways of occupying the same space.",
+        "## housing complex \nan apartment typology explores housing at both the community and individual scale. the buildings are arranged around a shared central landscape, giving each home a relationship with the common space while retaining privacy. individual layouts were developed around varied household routines, with clear transitions between private rooms, formal and informal living areas and balconies each with a central shared spine."
       ]
     }
   ]
