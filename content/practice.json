@@ -53,8 +53,11 @@
       "title": "gaudium school",
       "meta": "kakani associates · hyderabad, india · 2018 to 2019",
       "color": "sage",
-      "image": "",
-      "gallery": [],
+      "image": "/images/school_1.jpg",
+      "gallery": [
+        "/images/school_2.jpg",
+        "/images/school_3.jpg"
+      ],
       "tags": [
         "landscape design",
         "sustainable design strategy",
