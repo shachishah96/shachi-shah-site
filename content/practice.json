@@ -8,8 +8,10 @@
       "title": "kotambi international cricket stadium",
       "meta": "studio 3 designs · gujarat, india · 2020 to 2022",
       "color": "pine",
-      "image": "",
-      "gallery": [],
+      "image": "/images/stadium_1.jpg",
+      "gallery": [
+        "/images/stadium_3.jpg"
+      ],
       "tags": [
         "public space design",
         "construction documentation"
