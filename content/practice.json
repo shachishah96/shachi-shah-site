@@ -102,9 +102,9 @@
     {
       "id": "yash-garden",
       "title": "rooted radiance - a garden of energy",
-      "meta": "incredible garden art · vadodara, india · 2026",
+      "meta": "incredible garden art · vadodara, india · 2026 (ongoing)",
       "color": "slate",
-      "image": "",
+      "image": "/images/yash garden.jpg",
       "gallery": [],
       "tags": [
         "landscape design",
@@ -143,10 +143,13 @@
     {
       "id": "housing-projects",
       "title": "housing projects",
-      "meta": "independent · india · 2020 to ongoing",
+      "meta": "independent · india · 2020 to present",
       "color": "slate-light",
-      "image": "",
-      "gallery": [],
+      "image": "/images/housing_1.jpg",
+      "gallery": [
+        "/images/housing_2.jpg",
+        "/images/housing_3.jpg"
+      ],
       "tags": [
         "residential design",
         "interior design",
