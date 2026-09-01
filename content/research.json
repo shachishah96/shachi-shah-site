@@ -9,8 +9,11 @@
       "title": "interplay between place identity and affordances",
       "sub": "msc dissertation · university of surrey",
       "color": "slate",
-      "image": "",
-      "gallery": [],
+      "image": "/images/envpsych_1.jpg",
+      "gallery": [
+        "/images/envpsych_1.jpg",
+        "/images/envpsych_2.jpg"
+      ],
       "description": "an exploration into london's brick lane through the relationship between the physical environment, everyday activities and perceived place identity. qualitative research combined urban fieldwork and in-depth interviews to examine how spatial qualities shape what people perceive as possible within a place, and how those experiences contribute to their sense of belonging.",
       "tags": [
         "environmental psychology",
@@ -45,8 +48,14 @@
       "title": "interpretative capacities of built-form",
       "sub": "b.arch design thesis · school of environment and architecture",
       "color": "pine",
-      "image": "",
-      "gallery": [],
+      "image": "/images/archi_5.jpg",
+      "gallery": [
+        "/images/archi_1.jpg",
+        "/images/archi_2.jpg",
+        "/images/archi_3.jpg",
+        "/images/archi_4.jpg",
+        "/images/archi_5.jpg"
+      ],
       "description": "a landscape of unusual objects: an analysis of public space identifying built-form characteristics that enable strong associations and multiple interpretations, resulting in a design proposal at the juhu selfie point sited between formal and informal settlement.",
       "tags": [
         "public space design",
@@ -82,8 +91,11 @@
       "title": "shifting spaces: courtyard housing typology",
       "sub": "student exchange programme · shanghai",
       "color": "sage",
-      "image": "",
-      "gallery": [],
+      "image": "/images/shanghai_thumbnail.jpg",
+      "gallery": [
+        "/images/shanghai_1.jpg",
+        "/images/shanghai_2.jpg"
+      ],
       "description": "a participatory exploration of a courtyard housing at dinghaiqiao lu in shanghai, examines how residents use and perceive shared space through observational fieldwork and a participatory spatial game. a modular intervention proposal translated these insights into flexible spaces for individual and collective activities within the compact settlement.",
       "tags": [
         "participatory fieldwork",
