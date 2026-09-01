@@ -226,7 +226,7 @@
   /* ABOUT / CV */
   .about{max-width:1300px;margin:0 auto;padding:6rem 2rem;display:grid;grid-template-columns:0.9fr 1.4fr;gap:4rem;align-items:start;}
   .about-write{
-    font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,2vw,1.4rem);
+    font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,1.6vw,1.15rem);
     line-height:1.65;text-transform:lowercase;max-width:540px;margin-bottom:1.6rem;
   }
   .about-write .accent-word{color:var(--pine);font-style:italic;}
@@ -236,20 +236,16 @@
     position:relative;padding-left:2.5rem;padding-right:0.8rem;
     max-height:520px;overflow-y:auto;scrollbar-width:none;
   }
-  .timeline:hover{scrollbar-width:thin;scrollbar-color:rgba(30,32,31,0.3) transparent;}
-  .timeline::-webkit-scrollbar{width:0px;background:transparent;}
-  .timeline:hover::-webkit-scrollbar{width:6px;}
-  .timeline::-webkit-scrollbar-track{background:transparent;}
-  .timeline::-webkit-scrollbar-thumb{background:rgba(30,32,31,0.25);border-radius:4px;}
+  .timeline::-webkit-scrollbar{display:none;}
   .timeline::before{content:'';position:absolute;left:4px;top:6px;bottom:6px;width:1px;background:rgba(30,32,31,0.2);}
   .t-item{position:relative;padding-bottom:2rem;}
   .t-item:last-child{padding-bottom:0;}
   .t-item::before{content:'';position:absolute;left:-2.5rem;top:6px;width:9px;height:9px;border-radius:50%;background:var(--pine);}
-  .t-row{display:grid;grid-template-columns:430px auto;gap:1.5rem;align-items:baseline;}
-  .t-item .t-year{font-size:0.92rem;letter-spacing:0.05em;text-transform:lowercase;opacity:0.55;white-space:nowrap;}
-  .t-item .t-role{font-size:1.16rem;font-weight:400;text-transform:lowercase;}
-  .t-item .t-org{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.28rem;color:var(--slate);text-transform:lowercase;}
-  .t-item .t-loc{font-size:0.85rem;opacity:0.5;margin-top:0.15rem;}
+  .t-row{display:grid;grid-template-columns:460px auto;gap:1.5rem;align-items:baseline;}
+  .t-item .t-year{font-size:1.05rem;letter-spacing:0.05em;text-transform:lowercase;opacity:0.6;white-space:nowrap;}
+  .t-item .t-role{font-size:1.26rem;font-weight:400;text-transform:lowercase;}
+  .t-item .t-org{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.4rem;color:var(--slate);text-transform:lowercase;}
+  .t-item .t-loc{font-size:1rem;opacity:0.55;margin-top:0.15rem;}
 
   /* PINBOARD: beyond the work — scattered collage, 2 rows tall, scrolls sideways */
   .pinboard-section{padding-bottom:4rem;}

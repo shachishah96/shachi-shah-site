@@ -67,7 +67,7 @@ function renderProject(item, section){
 
   document.title = `${item.title} · shachi shah`;
 
-  const galleryImages = (item.gallery || []).map(g => g.src).filter(Boolean);
+  const galleryImages = (item.gallery || []).map(g => (typeof g === "string" ? g : g && g.src)).filter(Boolean);
   if(galleryImages.length === 0 && item.image && item.image.trim() !== ""){
     galleryImages.push(item.image);
   }

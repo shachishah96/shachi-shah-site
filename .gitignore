@@ -1,0 +1,8 @@
+.DS_Store
+
+# local staging folders for source/working images before they're
+# uploaded through the CMS (which saves the final compressed files
+# straight to /images) — never meant to be committed themselves
+images/practice/
+images/research/
+images/collabs/
