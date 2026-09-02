@@ -1,7 +1,7 @@
 {
   "sectionEyebrow": "01 practice",
   "sectionTitle": "built & professional work",
-  "sectionIntro": "architectural and landscape design projects, spanning public space, institutional design, and housing, each one built around the underlying question: how a space wants to be gathered in, moved through, or left alone",
+  "sectionIntro": "architectural and landscape design projects, spanning public space, institutional design, and housing, each one built around the underlying question: how a space wants to be gathered in, moved through or left alone",
   "items": [
     {
       "id": "kotambi-stadium",
@@ -10,6 +10,7 @@
       "color": "pine",
       "image": "/images/stadium_1.jpg",
       "gallery": [
+        "/images/stadium_1.jpg",
         "/images/stadium_3.jpg",
         "/images/stadium_2.jpg"
       ],
@@ -42,10 +43,10 @@
         "construction and services"
       ],
       "body": [
-        "the design draws from the full spectrum of how the sport is actually played and watched across the country, a spirited match in a narrow lane and a full international tournament held to the same standard of attention. the intent throughout was inclusivity: a space genuinely for the people, open enough to hold a gully match's energy and a tournament's scale at once, with an earthy, raw aesthetic that stays close to the everyday culture of the sport.",
+        "the design draws from the full spectrum of how the sport is actually played and watched across the country. a spirited match in a narrow lane and a full international tournament held to the same standard of attention. the intent throughout was inclusivity: a space genuinely for the people, open enough to hold a gully match's energy and a tournament's scale at once, with an earthy, raw aesthetic that stays close to the everyday culture of the sport.",
         "## eye of the stadium",
-        "the north stand became the ‘eye’ of the stadium, conceived around the act of watching, recording, and staying connected with the game. the five-level structure brings together the operational functions that sit behind an international match, including an indoor practice room, press conference room, commentary boxes and print media spaces above, followed by lounges, camera platforms, broadcast facilities, and service areas. each function is positioned in relation to the pitch, with the rising section allowing the spaces above to maintain clear and uninterrupted visual access to the field. the architecture therefore turns the practical requirement of sightlines into a defining spatial quality, giving the people working within the stand a direct and continuous relationship with the spectacle outside.",
-        "as the building rises, the experience shifts from being close to the activity of the stadium to having a broader overview of it. spaces are arranged along this changing relationship with the field, allowing different users to experience the same event from distinct positions and distances. concrete forms establish the structural weight and permanence of the stand, while glass opens the interior towards the pitch and the wider stadium. this interplay of enclosure and visual openness gives the north stand its identity as the ‘eye’, not simply because it overlooks the field, but because its architecture is organised around the people and processes that watch, interpret, document, and share the game."
+        "the north stand became the ‘eye’ of the stadium, conceived around the act of watching, recording and staying connected with the game. the five-level structure brings together the operational functions that sit behind an international match, including an indoor practice room, press conference room, commentary boxes and print media spaces, followed by lounges, camera platforms, broadcast facilities and service areas. each function is positioned in relation to the pitch, with the rising section allowing the spaces above to maintain clear and uninterrupted visual access to the field. the architecture therefore turns the practical requirement of sightlines into a defining spatial quality, giving the people working within the stand a direct and continuous relationship with the spectacle outside.",
+        "as the building rises, the experience shifts from being close to the activity of the stadium to having a broader overview of it. spaces are arranged along this changing relationship with the field, allowing different users to experience the same event from distinct positions and distances. concrete forms establish the structural weight and permanence of the stand, while glass opens the interior towards the pitch and the wider stadium. this interplay of enclosure and visual openness gives the north stand its identity as the ‘eye’, not simply because it overlooks the field, but because its architecture is organised around the people and processes that watch, interpret, document and share the game."
       ]
     },
     {
@@ -53,8 +54,9 @@
       "title": "gaudium school",
       "meta": "kakani associates · hyderabad, india · 2018 to 2019",
       "color": "sage",
-      "image": "/images/school_1.jpg",
+      "image": "/images/school_2.jpg",
       "gallery": [
+        "/images/school_1.jpg",
         "/images/school_2.jpg",
         "/images/school_3.jpg"
       ],
@@ -96,7 +98,7 @@
         "## external development",
         "the school plinth was developed as a continuous landscape of movement, gathering and pause, connecting classrooms with amphitheatres, shared spaces, landscaped pockets and informal seating. rather than separating learning, play and social interaction, the landscape allows these experiences to overlap, making circulation itself part of the everyday learning environment.",
         "the swale extends this approach into the site's ecological infrastructure. designed to collect rainwater and support filtration and groundwater recharge, its changing contours create opportunities for access, observation and interaction when dry. naturalistic planting, rough stone, steps and seating integrate it into the campus rather than treating it as a concealed utility.",
-        "geocell was used in steep, narrow landscapes areas in place of concrete, allowing slope protection to remain integrated with the landscape. together, these strategies make the campus a connected environment where movement, social interaction, ecology and learning coexist."
+        "geocell was used in steep, narrow landscaped areas in place of concrete, allowing slope protection to remain integrated with the landscape. together, these strategies make the campus a connected environment where movement, social interaction, ecology and learning coexist."
       ]
     },
     {
@@ -136,7 +138,7 @@
       "body": [
         "yash high voltage is a company built around precision, power and performance. the garden was conceived as an extension of that identity, translating the language of energy into a landscape that could support both the everyday workplace and larger moments of collective gathering. rather than treating the garden as a decorative layer around the industrial campus, the proposal develops it as an environment with its own rhythm and identity.",
         "## circulation and materiality",
-        "the landscape is organised around a central lawn and a continuous network of paths that move between different spatial experiences. open areas support informal recreation and larger gatherings, while quieter pockets offer places to pause away from the workplace. the entry avenue establishes a stronger sense of arrival while the zen garden, landscaped pockets, sculpted planting and shaded areas create shifts in scale and atmosphere across the campus. an amphitheatre extends the garden into a space for collective events, with an organic five-step seating arrangement and additional lawn seating.",
+        "the landscape is organised around a central lawn and a continuous network of paths that move between different spatial experiences. open areas support informal recreation and larger gatherings, while quieter pockets offer places to pause away from the workplace. the entry avenue establishes a stronger sense of arrival while the zen garden, landscaped pockets, sculpted planting and shaded areas create shifts in scale and atmosphere across the campus. an amphitheatre extends the garden into a space for collective events, with an organic five-step seating arrangement.",
         "the landscape also uses topography and water to create moments of visual and sensory change. gentle mounds shape the movement through the garden, while a rock fountain becomes a focal point within the larger landscape. material choices move between lawn, gravel, cobbles, stone and planting creating distinct textures and spatial cues without losing the raw character of the site. the overall approach is to make the industrial campus feel more connected to nature and more generous to the people who use it, turning the garden into an everyday extension of the workplace rather than simply a backdrop to it."
       ]
     },
@@ -145,8 +147,9 @@
       "title": "housing projects",
       "meta": "independent · india · 2020 to present",
       "color": "slate-light",
-      "image": "/images/housing_1.jpg",
+      "image": "/images/housing.jpg",
       "gallery": [
+        "/images/housing_1.jpg",
         "/images/housing_2.jpg",
         "/images/housing_3.jpg"
       ],
@@ -172,7 +175,7 @@
         "construction and services"
       ],
       "body": [
-        "home is understood as an extension of the self, shaped as much by the people and relationships within it as by its physical form. across these residential projects, the design approach looks beyond the arrangement of rooms to consider how everyday routines, degrees of privacy, social relationships, and sensory qualities influence the experience of dwelling. layouts establish gradients between shared and private spaces, while materials, light, views, and details contribute to a sense of familiarity, identity, and belonging.",
+        "home is understood as an extension of the self, shaped as much by the people and relationships within it as by its physical form. across these residential projects, the design approach looks beyond the arrangement of rooms to consider how everyday routines, degrees of privacy, social relationships and sensory qualities influence the experience of dwelling. layouts establish gradients between shared and private spaces, while materials, light, views and details contribute to a sense of familiarity, identity, and belonging.",
         "## studio zen \noriginally a penthouse office, was reimagined during covid as an extension of the family home for two daughters. the design responded to their everyday activities and the life of the surrounding neighbourhood, creating a flexible setting for personal space, work from home, family moments and shared activities with friends.",
         "## sherwoods interiors\nthe design uses a continuous curved wooden wall as the organising element of the interior, linking the central living, dining, and family spaces. beyond creating a visual and material anchor, the wall makes the common areas feel continuous while maintaining distinct zones within them. lighting shifts between focused and ambient modes to support different ways of occupying the same space.",
         "## housing complex \nan apartment typology explores housing at both the community and individual scale. the buildings are arranged around a shared central landscape, giving each home a relationship with the common space while retaining privacy. individual layouts were developed around varied household routines, with clear transitions between private rooms, formal and informal living areas and balconies each with a central shared spine."
