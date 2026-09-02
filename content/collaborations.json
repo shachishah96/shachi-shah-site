@@ -9,24 +9,24 @@
       "title": "eme temple garden- a csr public space revamp",
       "description": "a landscape rejuvenation strategy for eme temple, reimagining its existing garden as a more accessible and inviting public environment. the proposal works with the character of the existing campus while introducing spaces for gathering, meditation, pause and everyday use.",
       "tags": [
-        "csr strategy",
+        "corporate social responsibility (csr) strategy",
         "landscape design"
       ],
       "color": "pine",
-      "image": "",
+      "image": "/images/1.jpg",
       "pending": false
     },
     {
       "id": "kochi-biennale",
       "year": "kochi-muziris biennale · kochi, india · 2016",
       "title": "the itinerant home",
-      "description": "an installation exploring the transient nature of home through the lives and material practices of the kunchi kurve community. developed through neighbourhood documentation and multidisciplinary collaboration, the project translated their everyday relationship with work, movement, and dwelling into a spatial installation using found materials.",
+      "description": "an installation exploring the transient nature of home through the lives and material practices of the kunchi kurve community. developed through neighbourhood documentation and multidisciplinary collaboration, the project translated their everyday relationship with work, movement and dwelling into a spatial installation using found materials.",
       "tags": [
         "exhibition & installation design",
         "participatory fieldwork"
       ],
       "color": "slate",
-      "image": "",
+      "image": "/images/2.jpg",
       "pending": false
     },
     {
@@ -39,19 +39,19 @@
         "writing"
       ],
       "color": "sage",
-      "image": "",
+      "image": "/images/3.jpg",
       "pending": false
     },
     {
       "id": "khar-teaching",
       "year": "khar educational society · mumbai, india · 2018 to 2019",
       "title": "volunteer teacher",
-      "description": "taught values-based lessons to children aged 4 to 7, using stories, activities and collaborative exercises to encourage critical thinking, teamwork, and reflection. worked alongside a diverse volunteer team to adapt lessons to different learning styles and create an engaging classroom environment.",
+      "description": "taught values-based lessons to children aged 4 to 7, using stories, activities and collaborative exercises to encourage critical thinking, teamwork and reflection. worked alongside a diverse volunteer team to adapt lessons to different learning styles to create an engaging classroom environment.",
       "tags": [
         "teaching & facilitation"
       ],
       "color": "slate-light",
-      "image": "",
+      "image": "/images/4.jpg",
       "pending": false
     }
   ]
