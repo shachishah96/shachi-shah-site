@@ -14,7 +14,7 @@
 </style>
 </head>
 <body>
-<div class="proj-nav"><a href="index.html?from=project">&larr; back to shachi shah</a></div>
+<div class="proj-nav"><a id="backLink" href="index.html?from=project">&larr; back to shachi shah</a></div>
 
 <div id="projectRoot"></div>
 
@@ -30,6 +30,13 @@ function esc(str){
   const d = document.createElement("div");
   d.textContent = str == null ? "" : str;
   return d.innerHTML;
+}
+
+function dot(){
+  return '<span class="mdot">·</span>';
+}
+function dotify(str){
+  return esc(str).split("·").join(dot());
 }
 
 async function fetchJSON(path){
@@ -54,14 +61,15 @@ function renderNotFound(){
   document.getElementById("projectRoot").innerHTML = `
     <div class="not-found">
       <h1>this project isn't up yet</h1>
-      <p><a href="shachi-shah-prototype.html?from=project">back to shachi shah &rarr;</a></p>
+      <p><a href="index.html?from=project">back to shachi shah &rarr;</a></p>
     </div>`;
 }
 
 function renderProject(item, section){
+  document.getElementById("backLink").href = `index.html?from=project#${section}`;
   const metaTop = section === "research"
-    ? `research · ${esc(item.sub || "")} · ${esc(item.year || "")}`
-    : `practice · ${esc(item.meta || "")}`;
+    ? `research ${dot()} ${dotify(item.sub || "")}${item.sub && item.year ? ` ${dot()} ` : ""}${esc(item.year || "")}`
+    : `practice ${dot()} ${dotify(item.meta || "")}`;
   const tags = item.detailTags && item.detailTags.length ? item.detailTags : (item.tags || []);
   const dark = COLOR_DARK[item.color] || "#242f27";
 

@@ -36,8 +36,9 @@
     font-family:'Jost',sans-serif;text-transform:uppercase;letter-spacing:0.15em;
     font-size:0.9rem;color:var(--ink);opacity:0.55;
   }
-  .label .label-dot{opacity:1;font-size:1.35em;color:var(--ink);font-weight:600;}
-  section{scroll-margin-top:80px;}
+  .label .label-dot{opacity:1;font-size:1.6em;color:var(--ink);font-weight:600;}
+  .mdot{display:inline-block;font-size:1.5em;font-weight:600;line-height:1;vertical-align:-0.05em;}
+  section,footer{scroll-margin-top:50px;}
 
   .grain{position:fixed;inset:0;z-index:9998;pointer-events:none;opacity:0.03;mix-blend-mode:multiply;}
 
@@ -123,6 +124,7 @@
   .marquee-wrap:hover .marquee{animation-duration:10s;}
   .marquee span{margin:0 1.1rem;color:var(--ink);opacity:0.85;}
   .marquee span.accent{color:var(--slate);opacity:1;}
+  .marquee span.mdot{opacity:0.45;}
   @keyframes scroll-left{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
   /* SCROLL CUE */
@@ -141,14 +143,13 @@
   .section-head{
     max-width:1300px;margin:0 auto;padding:0 2rem;
     display:flex;justify-content:space-between;align-items:flex-end;
-    padding-top:3.5rem;margin-bottom:2.5rem;flex-wrap:wrap;gap:1rem;
+    padding-top:2.2rem;margin-bottom:1.6rem;flex-wrap:wrap;gap:1rem;
   }
   .section-head .num{font-size:1.15rem;letter-spacing:0.1em;opacity:0.55;text-transform:lowercase;}
   .section-head h2{font-size:clamp(2.2rem,4.5vw,3.5rem);text-transform:lowercase;overflow:hidden;}
   .section-head h2 .wipe{display:inline-block;clip-path:inset(0 100% 0 0);}
-  .section-intro{max-width:1300px;margin:0 auto 3rem;padding:0 2rem;font-size:1.12rem;line-height:1.7;opacity:0.8;}
-  .section-intro span{display:inline-block;max-width:720px;}
-  .section-block{padding-bottom:6rem;}
+  .section-intro{max-width:1300px;margin:0 auto 2rem;padding:0 2rem;font-size:1.12rem;line-height:1.7;opacity:0.8;text-align:justify;text-justify:inter-word;}
+  .section-block{padding-bottom:4rem;}
   .section-block.tint-pine{background:var(--pine-tint);}
   .section-block.tint-slate{background:var(--slate-tint);}
   .section-block.tint-white{background:var(--white);}
@@ -165,8 +166,9 @@
   .card-media .chips{position:relative;z-index:1;display:flex;gap:0.4rem;flex-wrap:wrap;}
   .card-media .chips span{
     color:#fff;font-size:0.72rem;letter-spacing:0.08em;text-transform:lowercase;
-    background:rgba(255,255,255,0.14);
-    border:1px solid rgba(255,255,255,0.5);padding:0.25rem 0.7rem;border-radius:var(--tag-radius);
+    background:var(--tagtint, rgba(30,32,31,0.4));
+    backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);
+    border:1px solid rgba(255,255,255,0.55);padding:0.25rem 0.7rem;border-radius:var(--tag-radius);
   }
   .card-info{padding:1.4rem 0.2rem;}
   .card-info .meta{font-size:0.85rem;opacity:0.55;letter-spacing:0.05em;text-transform:lowercase;margin-bottom:0.5rem;}
@@ -203,13 +205,13 @@
   @media(max-width:800px){ .collab-grid{grid-template-columns:1fr;} }
 
   /* NOTE: lighter background, dark text */
-  .note-band{background:transparent;color:var(--ink);padding:5rem 2rem;}
+  .note-band{background:transparent;color:var(--ink);padding:3.5rem 2rem;}
   .note-band-inner{max-width:1300px;margin:0 auto;}
   .note-eyebrow{font-size:1.15rem;letter-spacing:0.1em;opacity:0.55;text-transform:lowercase;margin-bottom:0.6rem;}
   .note-brand{display:flex;align-items:baseline;gap:1rem;margin-bottom:1.2rem;}
   .note-brand .note-word{font-family:'Cormorant Garamond',serif;font-size:3rem;font-style:italic;text-transform:lowercase;color:var(--slate);}
   .note-brand .note-sub{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-style:italic;text-transform:lowercase;color:var(--slate);opacity:1;}
-  .note-desc{max-width:680px;font-size:1.12rem;line-height:1.75;opacity:0.9;margin-bottom:2.5rem;}
+  .note-desc{font-size:1.12rem;line-height:1.75;opacity:0.9;margin-bottom:2.5rem;text-align:justify;text-justify:inter-word;}
   .note-honest{
     max-width:680px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;
     opacity:0.8;margin-bottom:3rem;border-left:2px solid rgba(30,32,31,0.25);padding-left:1.2rem;
@@ -224,23 +226,22 @@
   .note-card p{font-size:0.95rem;line-height:1.6;opacity:0.85;}
 
   /* ABOUT / CV */
-  .about{max-width:1300px;margin:0 auto;padding:6rem 2rem;display:grid;grid-template-columns:0.9fr 1.4fr;gap:4rem;align-items:start;}
+  .about{max-width:1300px;margin:0 auto;padding:4rem 2rem;display:grid;grid-template-columns:0.9fr 1.4fr;gap:4rem;align-items:start;}
+  .about-heading{font-size:clamp(2.2rem,4.5vw,3.5rem);text-transform:lowercase;margin-bottom:1.4rem;}
   .about-write{
     font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,1.6vw,1.15rem);
     line-height:1.65;text-transform:lowercase;max-width:540px;margin-bottom:1.6rem;
   }
   .about-write .accent-word{color:var(--pine);font-style:italic;}
-  .cv-link{display:inline-block;margin-top:2rem;font-size:0.85rem;letter-spacing:0.08em;text-transform:lowercase;border-bottom:1px solid var(--ink);padding-bottom:2px;}
+  .cv-link{display:inline-block;margin-top:2rem;font-size:0.92rem;letter-spacing:0.08em;text-transform:lowercase;border-bottom:1px solid var(--ink);padding-bottom:2px;}
 
   .timeline{
     position:relative;padding-left:2.5rem;padding-right:0.8rem;
-    max-height:520px;overflow-y:auto;scrollbar-width:none;
   }
-  .timeline::-webkit-scrollbar{display:none;}
-  .timeline::before{content:'';position:absolute;left:4px;top:6px;bottom:6px;width:1px;background:rgba(30,32,31,0.2);}
   .t-item{position:relative;padding-bottom:2rem;}
   .t-item:last-child{padding-bottom:0;}
   .t-item::before{content:'';position:absolute;left:-2.5rem;top:6px;width:9px;height:9px;border-radius:50%;background:var(--pine);}
+  .t-item:not(:last-child)::after{content:'';position:absolute;left:-2.25rem;top:6px;bottom:-6px;width:1px;background:rgba(30,32,31,0.2);}
   .t-row{display:grid;grid-template-columns:460px auto;gap:1.5rem;align-items:baseline;}
   .t-item .t-year{font-size:1.05rem;letter-spacing:0.05em;text-transform:lowercase;opacity:0.6;white-space:nowrap;}
   .t-item .t-role{font-size:1.26rem;font-weight:400;text-transform:lowercase;}
@@ -248,21 +249,26 @@
   .t-item .t-loc{font-size:1rem;opacity:0.55;margin-top:0.15rem;}
 
   /* PINBOARD: beyond the work — scattered collage, 2 rows tall, scrolls sideways */
-  .pinboard-section{padding-bottom:4rem;}
+  .pinboard-section{padding-bottom:2.5rem;}
   .pinboard-scroll{
-    width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
-    padding:2rem 0;overflow-x:auto;overflow-y:hidden;
+    max-width:1300px;margin:0 auto;border-radius:10px;
+    padding:1rem 0 1.3rem;overflow-x:auto;overflow-y:hidden;
+    scrollbar-width:thin;scrollbar-color:rgba(30,32,31,0.22) transparent;
     background:
+      repeating-linear-gradient(0deg, rgba(30,32,31,0.035) 0 1px, transparent 1px 18px),
+      repeating-linear-gradient(90deg, rgba(30,32,31,0.035) 0 1px, transparent 1px 18px),
       linear-gradient(120deg, var(--pine-tint) 0%, var(--slate-tint) 55%, var(--pine-tint) 100%);
-    background-size:200% 200%;
+    background-size:18px 18px, 18px 18px, 200% 200%;
   }
+  .pinboard-scroll::-webkit-scrollbar{height:5px;}
+  .pinboard-scroll::-webkit-scrollbar-track{background:transparent;}
+  .pinboard-scroll::-webkit-scrollbar-thumb{background:rgba(30,32,31,0.22);border-radius:10px;}
+  .pinboard-scroll::-webkit-scrollbar-thumb:hover{background:rgba(30,32,31,0.38);}
   .pinboard-track{
-    display:grid;grid-template-rows:repeat(2,auto);grid-auto-flow:column;grid-auto-columns:max-content;
-    align-items:start;column-gap:0.9rem;row-gap:1.1rem;width:max-content;padding:1.5rem 4vw;
-    background-image:
-      repeating-linear-gradient(0deg, rgba(30,32,31,0.05) 0 1px, transparent 1px 36px),
-      repeating-linear-gradient(90deg, rgba(30,32,31,0.05) 0 1px, transparent 1px 36px);
+    display:flex;flex-direction:row;align-items:center;
+    gap:0.5rem;width:max-content;padding:1rem 1.4rem;
   }
+  .pin-col{display:flex;flex-direction:column;gap:0.5rem;}
   .pin-card, .pin-quote-card{--sz:150px;transform:rotate(var(--r,-1.5deg));transition:transform 0.2s ease;position:relative;}
   .pin-card:hover, .pin-quote-card:hover{transform:rotate(0deg) translateY(-2px) !important;z-index:3;}
   .pin-card .pin-media{
@@ -286,7 +292,7 @@
   .pin-quote-card p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.85rem;line-height:1.4;color:var(--ink);}
 
   /* GARDEN: plant your own */
-  .garden-section{padding:6rem 2rem;background:var(--slate-tint);}
+  .garden-section{padding:4rem 2rem;background:var(--slate-tint);}
   .garden-eyebrow{max-width:1300px;margin:0 auto 0.8rem;font-size:1.15rem;letter-spacing:0.1em;opacity:0.55;text-transform:lowercase;}
   .garden-layout{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:0.8fr 1.6fr;gap:3rem;align-items:start;}
   .garden-left h2{font-size:clamp(1.7rem,3vw,2.3rem);text-transform:lowercase;margin-bottom:1.5rem;}
@@ -332,8 +338,8 @@
   @media(max-width:700px){ .garden-bed{height:320px;} }
 
   /* FOOTER / CONTACT */
-  footer{background:var(--pine);color:var(--bg);padding:6rem 3rem 2rem;position:relative;overflow:hidden;}
-  .foot-inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1.3fr 1fr;gap:4rem;margin-bottom:3rem;}
+  footer{background:var(--pine);color:var(--bg);padding:4.5rem 3rem 1.5rem;position:relative;overflow:hidden;}
+  .foot-inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1.3fr 1fr;gap:4rem;margin-bottom:2rem;align-items:start;}
   .foot-cta{
     font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.8vw,3.6rem);
     max-width:640px;margin-bottom:1rem;text-transform:lowercase;
@@ -359,7 +365,7 @@
   .foot-right a{font-size:1rem;opacity:0.85;transition:opacity 0.2s;text-transform:lowercase;}
   .foot-right a:hover{opacity:1;text-decoration:underline;}
   .foot-bottom{
-    display:flex;justify-content:space-between;padding-top:2rem;
+    display:flex;justify-content:space-between;padding-top:1.3rem;
     border-top:1px solid rgba(246,248,245,0.2);font-size:0.8rem;opacity:0.7;flex-wrap:wrap;gap:1rem;
   }
   .foot-clock{font-variant-numeric:tabular-nums;}
@@ -493,6 +499,8 @@
 <!-- ABOUT / CV -->
 <section class="about" id="about">
   <div>
+    <div class="num" id="aboutEyebrow"></div>
+    <h2 class="about-heading" id="aboutHeading"></h2>
     <p class="about-write" id="aboutWrite"></p>
     <a class="cv-link" id="cvLink" href="#">download full cv ↓</a>
   </div>
@@ -557,7 +565,7 @@
   </div>
   <div class="foot-bottom">
     <span>© 2026 shachi shah</span>
-    <span>india · <span class="foot-clock" id="footClock">--:--:--</span></span>
+    <span>india <span class="mdot">·</span> <span class="foot-clock" id="footClock">--:--:--</span></span>
   </div>
 </footer>
 
@@ -591,11 +599,26 @@ function esc(str){
   return d.innerHTML;
 }
 
+const TAG_TINT = {
+  pine: "rgba(58,82,64,0.55)",
+  sage: "rgba(124,139,91,0.55)",
+  slate: "rgba(62,91,102,0.55)",
+  "slate-light": "rgba(111,148,160,0.55)"
+};
+
 function mediaStyle(item){
-  if(item.image && item.image.trim() !== ""){
-    return `background-image:url('${item.image}');`;
-  }
-  return `background-color:var(--${item.color || "pine"});`;
+  let s = item.image && item.image.trim() !== ""
+    ? `background-image:url('${item.image}');`
+    : `background-color:var(--${item.color || "pine"});`;
+  s += `--tagtint:${TAG_TINT[item.color] || "rgba(30,32,31,0.4)"};`;
+  return s;
+}
+
+function dot(){
+  return '<span class="mdot">·</span>';
+}
+function dotify(str){
+  return esc(str).split("·").join(dot());
 }
 
 function renderHero(data){
@@ -613,7 +636,7 @@ function renderHero(data){
 function renderMarquee(data){
   if(!data || !data.words) return;
   const words = data.words;
-  const build = () => words.map((w,i) => `<span class="${i % 2 === 0 ? "accent" : ""}">${esc(w)}</span><span>·</span>`).join("");
+  const build = () => words.map((w,i) => `<span class="${i % 2 === 0 ? "accent" : ""}">${esc(w)}</span><span class="mdot">·</span>`).join("");
   document.getElementById("marqueeTrack").innerHTML = build() + build();
 }
 
@@ -629,7 +652,7 @@ function renderPractice(data){
         <div class="chips">${(item.tags||[]).map(t=>`<span>${esc(t)}</span>`).join("")}</div>
       </div>
       <div class="card-info">
-        <div class="meta">${esc(item.meta)}</div>
+        <div class="meta">${dotify(item.meta)}</div>
         <h3>${esc(item.title)}</h3>
         <p>${esc(item.description)}</p>
       </div>
@@ -648,7 +671,7 @@ function renderResearch(data){
       <div class="r-thumb" style="${item.image ? `background-image:url('${item.image}')` : ""}"></div>
       <div>
         <h3>${esc(item.title)}</h3>
-        <div class="r-sub">${esc(item.sub)}${item.sub && item.year ? " · " : ""}${esc(item.year)}</div>
+        <div class="r-sub">${dotify(item.sub)}${item.sub && item.year ? ` ${dot()} ` : ""}${esc(item.year)}</div>
         <p>${esc(item.description)}</p>
       </div>
       <div class="r-tagcol">${(item.tags||[]).map(t=>`<span>${esc(t)}</span>`).join("")}</div>
@@ -669,7 +692,7 @@ function renderCollaborations(data){
         <div class="collab-hover"><p>${esc(item.description)}</p></div>
       </div>
       <div class="card-info">
-        <div class="meta">${esc(item.year)}</div>
+        <div class="meta">${dotify(item.year)}</div>
         <h3>${esc(item.title)}</h3>
       </div>
     </div>
@@ -695,6 +718,8 @@ function renderNote(data){
 
 function renderAbout(data){
   if(!data) return;
+  document.getElementById("aboutEyebrow").textContent = data.sectionEyebrow || "";
+  document.getElementById("aboutHeading").textContent = data.sectionTitle || "";
   document.getElementById("aboutWrite").textContent = data.bio || "";
   document.getElementById("cvLink").href = data.cvFile || "#";
 }
@@ -706,7 +731,7 @@ function renderTimeline(data){
     <div class="t-item">
       <div class="t-row"><div class="t-role">${esc(t.role)}</div><div class="t-year">${esc(t.year)}</div></div>
       <div class="t-org">${esc(t.org)}</div>
-      <div class="t-loc">${esc(t.loc)}</div>
+      <div class="t-loc">${dotify(t.loc)}</div>
     </div>
   `).join("");
 }
@@ -718,23 +743,26 @@ function renderPinboard(data){
   document.getElementById("pinboardIntro").textContent = data.sectionIntro || "";
   const track = document.getElementById("pinboardTrack");
   const items = data.items || [];
-  // deterministic variety: sizes, tilt, and vertical offset cycle through this pattern,
-  // with an occasional item spanning both rows to form a "big + 2 small" cluster
+  // sizes and tilt cycle through this pattern. items are grouped into columns
+  // (mostly pairs, occasionally a single feature tile) and each column is its
+  // own flex stack sized only to its own two items — no shared row-height
+  // across columns, so there's no dead space left in a shorter column.
+  // a few variants pull inward (ml) for a deliberate, occasional overlap.
   const VARIANTS = [
-    { sz:180, r:-1.6, mt:0,   span:false },
-    { sz:125, r:1.3,  mt:34,  span:false },
-    { sz:150, r:-1.0, mt:-14, span:false },
-    { sz:235, r:0.6,  mt:0,   span:true  },
-    { sz:110, r:1.8,  mt:0,   span:false },
-    { sz:120, r:-1.4, mt:0,   span:false },
-    { sz:165, r:1.0,  mt:22,  span:false },
-    { sz:140, r:-0.8, mt:-10, span:false },
-    { sz:195, r:1.5,  mt:0,   span:false },
-    { sz:130, r:-1.7, mt:28,  span:false }
+    { sz:175, r:-1.6, ml:0   },
+    { sz:115, r:1.3,  ml:-14 },
+    { sz:150, r:-1.0, ml:0   },
+    { sz:220, r:0.6,  ml:0   },
+    { sz:110, r:1.8,  ml:-10 },
+    { sz:140, r:-1.4, ml:0   },
+    { sz:160, r:1.0,  ml:0   },
+    { sz:130, r:-0.8, ml:-14 },
+    { sz:190, r:1.5,  ml:0   },
+    { sz:120, r:-1.7, ml:0   }
   ];
   const tile = (item, i) => {
     const v = VARIANTS[i % VARIANTS.length];
-    const style = `--sz:${v.sz}px;--r:${v.r}deg;margin-top:${v.mt}px;${v.span ? "grid-row:span 2;" : ""}`;
+    const style = `--sz:${v.sz}px;--r:${v.r}deg;margin-left:${v.ml}px;`;
     if(item.type === "quote"){
       return `<div class="pin-quote-card" style="${style}"><p>${esc(item.quoteText)}</p></div>`;
     }
@@ -746,12 +774,23 @@ function renderPinboard(data){
       </div>
     `;
   };
-  track.innerHTML = items.map(tile).join("");
+  const GROUP_PATTERN = [2];
+  const groups = [];
+  let idx = 0, p = 0;
+  while (idx < items.length){
+    const gsz = Math.min(GROUP_PATTERN[p % GROUP_PATTERN.length], items.length - idx);
+    groups.push(items.slice(idx, idx + gsz));
+    idx += gsz; p++;
+  }
+  let vi = 0;
+  track.innerHTML = groups.map(group =>
+    `<div class="pin-col">${group.map(item => tile(item, vi++)).join("")}</div>`
+  ).join("");
 }
 
 function renderGarden(data){
   if(!data) return;
-  document.getElementById("gardenEyebrow").textContent = data.eyebrow || "";
+  document.getElementById("gardenEyebrow").innerHTML = dotify(data.eyebrow || "");
   document.getElementById("gardenTitle").textContent = data.title || "";
   const lines = data.instructions || [];
   document.getElementById("gardenInstructions").innerHTML = lines
@@ -815,7 +854,6 @@ const skipIntro = urlParams.get('from') === 'project';
 
 if (skipIntro){
   history.replaceState({}, '', window.location.pathname + window.location.hash);
-  document.getElementById("preloader").style.display = "none";
 }
 
 /* only jump to a #hash target when arriving from a project page's link
@@ -823,13 +861,25 @@ if (skipIntro){
    the hero at top, even if a stray hash is sitting in the address bar
    from earlier browsing — the page is filled in by JS after fetch, so
    the browser's own scroll-to-hash-on-load fires too early and misses
-   the target anyway, hence doing it ourselves once content exists. */
+   the target anyway, hence doing it ourselves once content exists.
+   the preloader stays up (covering the page) through this whole
+   sequence so the short-page/wrong-position flash never becomes
+   visible — it only fades out once the scroll position is already
+   correct and the content is fully in place. */
 contentReady.then(()=>{
   if (skipIntro && window.location.hash){
     const target = document.querySelector(window.location.hash);
     if (target) target.scrollIntoView({ behavior:"instant", block:"start" });
   } else if (!skipIntro){
     window.scrollTo(0, 0);
+  }
+  if (skipIntro){
+    playHero();
+    setupContentAnimations();
+    gsap.to("#preloader", {
+      opacity:0, duration:0.5, ease:"sine.inOut",
+      onComplete: ()=>{ document.getElementById("preloader").style.display = "none"; }
+    });
   }
 });
 
@@ -862,11 +912,6 @@ if (!skipIntro){
     .to({}, { duration:0.35 })
     .to(w2, { opacity:0.3, duration:0.5, ease:"sine.inOut" })
     .to({}, { duration:0.15 });
-} else {
-  contentReady.then(()=>{
-    playHero();
-    setupContentAnimations();
-  });
 }
 
 /* ---------- HERO: label, then straight into the tagline (image is static, no reveal) ---------- */
