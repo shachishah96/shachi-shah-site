@@ -760,12 +760,17 @@ function renderPinboard(data){
     { sz:190, r:1.5,  ml:0   },
     { sz:120, r:-1.7, ml:0   }
   ];
+  // photos/illustrations only ever use one of these three (largest) sizes —
+  // quote cards keep cycling through the full VARIANTS sizes as before.
+  const PHOTO_SIZES = [220, 190, 175];
   const tile = (item, i) => {
     const v = VARIANTS[i % VARIANTS.length];
-    const style = `--sz:${v.sz}px;--r:${v.r}deg;margin-left:${v.ml}px;`;
     if(item.type === "quote"){
+      const style = `--sz:${v.sz}px;--r:${v.r}deg;margin-left:${v.ml}px;`;
       return `<div class="pin-quote-card" style="${style}"><p>${esc(item.quoteText)}</p></div>`;
     }
+    const sz = PHOTO_SIZES[i % PHOTO_SIZES.length];
+    const style = `--sz:${sz}px;--r:${v.r}deg;margin-left:${v.ml}px;`;
     const tags = [item.caption, item.sub].filter(Boolean);
     return `
       <div class="pin-card" style="${style}">
@@ -875,7 +880,7 @@ contentReady.then(()=>{
   }
   if (skipIntro){
     playHero();
-    setupContentAnimations();
+    revealAllInstant();
     gsap.to("#preloader", {
       opacity:0, duration:0.5, ease:"sine.inOut",
       onComplete: ()=>{ document.getElementById("preloader").style.display = "none"; }
@@ -928,6 +933,14 @@ if (skipIntro){
 }
 
 /* ---------- SET UP ANIMATIONS THAT DEPEND ON RENDERED CONTENT ---------- */
+function setupInteractivity(){
+  document.querySelectorAll("a, .card, .note-card").forEach(el=>{
+    el.addEventListener("mouseenter", ()=>cursorFlower.classList.add("hover"));
+    el.addEventListener("mouseleave", ()=>cursorFlower.classList.remove("hover"));
+  });
+  document.querySelectorAll(".card").forEach(el=>addTilt(el,5));
+}
+
 function setupContentAnimations(){
   gsap.utils.toArray(".wipe").forEach(el=>{
     gsap.to(el, {
@@ -947,13 +960,21 @@ function setupContentAnimations(){
     scrollTrigger:{ trigger: ".about", start:"top 80%" }
   });
 
-  document.querySelectorAll("a, .card, .note-card").forEach(el=>{
-    el.addEventListener("mouseenter", ()=>cursorFlower.classList.add("hover"));
-    el.addEventListener("mouseleave", ()=>cursorFlower.classList.remove("hover"));
-  });
-  document.querySelectorAll(".card").forEach(el=>addTilt(el,5));
-
+  setupInteractivity();
   ScrollTrigger.refresh();
+}
+
+/* returning from a project page (or "get in touch") jumps straight to a
+   mid-page section instead of scrolling in from the top, so there's no
+   reliable "enter" moment for the scroll-triggered reveals above to fire
+   against — elements could get stuck at their hidden opacity:0 / clipped
+   "from" state forever, which read as content having disappeared until a
+   hard refresh. skip ScrollTrigger entirely for this path and just show
+   everything already revealed. */
+function revealAllInstant(){
+  gsap.set(".wipe", { clipPath:"inset(0 0% 0 0)" });
+  gsap.set(".card, .research-item, .note-card, .collab-card2, .about-write, .timeline", { opacity:1, y:0 });
+  setupInteractivity();
 }
 
 /* ---------- NAV: fades more transparent the further you scroll ---------- */
