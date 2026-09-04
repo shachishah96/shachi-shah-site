@@ -859,6 +859,13 @@ const skipIntro = urlParams.get('from') === 'project';
 
 if (skipIntro){
   history.replaceState({}, '', window.location.pathname + window.location.hash);
+  // the pine-green intro preloader is only for a genuine fresh visit — for a
+  // same-site return, showing it as a full-screen cover just reads as an
+  // unwanted flash of color. hide it immediately and fade the page itself
+  // in instead, which blends with the page's own background rather than
+  // flashing an unrelated color.
+  document.getElementById("preloader").style.display = "none";
+  gsap.set(document.body, { opacity:0 });
 }
 
 /* only jump to a #hash target when arriving from a project page's link
@@ -867,10 +874,10 @@ if (skipIntro){
    from earlier browsing — the page is filled in by JS after fetch, so
    the browser's own scroll-to-hash-on-load fires too early and misses
    the target anyway, hence doing it ourselves once content exists.
-   the preloader stays up (covering the page) through this whole
-   sequence so the short-page/wrong-position flash never becomes
-   visible — it only fades out once the scroll position is already
-   correct and the content is fully in place. */
+   the body stays invisible through this whole sequence so the
+   short-page/wrong-position flash never becomes visible — it only
+   fades in once the scroll position is already correct and the
+   content is fully in place. */
 contentReady.then(()=>{
   if (skipIntro && window.location.hash){
     const target = document.querySelector(window.location.hash);
@@ -881,10 +888,7 @@ contentReady.then(()=>{
   if (skipIntro){
     playHero();
     revealAllInstant();
-    gsap.to("#preloader", {
-      opacity:0, duration:0.5, ease:"sine.inOut",
-      onComplete: ()=>{ document.getElementById("preloader").style.display = "none"; }
-    });
+    gsap.to(document.body, { opacity:1, duration:0.4, ease:"sine.inOut" });
   }
 });
 
