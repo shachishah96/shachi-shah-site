@@ -4,6 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>architectural design environmental psychology behaviour research</title>
+<script>
+/* runs before anything else parses/paints -- marks the <html> element
+   synchronously so the CSS rules further down can hide the green intro
+   preloader (and the page itself, until JS reveals it) from the very
+   first possible frame. doing this later, from a script at the end of
+   the body, leaves a window where the browser can paint the default
+   (intro-visible) state before that script gets a chance to hide it --
+   which is exactly the green/white flash this avoids. */
+if (new URLSearchParams(location.search).get('from') === 'project' ||
+    sessionStorage.getItem('introPlayed') === '1'){
+  document.documentElement.classList.add('skip-intro');
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Jost:wght@300;400;500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -59,6 +72,12 @@
     font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.6rem,5vw,3.2rem);
     text-transform:lowercase;opacity:0;
   }
+  /* set synchronously in <head>, before body ever paints -- see the
+     inline script above. keeps the intro preloader from ever flashing
+     on a return visit, and keeps the page itself hidden until its
+     content, scroll position, etc. are fully ready to reveal. */
+  html.skip-intro #preloader{ display:none; }
+  html.skip-intro body{ opacity:0; }
 
   .nav-backdrop{
     position:fixed;top:0;left:0;right:0;height:50px;z-index:99;
@@ -868,15 +887,9 @@ sessionStorage.setItem('introPlayed', '1');
 if (cameFromProject){
   history.replaceState({}, '', window.location.pathname + window.location.hash);
 }
-if (skipIntro){
-  // the pine-green intro preloader is only for a genuine fresh visit — for a
-  // same-site return, showing it as a full-screen cover just reads as an
-  // unwanted flash of color. hide it immediately and fade the page itself
-  // in instead, which blends with the page's own background rather than
-  // flashing an unrelated color.
-  document.getElementById("preloader").style.display = "none";
-  gsap.set(document.body, { opacity:0 });
-}
+// note: hiding #preloader and the body itself for skipIntro already
+// happened via the html.skip-intro CSS rules, applied before this script
+// even runs (see the blocking script in <head>) -- nothing to do here.
 
 /* only jump to a #hash target when arriving from a project page's link
    (e.g. "get in touch" -> #contact). a plain open/refresh always shows
