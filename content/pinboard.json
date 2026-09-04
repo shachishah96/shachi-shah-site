@@ -123,11 +123,11 @@
       "quoteText": ""
     },
     {
-      "type": "photo",
+      "type": "quote",
       "image": "",
-      "caption": "[to finalise]",
+      "caption": "",
       "sub": "",
-      "quoteText": ""
+      "quoteText": "[to finalise]"
     },
     {
       "type": "illustration",

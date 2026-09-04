@@ -850,15 +850,25 @@ async function loadContent(){
 const contentReady = loadContent();
 
 /* ---------- SKIP-PRELOADER LOGIC ----------
-   the intro only plays on a fresh open / refresh of the plain URL.
-   links coming back from a project page carry ?from=project, which
-   skips straight to the finished state, then cleans the URL so the
-   next real refresh plays the intro again. ---------- */
+   the intro should only ever play once per browser session. links coming
+   back from a project page carry ?from=project, which skips straight to
+   the finished state and cleans the URL for a tidy address bar -- but
+   that URL cleanup means if the user later hits the browser's native
+   back button and lands back on this page without bfcache (bfcache
+   restores skip the whole page's scripts, so this code doesn't even run
+   in that case), the ?from=project marker would already be gone and the
+   full intro would wrongly replay. sessionStorage is the actual source
+   of truth so a plain re-visit within the same session always skips it,
+   regardless of how the browser chose to reload the page. ---------- */
 const urlParams = new URLSearchParams(window.location.search);
-const skipIntro = urlParams.get('from') === 'project';
+const cameFromProject = urlParams.get('from') === 'project';
+const skipIntro = cameFromProject || sessionStorage.getItem('introPlayed') === '1';
+sessionStorage.setItem('introPlayed', '1');
 
-if (skipIntro){
+if (cameFromProject){
   history.replaceState({}, '', window.location.pathname + window.location.hash);
+}
+if (skipIntro){
   // the pine-green intro preloader is only for a genuine fresh visit — for a
   // same-site return, showing it as a full-screen cover just reads as an
   // unwanted flash of color. hide it immediately and fade the page itself
