@@ -306,9 +306,13 @@ if (new URLSearchParams(location.search).get('from') === 'project' ||
       radial-gradient(rgba(30,32,31,0.05) 1px, transparent 1.2px) 0 0/12px 12px,
       #fff;
     border-radius:2px;box-shadow:0 6px 14px rgba(30,32,31,0.14);
-    display:flex;align-items:center;
+    display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:0.5rem;
   }
   .pin-quote-card p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.85rem;line-height:1.4;color:var(--ink);}
+  .pin-quote-card .pin-cite{
+    font-family:'Jost',sans-serif;font-style:normal;font-size:0.68rem;
+    letter-spacing:0.03em;text-transform:lowercase;opacity:0.5;color:var(--ink);
+  }
 
   /* GARDEN: plant your own */
   .garden-section{padding:4rem 2rem;background:var(--slate-tint);}
@@ -786,7 +790,10 @@ function renderPinboard(data){
     const v = VARIANTS[i % VARIANTS.length];
     if(item.type === "quote"){
       const style = `--sz:${v.sz}px;--r:${v.r}deg;margin-left:${v.ml}px;`;
-      return `<div class="pin-quote-card" style="${style}"><p>${esc(item.quoteText)}</p></div>`;
+      return `<div class="pin-quote-card" style="${style}">
+        <p>${esc(item.quoteText)}</p>
+        ${item.citation ? `<div class="pin-cite">— ${esc(item.citation)}</div>` : ""}
+      </div>`;
     }
     const sz = PHOTO_SIZES[i % PHOTO_SIZES.length];
     const style = `--sz:${sz}px;--r:${v.r}deg;margin-left:${v.ml}px;`;
