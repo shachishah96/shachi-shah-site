@@ -5,15 +5,15 @@
   "items": [
     {
       "type": "photo",
-      "image": "",
-      "caption": "[to finalise]",
+      "image": "/images/1-1.jpg",
+      "caption": "favourite fractals",
       "sub": "",
       "quoteText": ""
     },
     {
       "type": "photo",
-      "image": "",
-      "caption": "[to finalise]",
+      "image": "/images/2-1.jpg",
+      "caption": "nature ↔ self",
       "sub": "",
       "quoteText": ""
     },
@@ -21,27 +21,27 @@
       "type": "quote",
       "image": "",
       "caption": "",
-      "sub": "",
-      "quoteText": "[to finalise — a quote you keep coming back to]"
+      "sub": "rainer maria rilke",
+      "quoteText": "\"i live my life in widening circles that reach out across the world\""
     },
     {
       "type": "photo",
-      "image": "",
-      "caption": "[to finalise]",
+      "image": "/images/4-1.jpg",
+      "caption": "from a sketch to reality",
       "sub": "",
       "quoteText": ""
     },
     {
       "type": "photo",
-      "image": "",
-      "caption": "[to finalise]",
+      "image": "/images/5.jpg",
+      "caption": "magic in the mundane",
       "sub": "",
       "quoteText": ""
     },
     {
       "type": "illustration",
-      "image": "",
-      "caption": "[to finalise]",
+      "image": "/images/6.jpg",
+      "caption": "art is a way of seeing",
       "sub": "",
       "quoteText": ""
     },
@@ -49,27 +49,27 @@
       "type": "quote",
       "image": "",
       "caption": "",
-      "sub": "",
-      "quoteText": "[to finalise]"
+      "sub": "anaïs nin",
+      "quoteText": "\"we do not see things as they are, we see them as we are\""
     },
     {
       "type": "photo",
-      "image": "",
-      "caption": "[to finalise]",
+      "image": "/images/8.jpg",
+      "caption": "art is a way or being",
       "sub": "",
       "quoteText": ""
     },
     {
       "type": "photo",
-      "image": "",
-      "caption": "[to finalise]",
+      "image": "/images/9.jpg",
+      "caption": "a taste of a place",
       "sub": "",
       "quoteText": ""
     },
     {
       "type": "illustration",
-      "image": "",
-      "caption": "[to finalise]",
+      "image": "/images/10.jpg",
+      "caption": "and a taste of care",
       "sub": "",
       "quoteText": ""
     },
@@ -77,48 +77,20 @@
       "type": "quote",
       "image": "",
       "caption": "",
-      "sub": "",
-      "quoteText": "[to finalise]"
+      "sub": "nietzsche",
+      "quoteText": "\"those who were seen dancing were thought to be insane by those who could not hear the music\""
     },
     {
       "type": "photo",
-      "image": "",
-      "caption": "[to finalise]",
+      "image": "/images/12.jpg",
+      "caption": "the craft of practice",
       "sub": "",
       "quoteText": ""
     },
     {
       "type": "photo",
-      "image": "",
-      "caption": "[to finalise]",
-      "sub": "",
-      "quoteText": ""
-    },
-    {
-      "type": "quote",
-      "image": "",
-      "caption": "",
-      "sub": "",
-      "quoteText": "[to finalise]"
-    },
-    {
-      "type": "photo",
-      "image": "",
-      "caption": "[to finalise]",
-      "sub": "",
-      "quoteText": ""
-    },
-    {
-      "type": "photo",
-      "image": "",
-      "caption": "[to finalise]",
-      "sub": "",
-      "quoteText": ""
-    },
-    {
-      "type": "photo",
-      "image": "",
-      "caption": "[to finalise]",
+      "image": "/images/13.jpg",
+      "caption": "grounded",
       "sub": "",
       "quoteText": ""
     },
@@ -126,20 +98,48 @@
       "type": "quote",
       "image": "",
       "caption": "",
+      "sub": "henry miller",
+      "quoteText": "\"the moment one gives close attention to anything, even a blade of grass, it becomes a mysterious, awesome, indescribably magnificent world in itself\""
+    },
+    {
+      "type": "photo",
+      "image": "/images/15.jpg",
+      "caption": "and growing",
       "sub": "",
-      "quoteText": "[to finalise]"
+      "quoteText": ""
+    },
+    {
+      "type": "photo",
+      "image": "/images/16.jpg",
+      "caption": "the light will find you",
+      "sub": "",
+      "quoteText": ""
+    },
+    {
+      "type": "photo",
+      "image": "/images/17.jpg",
+      "caption": "we're tiny but part of it",
+      "sub": "",
+      "quoteText": ""
+    },
+    {
+      "type": "quote",
+      "image": "",
+      "caption": "",
+      "sub": "carl jung",
+      "quoteText": "\"the privilege of a lifetime is to become who you truly are\""
     },
     {
       "type": "illustration",
-      "image": "",
-      "caption": "[to finalise]",
+      "image": "/images/19.jpg",
+      "caption": "belonging is becoming",
       "sub": "",
       "quoteText": ""
     },
     {
       "type": "illustration",
-      "image": "",
-      "caption": "[to finalise]",
+      "image": "/images/20.jpg",
+      "caption": "love will save us all",
       "sub": "",
       "quoteText": ""
     }
