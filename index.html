@@ -843,7 +843,6 @@ function renderFooter(data){
   right.innerHTML = `
     <div class="foot-label">get in touch</div>
     <a href="mailto:${esc(data.email)}">${esc(data.email)}</a>
-    <a href="tel:${esc((data.phone||"").replace(/\s/g,""))}">${esc(data.phone)}</a>
     <a href="${esc(data.instagramPersonal)}" target="_blank" rel="noopener">instagram (personal)</a>
     <a href="${esc(data.instagramNote)}" target="_blank" rel="noopener">instagram (note)</a>
     <a href="${esc(data.linkedin)}" target="_blank" rel="noopener">linkedin</a>

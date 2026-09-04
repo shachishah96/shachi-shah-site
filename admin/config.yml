@@ -106,7 +106,6 @@ collections:
           - { label: "cta line 2 (highlighted)", name: "ctaLine2", widget: "string" }
           - { label: "prompt line", name: "prompt", widget: "string" }
           - { label: "email", name: "email", widget: "string" }
-          - { label: "phone", name: "phone", widget: "string" }
           - { label: "instagram — personal", name: "instagramPersonal", widget: "string" }
           - { label: "instagram — note", name: "instagramNote", widget: "string" }
           - { label: "linkedin", name: "linkedin", widget: "string" }
