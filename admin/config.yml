@@ -82,9 +82,8 @@ collections:
                 options: ["photo", "illustration", "quote"]
               - { label: "image (for photo / illustration)", name: "image", widget: "image", required: false }
               - { label: "caption (for photo / illustration)", name: "caption", widget: "string", required: false }
-              - { label: "sub line (e.g. year or place)", name: "sub", widget: "string", required: false }
+              - { label: "sub line — year/place below the caption for a photo, or citation/author below the quote for a quote (shown smaller and lighter)", name: "sub", widget: "string", required: false }
               - { label: "quote text (for quote type)", name: "quoteText", widget: "text", required: false }
-              - { label: "citation / author (for quote type — shown smaller and lighter below the quote)", name: "citation", widget: "string", required: false }
 
       - name: "garden"
         label: "about — plant a garden"
