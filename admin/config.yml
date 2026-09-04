@@ -44,6 +44,8 @@ collections:
         label: "about section"
         file: "content/about.json"
         fields:
+          - { label: "eyebrow label", name: "sectionEyebrow", widget: "string" }
+          - { label: "section title", name: "sectionTitle", widget: "string" }
           - { label: "write-up (shown next to the timeline)", name: "bio", widget: "text" }
           - label: "cv file"
             name: "cvFile"
